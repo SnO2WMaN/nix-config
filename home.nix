@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 {
   imports = [
+    "${fetchTarball "https://github.com/mudrii/hmtst/tarball/54387d616d028d5b1883dd5fe9a0d2dd4de20a00"}/services/nixos-vscode-ssh-fix.nix"
   ];
 
   home.username = "sno2wman";
@@ -113,4 +114,6 @@
       syntax enable
     '';
   };
+
+  services.nixos-vscode-ssh-fix.enable = true;
 }
