@@ -1,104 +1,116 @@
 { config, pkgs, ... }:
 {
-	home.username = "sno2wman";
-  	home.homeDirectory = "/home/sno2wman";
+  imports = [
+  ];
 
-	home.stateVersion = "21.05";
+  home.username = "sno2wman";
+  home.homeDirectory = "/home/sno2wman";
 
-	home.language.base = "en_US.UTF-8";
-	home.packages = [
-		pkgs.zellij
-		pkgs.ghq
-    	];
+  home.stateVersion = "21.05";
 
-	home.sessionVariables = {
-		EDITOR = "nvim";
-	};
+  home.language.base = "en_US.UTF-8";
+  home.packages = with pkgs; [
+    zellij
+    ghq
+    nixpkgs-fmt
+  ];
 
-	programs.home-manager = {
-		enable = true;	
-	};
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
 
-	programs.git = {
-		enable = true;
+  programs.home-manager = {
+    enable = true;
+  };
 
-		userName = "SnO2WMaN";
-                userEmail = "me@sno2wman.net";
+  programs.git = {
+    enable = true;
 
-                aliases = {
-                  c = "commit --verbose";
+    userName = "SnO2WMaN";
+    userEmail = "me@sno2wman.net";
 
-                  initc = "commit --allow-empty -m 'Initial Commit'";
-          };
-        };
+    aliases = {
+      c = "commit --verbose";
 
-        programs.gh = {
-          enable = true;
-        };
+      initc = "commit --allow-empty -m 'Initial Commit'";
+    };
+  };
+
+  programs.gh = {
+    enable = true;
+  };
 
 
-        programs.exa.enable = true;
-        programs.bat.enable = true;
-        programs.jq.enable = true;
+  programs.fzf.enable = true;
+  programs.exa.enable = true;
+  programs.bat.enable = true;
+  programs.jq.enable = true;
 
-	programs.bottom = {
-		enable = true;
-	};
+  programs.bottom = {
+    enable = true;
+  };
 
-	programs.zsh = {
-		enable = true;
-	
-		enableSyntaxHighlighting = true;
+  programs.zsh = {
+    enable = true;
 
-		shellAliases = {
-			vim = "nvim";
-                        v = "vim";
-                        ls = "exa";
-                        cat = "bat";
-                };
+    enableSyntaxHighlighting = true;
 
-                zplug = {
-                  enable = true;
-                  plugins = [
-                    { name = "zsh-users/zsh-completions"; }
-                    { name = "zsh-users/zsh-autosuggestions"; }
-                    { name = "zsh-users/zsh-history-substring-search"; }
-                    { name = "zdharma-continuum/fast-syntax-highlighting"; }
-                  ];
-                };
+    shellAliases = {
+      vim = "nvim";
+      v = "vim";
+      ls = "exa";
+      cat = "bat";
+    };
 
-    		history = {
-		      	extended = true;
-			save = 100000;
-			size = 100000;
-  		};
+    zplug = {
+      enable = true;
+      plugins = [
+        { name = "zsh-users/zsh-completions"; }
+        { name = "zsh-users/zsh-autosuggestions"; }
+        { name = "zsh-users/zsh-history-substring-search"; }
+        { name = "zdharma-continuum/fast-syntax-highlighting"; }
+      ];
+    };
 
-	};
+    history = {
+      extended = true;
+      save = 100000;
+      size = 100000;
+    };
 
-	programs.starship = {
-		enable = true;
-	};
+  };
 
-	programs.neovim = {
-		enable = true;
-		plugins = with pkgs.vimPlugins; [
-			editorconfig-nvim
-			nord-nvim
-			vim-nix
-		];
-		extraConfig = ''
-			colorscheme nord
+  programs.starship = {
+    enable = true;
+  };
 
-                        set title
-                        set number
-                        set ruler
-                        set cursorline
-                        set smartindent
-                        set laststatus=2
-                        set autoread
+  programs.neovim = {
+    enable = true;
+    plugins = with pkgs.vimPlugins; [
+      editorconfig-nvim
+      nord-nvim
+      vim-nix
+      vim-airline
+      vim-airline-themes
+      fzf-vim
+      vim-gitgutter
+    ];
+    extraConfig = ''
+      colorscheme nord
 
-                        syntax enable
-		'';
-	};
-	
+      set number
+      set ruler
+      set cursorline
+      set smartindent
+      set laststatus=2
+      set autoread
+
+      set scrolljump=5
+      set scrolloff=5
+      set sidescrolloff=15
+      set sidescroll=1
+
+      syntax enable
+    '';
+  };
 }
