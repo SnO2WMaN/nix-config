@@ -30,6 +30,15 @@
     userName = "SnO2WMaN";
     userEmail = "me@sno2wman.net";
 
+    extraConfig = {
+      init = {
+        defaultBranch = "main";
+      };
+      pull = {
+        rebase = "false";
+      };
+    };
+
     aliases = {
       c = "commit --verbose";
 
@@ -46,6 +55,7 @@
   programs.exa.enable = true;
   programs.bat.enable = true;
   programs.jq.enable = true;
+  programs.direnv.enable = true;
 
   programs.bottom = {
     enable = true;
