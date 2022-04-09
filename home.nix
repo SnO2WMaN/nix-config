@@ -14,7 +14,28 @@
     zellij
     ghq
     nixpkgs-fmt
+    wl-clipboard
+    mako
+    alacritty
+    dmenu
+    waybar
+    clipman
+    ly
+    noto-fonts
+    noto-fonts-cjk
+    # unfree
+    _1password-gui
   ];
+
+  fonts.fontconfig.enable = true;
+
+  wayland.windowManager.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+    config = {
+      modifier = "Mod4";
+    };
+  };
 
   home.sessionVariables = {
     EDITOR = "nvim";
@@ -123,6 +144,10 @@
 
       syntax enable
     '';
+  };
+
+  programs.firefox = {
+    enable = true;
   };
 
   services.nixos-vscode-ssh-fix.enable = true;
