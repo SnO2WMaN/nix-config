@@ -21,6 +21,8 @@
     waybar
     clipman
     ly
+    # fonts
+    jetbrains-mono
     noto-fonts
     noto-fonts-cjk
     # unfree
@@ -34,6 +36,7 @@
     wrapperFeatures.gtk = true;
     config = {
       modifier = "Mod4";
+      terminal = "alacritty";
     };
   };
 
@@ -148,6 +151,15 @@
 
   programs.firefox = {
     enable = true;
+  };
+
+
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      window.opacity = 0.75;
+      font.normal.family = "JetBrains Mono";
+    };
   };
 
   services.nixos-vscode-ssh-fix.enable = true;
