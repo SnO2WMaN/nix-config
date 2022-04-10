@@ -26,25 +26,27 @@
     noto-fonts
     noto-fonts-cjk
     # fcitx
-    fcitx5
-    fcitx5-gtk
-    fcitx5-mozc
     # unfree
     _1password-gui
   ];
 
   fonts.fontconfig.enable = true;
 
+  i18n.inputMethod = {
+    enabled = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      fcitx5-configtool
+      fcitx5-gtk
+      fcitx5-mozc
+      libsForQt5.fcitx5-qt
+    ];
+  };
+
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
     extraSessionCommands = ''
       export QT_QPA_PLATFORM=wayland
-      export QT_IM_MODULE=fcitx
-
-      export GTK_IM_MODULE=fcitx
-
-      export SDL_IM_MODULE=fcitx
 
       export MOZ_ENABLE_WAYLAND=1;
       export MOZ_DBUS_REMOTE=1;
