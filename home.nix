@@ -4,6 +4,7 @@
     "${fetchTarball "https://github.com/mudrii/hmtst/tarball/54387d616d028d5b1883dd5fe9a0d2dd4de20a00"}/services/nixos-vscode-ssh-fix.nix"
     ./alacritty/default.nix
 		./firefox/default.nix
+    ./git/default.nix
     ./neovim/default.nix
     ./sway/default.nix
     ./zsh/default.nix
@@ -16,8 +17,7 @@
 
   home.language.base = "en_US.UTF-8";
   home.packages = with pkgs; [
-    zellij
-    ghq
+    zellij 
     nixpkgs-fmt
     # desktop manager
     ly
@@ -53,33 +53,6 @@
   programs.home-manager = {
     enable = true;
   };
-
-  programs.git = {
-    enable = true;
-
-    userName = "SnO2WMaN";
-    userEmail = "me@sno2wman.net";
-
-    extraConfig = {
-      init = {
-        defaultBranch = "main";
-      };
-      pull = {
-        rebase = "false";
-      };
-    };
-
-    aliases = {
-      c = "commit --verbose";
-
-      initc = "commit --allow-empty -m 'Initial Commit'";
-    };
-  };
-
-  programs.gh = {
-    enable = true;
-  };
-
 
   programs.fzf.enable = true;
   programs.exa.enable = true;
