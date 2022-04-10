@@ -25,6 +25,10 @@
     jetbrains-mono
     noto-fonts
     noto-fonts-cjk
+    # fcitx
+    fcitx5
+    fcitx5-gtk
+    fcitx5-mozc
     # unfree
     _1password-gui
   ];
@@ -34,9 +38,27 @@
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
+    extraSessionCommands = ''
+      export QT_QPA_PLATFORM=wayland
+      export QT_IM_MODULE=fcitx
+
+      export GTK_IM_MODULE=fcitx
+
+      export SDL_IM_MODULE=fcitx
+
+      export MOZ_ENABLE_WAYLAND=1;
+      export MOZ_DBUS_REMOTE=1;
+    '';
     config = {
       modifier = "Mod4";
       terminal = "alacritty";
+      startup = [
+        { command = "fcitx5 -rd"; }
+        { command = "1password --silent"; }
+      ];
+      input = {
+        "*" = { xkb_layout = "\"jp\""; };
+      };
     };
   };
 
