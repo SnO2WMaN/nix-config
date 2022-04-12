@@ -2,13 +2,13 @@
 {
   imports = [
     # "${fetchTarball "https://github.com/mudrii/hmtst/tarball/54387d616d028d5b1883dd5fe9a0d2dd4de20a00"}/services/nixos-vscode-ssh-fix.nix"
-    ./alacritty/default.nix
-		./firefox/default.nix
-    ./git/default.nix
-    ./neovim/default.nix
-    ./sway/default.nix
+    ./alacritty/alacritty.nix
+    ./firefox/firefox.nix
+    ./git/git.nix
+    ./neovim/neovim.nix
+    ./sway/sway.nix
     ./vscode/vscode.nix
-    ./zsh/default.nix
+    ./zsh/zsh.nix
   ];
 
   home.username = "sno2wman";
@@ -18,8 +18,12 @@
 
   home.language.base = "en_US.UTF-8";
   home.packages = with pkgs; [
-    zellij 
+    zellij
     nixpkgs-fmt
+    nixops
+    lshw
+    treefmt
+    libreoffice
     # desktop manager
     ly
     # sway / desktop
@@ -66,10 +70,6 @@
   };
 
   programs.starship = {
-    enable = true;
-  };
-
-  programs.firefox = {
     enable = true;
   };
   # services.nixos-vscode-ssh-fix.enable = true;

@@ -5,6 +5,7 @@
     settings = {
       window.opacity = 0.75;
       font.normal.family = "JetBrains Mono";
+      font.size = 10;
     };
   };
 }

@@ -11,6 +11,7 @@
       v = "vim";
       ls = "exa";
       cat = "bat";
+      ze = "zellij";
     };
 
     zplug = {
@@ -25,8 +26,9 @@
 
     history = {
       extended = true;
+      share = false;
       save = 100000;
       size = 100000;
-    }; 
+    };
   };
 }

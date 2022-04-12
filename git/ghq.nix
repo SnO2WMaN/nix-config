@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-	home.packages = with pkgs; [
-		ghq
+  home.packages = with pkgs; [
+    ghq
   ];
 }
