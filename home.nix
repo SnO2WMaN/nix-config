@@ -1,12 +1,13 @@
 { config, pkgs, ... }:
 {
   imports = [
-    "${fetchTarball "https://github.com/mudrii/hmtst/tarball/54387d616d028d5b1883dd5fe9a0d2dd4de20a00"}/services/nixos-vscode-ssh-fix.nix"
+    # "${fetchTarball "https://github.com/mudrii/hmtst/tarball/54387d616d028d5b1883dd5fe9a0d2dd4de20a00"}/services/nixos-vscode-ssh-fix.nix"
     ./alacritty/default.nix
 		./firefox/default.nix
     ./git/default.nix
     ./neovim/default.nix
     ./sway/default.nix
+    ./vscode/vscode.nix
     ./zsh/default.nix
   ];
 
@@ -71,11 +72,5 @@
   programs.firefox = {
     enable = true;
   };
-
-  programs.vscode ={
-    enable = true;
-    package = pkgs.vscode-fhs;
-  };
- 
-  services.nixos-vscode-ssh-fix.enable = true;
+  # services.nixos-vscode-ssh-fix.enable = true;
 }
