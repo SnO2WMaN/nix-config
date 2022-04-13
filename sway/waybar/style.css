@@ -1,0 +1,165 @@
+/* Nord */
+@define-color nord0 #2e3440;
+@define-color nord1 #3b4252;
+@define-color nord2 #434c5e;
+@define-color nord3 #4c566a;
+
+@define-color nord4 #d8dee9;
+@define-color nord5 #e5e9f0;
+@define-color nord6 #eceff4;
+
+@define-color nord7 #8fbcbb;
+@define-color nord8 #88c0d0;
+@define-color nord9 #81a1c1;
+@define-color nord10 #5e81ac;
+
+@define-color nord11 #bf616a;
+@define-color nord12 #d08770;
+@define-color nord13 #ebcb8b;
+@define-color nord14 #a3be8c;
+@define-color nord15 #b48ead;
+
+@define-color spotify #50fa7b;
+@define-color vlc #ffa000;
+
+* {
+	border: none;
+	border-radius: 0;
+}
+
+#waybar {
+	background: @nord0;
+}
+
+#window {
+	padding: 0 8px;
+	font-family: "PlemolJP", sans-serif;
+	font-size: 12px;
+}
+
+#mode {
+	background-color: @nord1;
+}
+
+#custom-media {
+	padding: 0 16px;
+	font-family: "PlemolJP", sans-serif;
+	font-size: 12px;
+	background-color: @nord6;
+	color: @nord3;
+}
+
+#custom-media.custom-spotify {
+	background-color: @spotify;
+}
+
+#custom-media.custom-vlc {
+	background-color: @vlc;
+}
+
+#workspaces {
+	margin: 0 0px;
+}
+
+#workspaces button {
+	padding: 0 16px;
+	background-color: @nord2;
+	color: @nord4;
+
+	font-family: "JetBrains Mono", sans-serif;
+	font-size: 16px;
+}
+
+#workspaces button.visible {
+	background-color: @nord9;
+	color: @nord5;
+}
+
+#workspaces button.focused {
+	background-color: @nord7;
+	color: @nord6;
+}
+
+#workspaces button:hover {
+	background: @nord3;
+}
+
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#language,
+#mode,
+#idle_inhibitor {
+	padding: 0 16px;
+	font-family: "PlemolJP35", monospace;
+	font-size: 12px;
+}
+
+#cpu,
+#memory,
+#disk,
+#temperature,
+#battery {
+	background-color: @nord1;
+	color: @nord4;
+}
+
+#temperature.critical {
+	background-color: @warning;
+}
+
+@keyframes battery-blink {
+	to {
+		background-color: #f8f8f2;
+		color: #000000;
+	}
+}
+
+#battery.critical {
+	background-color: @nord11;
+	color: @nord1;
+}
+
+#network {
+	background-color: @nord2;
+	color: @nord5;
+}
+
+#network.disconnected {
+	background-color: @nord11;
+}
+
+#pulseaudio {
+	background-color: @nord3;
+	color: @nord6;
+}
+
+#pulseaudio.muted {
+	background-color: #90b1b1;
+	color: #2a5c45;
+}
+
+#language {
+	background-color: @nord10;
+	color: @nord6;
+	padding: 0 8px;
+	min-width: 32px;
+}
+
+#tray {
+	background-color: @nord9;
+	padding: 0 16px;
+}
+
+#clock {
+	padding: 0 16px;
+	background-color: @nord6;
+	color: @nord3;
+	font-family: "PlemolJP35", monospace;
+	font-size: 16px;
+}

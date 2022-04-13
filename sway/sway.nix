@@ -13,14 +13,25 @@
       modifier = "Mod4";
       terminal = "alacritty";
       menu = "killall -q wofi || wofi --show drun";
-      startup = [
+      startup = [ ];
+      bars = [
+        { command = "waybar"; }
       ];
       input = {
         "*" = { xkb_layout = "\"jp\""; };
       };
+      fonts = {
+        names = [ "JetBrains Mono" ];
+        size = 8.0;
+      };
     };
   };
 
-  xdg.configFile."wofi/config".source = ./wofi/config;
-  xdg.configFile."wofi/style.css".source = ./wofi/style.css;
+  home.packages = with pkgs; [
+    clipman
+    mako
+    wl-clipboard
+    wf-recorder
+    pavucontrol
+  ];
 }
