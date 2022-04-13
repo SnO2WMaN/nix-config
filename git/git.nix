@@ -1,9 +1,5 @@
 { config, pkgs, ... }:
 {
-  imports = [
-    ./gh.nix
-    ./ghq.nix
-  ];
   programs.git = {
     enable = true;
 
