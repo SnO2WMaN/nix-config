@@ -20,6 +20,7 @@
       du = "dust";
       ps = "procs";
       rm = "rip";
+      dig = "dog";
     };
 
     zplug = {
