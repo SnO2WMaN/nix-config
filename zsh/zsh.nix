@@ -7,11 +7,19 @@
     enableSyntaxHighlighting = true;
 
     shellAliases = {
-      vim = "nvim";
+      g = "git";
       v = "vim";
-      ls = "exa";
-      cat = "bat";
+
       ze = "zellij";
+
+      vim = "nvim";
+
+      # replacement
+      ls = "lsd";
+      cat = "bat";
+      du = "dust";
+      ps = "procs";
+      rm = "rip";
     };
 
     zplug = {
