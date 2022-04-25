@@ -4,6 +4,15 @@
     ../miscellaneous/psmisc.nix
   ];
 
+  home.packages = with pkgs; [
+    clipman
+    mako
+    wdisplays
+    wl-clipboard
+    wf-recorder
+    pavucontrol
+  ];
+
   home.sessionVariables = {
     QT_QPA_PLATFORM = "wayland";
     XDG_CURRENT_DESKTOP = "sway";
