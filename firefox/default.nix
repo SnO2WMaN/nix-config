@@ -16,4 +16,12 @@
   home.sessionVariables = {
     BROWSER = "firefox";
   };
+
+  xdg.mimeApps = {
+    defaultApplications = {
+      "x-scheme-handler/ftp" = [ "firefox.desktop" ];
+      "x-scheme-handler/http" = [ "firefox.desktop" ];
+      "x-scheme-handler/https" = [ "firefox.desktop" ];
+    };
+  };
 }
