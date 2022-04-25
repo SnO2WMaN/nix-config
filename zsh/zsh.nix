@@ -27,7 +27,7 @@
 
       # compatible
       drill = "dig";
-      vim = "${pkgs.neovim}/bin/neovim";
+      vim = "${pkgs.neovim}/bin/nvim";
 
       # replacement
       ls = "${pkgs.lsd}/bin/lsd";
