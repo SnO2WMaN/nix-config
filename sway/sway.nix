@@ -1,5 +1,9 @@
 { config, pkgs, ... }:
 {
+  imports = [
+    ../miscellaneous/psmisc.nix
+  ];
+
   home.sessionVariables = {
     QT_QPA_PLATFORM = "wayland";
     XDG_CURRENT_DESKTOP = "sway";
@@ -12,10 +16,12 @@
     config = {
       modifier = "Mod4";
       terminal = "alacritty";
-      menu = "killall -q wofi || wofi --show drun";
-      startup = [ ];
+      menu = "${pkgs.psmisc}/bin/killall -q wofi || ${pkgs.wofi}/bin/wofi --show drun";
+      startup = [
+        { command = "fcitx5 -rd"; }
+      ];
       bars = [
-        { command = "waybar"; }
+        { command = "${pkgs.waybar}/bin/waybar"; }
       ];
       input = {
         "*" = { xkb_layout = "\"jp\""; };
@@ -26,4 +32,12 @@
       };
     };
   };
+
+  xdg.configFile."waybar/config".source = ./waybar/config;
+  xdg.configFile."waybar/style.css".source = ./waybar/style.css;
+
+  xdg.configFile."wofi/config".source = ./wofi/config;
+  xdg.configFile."wofi/style.css".source = ./wofi/style.css;
+
+  xdg.configFile."mako/config".source = ./mako/config;
 }
