@@ -10,17 +10,31 @@
       g = "git";
       v = "vim";
 
-      ze = "zellij";
+      ze = "${pkgs.zellij}/bin/zellij";
 
-      vim = "nvim";
+      # human friendly
+      cp = "cp -i";
+      df = "df -h";
+      free = "free -m";
+
+      # ls
+      ll = "ls -alF";
+      la = "ls -a";
+      lt = "ls -T";
+      l1 = "ls -1";
+
+      # compatible
+      drill = "dig";
+      vim = "${pkgs.neovim}/bin/neovim";
 
       # replacement
-      ls = "lsd";
-      cat = "bat";
-      du = "dust";
-      ps = "procs";
-      rm = "rip";
-      dig = "dog";
+      ls = "${pkgs.lsd}/bin/lsd";
+      cat = "${pkgs.bat}/bin/bat";
+      du = "${pkgs.du-dust}/bin/dust";
+      ps = "${pkgs.procs}/bin/procs";
+      rm = "${pkgs.rm-improved}/bin/rip -i";
+      dig = "${pkgs.dogdns}/bin/dog";
+      time = "${pkgs.hyperfine}/bin/hyperfine";
     };
 
     zplug = {
