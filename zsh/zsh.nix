@@ -10,7 +10,9 @@
       g = "git";
       v = "vim";
 
+      z = "${pkgs.zoxide}/bin/zoxide";
       ze = "${pkgs.zellij}/bin/zellij";
+      serve = "${pkgs.miniserve}/bin/miniserve";
 
       # human friendly
       cp = "cp -i";
