@@ -4,8 +4,14 @@
     enable = true;
     settings = {
       window.opacity = 0.75;
+
       font.normal.family = "JetBrains Mono";
       font.size = 10;
+
+      padding = {
+        x = 8;
+        y = 16;
+      };
 
       colors = {
         primary = {
