@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   imports = [
     ../miscellaneous/psmisc.nix
@@ -41,6 +41,23 @@
         names = [ "JetBrains Mono" ];
         size = 8.0;
       };
+      keybindings =
+        let
+          modifier = config.wayland.windowManager.sway.config.modifier;
+        in
+        lib.mkOptionDefault {
+          "${modifier}+0" = "workspace number 10";
+          "${modifier}+Shift+0" = "move container to workspace number 10";
+          "${modifier}+Shift+Delete" = "kill";
+          "${modifier}+F1" = "exec code";
+          "${modifier}+F2" = "exec firefox";
+          "${modifier}+P" = "exec pcmanfm";
+          "XF86AudioRaiseVolume" = "exec pactl set-sink-volume 0 +5%";
+          "XF86AudioLowerVolume" = "exec pactl set-sink-volume 0 -5%";
+          "XF86AudioMute" = "exec pactl set-sink-mute 0 toggle";
+          "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 5%+";
+          "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 5%-";
+        };
     };
   };
 
