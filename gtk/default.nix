@@ -1,13 +1,15 @@
 { config, pkgs, ... }:
 {
-  # home.packages = with pkgs; [
-  #   nordic
-  # ];
   gtk = {
     enable = true;
-    # theme = {
-    #   name = "Nordic-darker";
-    # };
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+    theme = {
+      name = "Nordic-darker";
+      package = pkgs.nordic;
+    };
     gtk3 = {
       extraConfig = {
         gtk-application-prefer-dark-theme = true;
