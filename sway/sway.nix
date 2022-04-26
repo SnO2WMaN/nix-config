@@ -28,8 +28,9 @@
       terminal = "alacritty";
       menu = "${pkgs.psmisc}/bin/killall -q wofi || ${pkgs.wofi}/bin/wofi --show drun";
       startup = [
-        { command = "fcitx5 -rd"; }
-        { command = "kanshi"; }
+        { command = "${pkgs.fcitx5}/bin/fcitx5 -rd"; }
+        { command = "${pkgs.fcitx5}/bin/kanshi"; }
+        { command = "${pkgs.gammastep}/bin/gammastep-indicator"; }
       ];
       bars = [
         { command = "${pkgs.waybar}/bin/waybar"; }
