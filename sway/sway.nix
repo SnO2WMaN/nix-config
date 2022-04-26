@@ -12,6 +12,8 @@
     wf-recorder
     pavucontrol
     kanshi
+    swayidle
+    swaylock-effects
   ];
 
   home.sessionVariables = {
@@ -30,7 +32,17 @@
       startup = [
         { command = "${pkgs.fcitx5}/bin/fcitx5 -rd"; }
         { command = "${pkgs.fcitx5}/bin/kanshi"; }
-        { command = "${pkgs.gammastep}/bin/gammastep-indicator"; }
+        {
+          command =
+            ''
+              swayidle -w \
+                timeout 900 'swaylock -f' \
+                timeout 1200 'swaymsg \"output * dpms off \"' \
+                resume 'swaymsg "output * dpms on"' \
+                before-sleep 'swaylock -f'
+            '';
+        }
+
       ];
       bars = [
         { command = "${pkgs.waybar}/bin/waybar"; }
@@ -71,4 +83,6 @@
   xdg.configFile."mako/config".source = ./mako/config;
 
   xdg.configFile."kanshi/config".source = ./kanshi/config;
+
+  xdg.configFile."swaylock/config".source = ./swaylock/config;
 }
