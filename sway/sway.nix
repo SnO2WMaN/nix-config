@@ -11,6 +11,7 @@
     wl-clipboard
     wf-recorder
     pavucontrol
+    kanshi
   ];
 
   home.sessionVariables = {
@@ -28,6 +29,7 @@
       menu = "${pkgs.psmisc}/bin/killall -q wofi || ${pkgs.wofi}/bin/wofi --show drun";
       startup = [
         { command = "fcitx5 -rd"; }
+        { command = "kanshi"; }
       ];
       bars = [
         { command = "${pkgs.waybar}/bin/waybar"; }
@@ -49,4 +51,6 @@
   xdg.configFile."wofi/style.css".source = ./wofi/style.css;
 
   xdg.configFile."mako/config".source = ./mako/config;
+
+  xdg.configFile."kanshi/config".source = ./kanshi/config;
 }
