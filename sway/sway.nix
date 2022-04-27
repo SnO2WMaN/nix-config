@@ -17,10 +17,10 @@
   ];
 
   home.sessionVariables = {
+    XDG_SESSION_TYPE = "wayland";
     QT_QPA_PLATFORM = "wayland";
+
     XDG_CURRENT_DESKTOP = "sway";
-    MOZ_ENABLE_WAYLAND = 1;
-    MOZ_DBUS_REMOTE = 1;
   };
   wayland.windowManager.sway = {
     enable = true;
@@ -28,10 +28,11 @@
     config = {
       modifier = "Mod4";
       terminal = "alacritty";
-      menu = "${pkgs.psmisc}/bin/killall -q wofi || ${pkgs.wofi}/bin/wofi --show drun";
+      menu = "${pkgs.psmisc}/bin/killall -q -e ${pkgs.wofi}/bin/wofi || ${pkgs.wofi}/bin/wofi --show drun";
       startup = [
         { command = "${pkgs.fcitx5}/bin/fcitx5 -rd"; }
         { command = "${pkgs.fcitx5}/bin/kanshi"; }
+        { command = "${pkgs.wl-clipboard}/bin/wl-paste -t text --watch ${pkgs.clipman}/bin/clipman store"; }
         {
           command =
             ''
