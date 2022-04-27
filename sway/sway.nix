@@ -2,12 +2,10 @@
 {
   home.packages = with pkgs; [
     clipman
-    mako
     wdisplays
     wl-clipboard
     wf-recorder
     pavucontrol
-    kanshi
     swayidle
     swaylock-effects
   ];
@@ -70,16 +68,6 @@
         };
     };
   };
-
-  xdg.configFile."waybar/config".source = ./waybar/config;
-  xdg.configFile."waybar/style.css".source = ./waybar/style.css;
-
-  xdg.configFile."wofi/config".source = ./wofi/config;
-  xdg.configFile."wofi/style.css".source = ./wofi/style.css;
-
-  xdg.configFile."mako/config".source = ./mako/config;
-
-  xdg.configFile."kanshi/config".source = ./kanshi/config;
 
   xdg.configFile."swaylock/config".source = ./swaylock/config;
 }
