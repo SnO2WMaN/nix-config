@@ -11,6 +11,7 @@
 
     neofetch
     psmisc
+    bottom
 
     curl
     httpie
