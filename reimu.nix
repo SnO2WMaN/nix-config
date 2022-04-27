@@ -33,4 +33,42 @@
 
     ./zsh/starship.nix
   ];
+
+  home.packages = with pkgs; [
+    lshw
+
+    traceroute
+    tcpdump
+    lsof
+    nmap
+    findomain
+    websocat
+    wireguard-tools
+
+    # shell play
+    pipes-rs
+    cbonsai
+    cava # audio visualizer for console
+    tty-clock
+
+    noisetorch
+
+    networkmanager
+    networkmanagerapplet
+
+    pavucontrol
+
+    act # GitHub Actions Runner 
+    dive # docker image tool 
+    buf # Protobuf tool
+    grpcurl # curl for gRPC 
+    altair # GraphQL GUI 
+    hadolint # linter for Dockerfile
+    treefmt
+    rustup
+
+    imagemagick
+
+    playerctl
+  ];
 }
