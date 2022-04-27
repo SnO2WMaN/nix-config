@@ -3,15 +3,16 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      window.opacity = 0.75;
+      window = {
+        opacity = 0.75;
+        padding = {
+          x = 16;
+          y = 8;
+        };
+      };
 
       font.normal.family = "JetBrains Mono";
       font.size = 10;
-
-      padding = {
-        x = 8;
-        y = 16;
-      };
 
       colors = {
         primary = {
