@@ -9,4 +9,7 @@
       libsForQt5.fcitx5-qt
     ];
   };
+
+  xdg.configFile."fcitx5/conf/classicui.conf".source = ./fcitx5/classicui.conf;
+
 }
