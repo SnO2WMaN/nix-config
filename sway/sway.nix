@@ -1,9 +1,5 @@
 { config, pkgs, lib, ... }:
 {
-  imports = [
-    ../miscellaneous/psmisc.nix
-  ];
-
   home.packages = with pkgs; [
     clipman
     mako
