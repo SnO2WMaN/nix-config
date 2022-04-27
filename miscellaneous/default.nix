@@ -27,6 +27,7 @@
     rnix-lsp
     nix-prefetch-github
     nixpkgs-fmt
+    nixops
   ];
 
   programs.bottom.settings = {
