@@ -27,8 +27,8 @@
       terminal = "alacritty";
       menu = "${pkgs.psmisc}/bin/killall -q -e ${pkgs.wofi}/bin/wofi || ${pkgs.wofi}/bin/wofi --show drun";
       startup = [
-        { command = "${pkgs.fcitx5}/bin/fcitx5 -rd"; }
-        { command = "${pkgs.fcitx5}/bin/kanshi"; }
+        { command = "${pkgs.fcitx5}/bin/fcitx5 -rd"; always = true; }
+        { command = "${pkgs.kanshi}/bin/kanshi"; always = true; }
         { command = "${pkgs.wl-clipboard}/bin/wl-paste -t text --watch ${pkgs.clipman}/bin/clipman store"; }
         {
           command =
@@ -61,6 +61,7 @@
           "${modifier}+F1" = "exec code";
           "${modifier}+F2" = "exec firefox";
           "${modifier}+P" = "exec pcmanfm";
+          "${modifier}+Shift+S" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot --notify save area $HOME/Pictures/screenshots/$(date +\"%Y_%m_%d__%H_%M_%S\").png";
           "XF86AudioRaiseVolume" = "exec pactl set-sink-volume 0 +5%";
           "XF86AudioLowerVolume" = "exec pactl set-sink-volume 0 -5%";
           "XF86AudioMute" = "exec pactl set-sink-mute 0 toggle";
