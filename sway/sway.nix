@@ -36,10 +36,8 @@
           command =
             ''
               swayidle -w \
-                timeout 900 'swaylock -f' \
-                timeout 1200 'swaymsg \"output * dpms off \"' \
-                resume 'swaymsg "output * dpms on"' \
-                before-sleep 'swaylock -f'
+                timeout 1200 'swaymsg "output * dpms off"' \
+                resume 'swaymsg "output * dpms on"'
             '';
         }
 
