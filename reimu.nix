@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   home.homeDirectory = builtins.getEnv "HOME";
   home.username = builtins.getEnv "USER";
@@ -25,6 +25,7 @@
     ./ristretto
     ./spotify
     ./zellij
+    ./kitty
 
     ./sway
 
@@ -50,9 +51,6 @@
 
     noisetorch
 
-    networkmanager
-    networkmanagerapplet
-
     pavucontrol
 
     act # GitHub Actions Runner 
@@ -67,6 +65,8 @@
     imagemagick
 
     playerctl
+
+    libreoffice
   ];
 
   wayland.windowManager.sway.config.terminal = lib.mkForce "nixGL alacritty";
