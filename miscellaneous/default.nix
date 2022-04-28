@@ -22,6 +22,8 @@
     fzf
     skim
 
+    direnv
+
     cachix
     niv
     rnix-lsp
