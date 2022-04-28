@@ -16,6 +16,7 @@
     ./1password
     ./alacritty
     ./fonts
+    ./cursor
     ./gammastep
     ./gitkraken
     ./gtk
