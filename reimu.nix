@@ -26,10 +26,7 @@
     ./spotify
     ./zellij
 
-    ./sway/mako.nix
-    ./sway/kanshi.nix
-    ./sway/waybar.nix
-    ./sway/wofi.nix
+    ./sway
 
     ./zsh/starship.nix
   ];
@@ -71,4 +68,6 @@
 
     playerctl
   ];
+
+  wayland.windowManager.sway.config.terminal = lib.mkForce "nixGL alacritty";
 }
