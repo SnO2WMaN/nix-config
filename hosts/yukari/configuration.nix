@@ -3,11 +3,14 @@
 , pkgs
 , inputs
 , modulesPath
+, nixos-hardware
 , ...
 }:
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
+    nixos-hardware.nixosModules.common-cpu-amd
+    nixos-hardware.nixosModules.common-pc-ssd
   ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -63,6 +66,10 @@
     };
   };
 
+  nixpkgs = {
+    config.allowUnfree = true;
+  };
+
   # Network  
   networking = {
     hostName = "yukari";
@@ -103,17 +110,17 @@
   virtualisation.docker = { enable = true; };
 
   # VirtualBox
-  virtualisation.virtualbox.host = {
-    enable = true;
-    enableExtensionPack = true;
-  };
+  # virtualisation.virtualbox.host = {
+  #   enable = true;
+  #   enableExtensionPack = true;
+  # };
 
   # SSH
   networking.firewall.allowedTCPPorts = [ ] ++ config.services.openssh.ports;
   services.openssh = {
     enable = true;
     passwordAuthentication = false;
-    ports = [ config.deployment.targetPort ];
+    ports = [ 22 ];
   };
 
   users.users.sno2wman = {
