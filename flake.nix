@@ -43,27 +43,28 @@
               allowUnfree = true;
             };
             imports = [
-              ./home-manager
-              ./miscellaneous
-              ./asdf-vm
-              ./zellij
-              ./neovim
+              ./modules/home-manager
+              ./modules/miscellaneous
+              ./modules/asdf-vm
+              ./modules/zellij
+              ./modules/neovim
 
-              ./pcmanfm
-              ./ristretto
+              ./modules/pcmanfm
+              ./modules/ristretto
 
-              ./gtk
+              ./modules/gtk
 
-              ./gammastep
+              ./modules/gammastep
 
-              ./1password
-              ./gitkraken
-              ./spotify
+              ./modules/1password
+              ./modules/gitkraken
+              ./modules/spotify
+              ./modules/slack
 
-              ./git/ghq.nix
-              ./git/git.nix
+              ./modules/git/ghq.nix
+              ./modules/git/git.nix
 
-              ./zsh/starship.nix
+              ./modules/zsh/starship.nix
             ];
           };
         };
