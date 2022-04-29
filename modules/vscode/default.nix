@@ -1,4 +1,4 @@
-{ config,pkgs, ... }: 
+{ config, pkgs, ... }:
 {
   nixpkgs.config.allowUnfree = true;
   services.gnome-keyring.enable = true;
@@ -8,7 +8,7 @@
   ];
 
   home.sessionVariables = {
-     NIXOS_OZONE_WL = "1";
+    NIXOS_OZONE_WL = "1";
   };
 
   programs.vscode = {
