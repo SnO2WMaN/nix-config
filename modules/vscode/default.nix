@@ -1,9 +1,4 @@
-{ config, ... }:
-let
-  pkgs = import
-    (fetchTarball https://channels.nixos.org/nixos-21.11/nixexprs.tar.xz)
-    { config.allowUnfree = true; };
-in
+{ config,pkgs, ... }: 
 {
   nixpkgs.config.allowUnfree = true;
   services.gnome-keyring.enable = true;
@@ -13,7 +8,7 @@ in
   ];
 
   home.sessionVariables = {
-    # NIXOS_OZONE_WL = "1";
+     NIXOS_OZONE_WL = "1";
   };
 
   programs.vscode = {
