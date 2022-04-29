@@ -65,6 +65,21 @@
         "type": "github"
       }
     },
+    "nixos-hardware": {
+      "locked": {
+        "lastModified": 1650522846,
+        "narHash": "sha256-SxWHXRI3qJwswyXAtzsi6PKVY3KLNNnb072KaJthII8=",
+        "owner": "nixos",
+        "repo": "nixos-hardware",
+        "rev": "6b4ebea9093c997c5f275c820e679108de4871ab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1651114127,
@@ -102,11 +117,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1651167015,
-        "narHash": "sha256-5ER60YeCG4h5XcGKbjh8WZnaCpYKfw34GoS8HHc+0sI=",
+        "lastModified": 1651228775,
+        "narHash": "sha256-UqqJrvGfNE2n8sFZ+mUbp27HxxKdBXbbpWehB0wI3YE=",
         "owner": "nix-community",
         "repo": "nixpkgs-wayland",
-        "rev": "ab23b6dbf6245581b95bcfb011f6ecf541893d70",
+        "rev": "e12a7b6c14deef97ad37da6df78a16884f27429f",
         "type": "github"
       },
       "original": {
@@ -151,6 +166,7 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
+        "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nixpkgs-wayland": "nixpkgs-wayland"

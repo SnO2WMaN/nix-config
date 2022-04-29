@@ -15,6 +15,9 @@
     home-manager = {
       url = "github:nix-community/home-manager";
     };
+    nixos-hardware = {
+      url = "github:nixos/nixos-hardware";
+    };
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
@@ -26,8 +29,9 @@
     , nixpkgs-unstable
     , nixpkgs-wayland
     , home-manager
+    , nixos-hardware
     , flake-utils
-    }: {
+    }@inputs: {
       homeConfigurations = {
         marisa = home-manager.lib.homeManagerConfiguration {
           system = "x86_64-linux";
@@ -119,6 +123,8 @@
           };
         };
       };
+
+      nixosConfigurations = import ./nixos/configuration.nix (inputs);
 
       marisa = self.homeConfigurations.marisa.activationPackage;
       yukari = self.homeConfigurations.marisa.activationPackage;
