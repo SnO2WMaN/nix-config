@@ -33,6 +33,8 @@
     nix-prefetch-github
     nixpkgs-fmt
 
+    libreoffice
+
     # nettools
     traceroute
     tcpdump
