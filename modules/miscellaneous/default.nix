@@ -64,8 +64,6 @@
     cava # audio visualizer for console
     tty-clock
 
-    android-studio
-
     imagemagick
 
     qt5ct
