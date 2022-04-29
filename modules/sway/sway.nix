@@ -2,14 +2,14 @@
 {
   home.packages = with pkgs; [
     clipman
-    mako
     wdisplays
     wl-clipboard
     wf-recorder
     pavucontrol
-    kanshi
     swayidle
-    swaylock-effects
+    # swaylock-effects
+    wf-recorder
+    wev
   ];
 
   home.sessionVariables = {
@@ -22,9 +22,16 @@
     enable = true;
     package = pkgs.sway-unwrapped;
     wrapperFeatures.gtk = true;
+    extraSessionCommands =
+      ''
+        export QT_QPA_PLATFORM=wayland
+        export QT_WAYLAND_DISABLE_WINDOWDECORATION="1" 
+
+        export _JAVA_AWT_WM_NONREPARENTING=1
+      '';
     config = {
       modifier = "Mod4";
-      terminal = "alacritty";
+      terminal = "${pkgs.alacritty}";
       menu = "${pkgs.psmisc}/bin/killall -q -e ${pkgs.wofi}/bin/wofi || ${pkgs.wofi}/bin/wofi --show drun";
       startup = [
         { command = "${pkgs.fcitx5}/bin/fcitx5 -rd"; always = true; }
@@ -70,16 +77,6 @@
         };
     };
   };
-
-  xdg.configFile."waybar/config".source = ./waybar/config;
-  xdg.configFile."waybar/style.css".source = ./waybar/style.css;
-
-  xdg.configFile."wofi/config".source = ./wofi/config;
-  xdg.configFile."wofi/style.css".source = ./wofi/style.css;
-
-  xdg.configFile."mako/config".source = ./mako/config;
-
-  xdg.configFile."kanshi/config".source = ./kanshi/config;
 
   xdg.configFile."swaylock/config".source = ./swaylock/config;
 }

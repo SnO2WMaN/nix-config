@@ -10,8 +10,14 @@
       init = {
         defaultBranch = "main";
       };
+      core = {
+        symlinks = "true";
+      };
       pull = {
         rebase = "false";
+      };
+      fetch = {
+        prune = "true";
       };
     };
 
