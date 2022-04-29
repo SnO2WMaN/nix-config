@@ -22,6 +22,13 @@
     enable = true;
     package = pkgs.sway-unwrapped;
     wrapperFeatures.gtk = true;
+    extraSessionCommands =
+      ''
+        export QT_QPA_PLATFORM=wayland
+        export QT_WAYLAND_DISABLE_WINDOWDECORATION="1" 
+
+        export _JAVA_AWT_WM_NONREPARENTING=1
+      '';
     config = {
       modifier = "Mod4";
       terminal = "${pkgs.alacritty}";
