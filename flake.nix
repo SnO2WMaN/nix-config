@@ -112,10 +112,10 @@
               ./modules/firefox
 
               # ./modules/sway
-              ./modules/sway/kanshi.nix
-              ./modules/sway/mako.nix
-              ./modules/sway/waybar.nix
-              ./modules/sway/wofi.nix
+              # ./modules/sway/kanshi.nix
+              # ./modules/sway/mako.nix
+              # ./modules/sway/waybar.nix
+              # ./modules/sway/wofi.nix
               ./modules/gammastep
 
               ./modules/1password
@@ -132,6 +132,6 @@
       nixosConfigurations = import ./nixos/configuration.nix (inputs);
 
       marisa = self.homeConfigurations.marisa.activationPackage;
-      yukari = self.homeConfigurations.marisa.activationPackage;
+      yukari = self.homeConfigurations.yukari.activationPackage;
     };
 }
