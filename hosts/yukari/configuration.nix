@@ -4,6 +4,7 @@
 , inputs
 , modulesPath
 , nixos-hardware
+, flake-registry
 , ...
 }:
 {
@@ -15,15 +16,18 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usbhid" "usb_storage" "sd_mod" "amdgpu" ];
+  boot.initrd.kernelModules = [ ];
+
   boot.kernelParams = [ "amdgpu.freesync_video=1" "amd_iommu=on" "pcie_aspm=off" ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelModules = [ "kvm-amd" ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usbhid" "usb_storage" "sd_mod" "amdgpu" ];
-  boot.initrd.kernelModules = [ ];
-
   boot.extraModulePackages = [ ];
+
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  powerManagement.cpuFreqGovernor = "performance";
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
@@ -42,6 +46,8 @@
   ];
 
   # Additional packages
+  system.stateVersion = "21.11";
+
   environment.systemPackages = with pkgs; [
     git
     vim
@@ -55,6 +61,7 @@
     extraOptions =
       ''
         experimental-features = nix-command flakes
+        flake-registry = ${flake-registry}
       '';
 
     # Storage optimize

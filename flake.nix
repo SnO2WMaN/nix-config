@@ -4,10 +4,10 @@
 
   inputs = {
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-21.11";
+      url = "github:NixOS/nixpkgs/nixos-21.11";
     };
     nixpkgs-unstable = {
-      url = "github:nixos/nixpkgs/nixos-unstable";
+      url = "github:NixOS/nixpkgs/nixos-unstable";
     };
     nixpkgs-wayland = {
       url = "github:nix-community/nixpkgs-wayland";
@@ -16,10 +16,14 @@
       url = "github:nix-community/home-manager";
     };
     nixos-hardware = {
-      url = "github:nixos/nixos-hardware";
+      url = "github:NixOS/nixos-hardware";
     };
     flake-utils = {
       url = "github:numtide/flake-utils";
+    };
+    flake-registry = {
+      url = "github:NixOS/flake-registry";
+      flake = false;
     };
   };
 
@@ -31,6 +35,7 @@
     , home-manager
     , nixos-hardware
     , flake-utils
+    , ...
     }@inputs: {
       homeConfigurations = {
         marisa = home-manager.lib.homeManagerConfiguration {
