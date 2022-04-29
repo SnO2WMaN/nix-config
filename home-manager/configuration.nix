@@ -1,11 +1,9 @@
 { home-manager, nixpkgs-wayland, ... }@inputs:
 let
-
   hmConfig =
     { extraConfigs ? [ ]
-    , system ? "x86_64-linux"
-    , version ? "22.05"
-    }: (home-manager.lib.homeManagerConfiguration {
+    }:
+    (home-manager.lib.homeManagerConfiguration {
       system = "x86_64-linux";
       stateVersion = "22.05";
 
@@ -13,14 +11,13 @@ let
       homeDirectory = "/home/sno2wman";
 
       configuration = { ... }: {
-        imports = extraConfigs;
+        imports = [ ] ++ extraConfigs;
 
         nixpkgs.overlays = [
           nixpkgs-wayland.overlay
         ];
       };
     });
-
 in
 {
   yukari = hmConfig { extraConfigs = [ ./yukari.nix ]; };
