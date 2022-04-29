@@ -11,6 +11,7 @@
     ./modules/zellij
     ./modules/neovim
     ./modules/asdf-vm
+    ./modules/ssh
 
     ./modules/fonts
     ./modules/gtk
