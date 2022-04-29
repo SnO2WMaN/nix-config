@@ -10,3 +10,9 @@ git clone https://github.com/SnO2WMaN/nix-dotfiles ~/.config/nixpkgs
 
 home-manager switch --flake ".#marisa"
 ```
+
+### Update lockfile
+
+```
+nix flake update ~/.config/nixpkgs   
+```
