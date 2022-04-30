@@ -9,11 +9,11 @@
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
     nixpkgs-wayland = {
-      url = "github:nix-community/nixpkgs-wayland";
+			url = "github:nix-community/nixpkgs-wayland";
 			inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     home-manager = {
-      url = "github:nix-community/home-manager";
+			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     nixos-hardware = {
@@ -25,7 +25,11 @@
     flake-registry = {
       url = "github:NixOS/flake-registry";
       flake = false;
-    };
+		};
+		nixgl = {
+			url = "github:guibou/nixGL";
+			inputs.nixpkgs.follows = "nixpkgs-unstable";
+		};
   };
 
   outputs = { self, ... }@inputs: {

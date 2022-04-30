@@ -65,19 +65,41 @@
     },
     "home-manager": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ]
       },
       "locked": {
-        "lastModified": 1651007090,
-        "narHash": "sha256-C/OoQRzTUOWEr1sd3xTKA2GudA1YG1XB3MlL6KfTchg=",
+        "lastModified": 1651262513,
+        "narHash": "sha256-5iW1fevaAD0Rbtbgb4I++7fyaND3oarGs3mAjyadE0Y=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "778af87a981eb2bfa3566dff8c3fb510856329ef",
+        "rev": "f8b51be7149a0735e87b232d21ae4f852619eac7",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "nixgl": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ]
+      },
+      "locked": {
+        "lastModified": 1651078744,
+        "narHash": "sha256-+S/NEzZoTt7EoSOMEUsR/LuNTtzYhbribFaIewNxdCQ=",
+        "owner": "guibou",
+        "repo": "nixGL",
+        "rev": "56f2fbcce7a08c60c98394a64e900d5e9227bcb2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "guibou",
+        "repo": "nixGL",
         "type": "github"
       }
     },
@@ -98,16 +120,18 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1651114127,
-        "narHash": "sha256-/lLC0wkMZkAdA5e1W76SnJzbhfOGDvync3VRHJMtAKk=",
+        "lastModified": 1651093906,
+        "narHash": "sha256-kHXSbv+Hc73eV0/JVJ5YsJGr08bA4vJ3/XZew5PgZg0=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "6766fb6503ae1ebebc2a9704c162b2aef351f921",
+        "rev": "feea25c58657fa81d16e0e51f80e1a02ef4cbd49",
         "type": "github"
       },
       "original": {
-        "id": "nixpkgs",
-        "type": "indirect"
+        "owner": "NixOS",
+        "ref": "nixos-21.11",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "nixpkgs-unstable": {
@@ -130,51 +154,21 @@
       "inputs": {
         "cachix": "cachix",
         "flake-compat": "flake-compat",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ]
       },
       "locked": {
-        "lastModified": 1651228775,
-        "narHash": "sha256-UqqJrvGfNE2n8sFZ+mUbp27HxxKdBXbbpWehB0wI3YE=",
+        "lastModified": 1651272383,
+        "narHash": "sha256-ruBDjngPS+oflGALFa/Ds+MXXLSodt0VB3WwICqMNuo=",
         "owner": "nix-community",
         "repo": "nixpkgs-wayland",
-        "rev": "e12a7b6c14deef97ad37da6df78a16884f27429f",
+        "rev": "9f37664d540371e83da9906e33ff171edf8a0b1a",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
         "repo": "nixpkgs-wayland",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1651093906,
-        "narHash": "sha256-kHXSbv+Hc73eV0/JVJ5YsJGr08bA4vJ3/XZew5PgZg0=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "feea25c58657fa81d16e0e51f80e1a02ef4cbd49",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-21.11",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1651007983,
-        "narHash": "sha256-GNay7yDPtLcRcKCNHldug85AhAvBpTtPEJWSSDYBw8U=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "e10da1c7f542515b609f8dfbcf788f3d85b14936",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
         "type": "github"
       }
     },
@@ -183,8 +177,9 @@
         "flake-registry": "flake-registry",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
+        "nixgl": "nixgl",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nixpkgs-wayland": "nixpkgs-wayland"
       }
