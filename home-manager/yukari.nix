@@ -16,6 +16,7 @@
     ./modules/fonts
     ./modules/gtk
     ./modules/alacritty
+		./modules/kitty
     ./modules/pcmanfm
     ./modules/ristretto
     ./modules/gscan2pdf
