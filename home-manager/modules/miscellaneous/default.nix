@@ -32,7 +32,8 @@
     rnix-lsp
     nix-prefetch-github
     nixpkgs-fmt
-    nixops
+    # nixops
+    nixopsUnstable
 
     libreoffice
 
