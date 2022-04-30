@@ -3,10 +3,10 @@
 {
   programs.kitty = {
     enable = true;
-		theme = "Nord";
-		font = {
-			name = "JetBrains Mono";
-			size = 10;
-		};
+    theme = "Nord";
+    font = {
+      name = "JetBrains Mono";
+      size = 9;
+    };
   };
 }
