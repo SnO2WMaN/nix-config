@@ -13,22 +13,20 @@
 
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium;
+    package = pkgs.vscode;
     extensions = with pkgs.vscode-extensions; [
       # johnsoncodehk.volar  
-      # ms-vscode-remote.remote-containers
-      # ms-vscode-remote.remote-ssh
-      # ms-vscode-remote.remote-ssh-edit 
-      # redhat.vscode-xml
-      # redhat.vscode-yaml 
-      # VisualStudioExptTeam.vscodeintellicode
       ahmadalli.vscode-nginx-conf
       alefragnani.Bookmarks
       arcticicestudio.nord-visual-studio-code
       arrterian.nix-env-selector
+      avli.clojure
       bradlc.vscode-tailwindcss
+      christian-kohler.path-intellisense
       dbaeumer.vscode-eslint
       denoland.vscode-deno
+      dhall.dhall-lang
+      dhall.vscode-dhall-lsp-server
       dprint.dprint
       EditorConfig.EditorConfig
       eg2.vscode-npm-script
@@ -43,16 +41,25 @@
       hashicorp.terraform
       James-Yu.latex-workshop
       jnoortheen.nix-ide
+      jroesch.lean
+      leanprover.lean4
       ms-azuretools.vscode-docker
       ms-python.python
       ms-python.vscode-pylance
       ms-toolsai.jupyter-keymap
       ms-toolsai.jupyter-renderers
+      ms-vscode-remote.remote-containers
+      ms-vscode-remote.remote-ssh
       ms-vscode-remote.remote-ssh-edit
+      ms-vscode-remote.remote-ssh-edit
+      nimsaem.nimvscode
       Prisma.prisma
+      redhat.vscode-xml
+      redhat.vscode-yaml
       richie5um2.vscode-sort-json
       styled-components.vscode-styled-components
       timonwong.shellcheck
+      VisualStudioExptTeam.vscodeintellicode
     ];
     userSettings = {
       editor = {
@@ -70,6 +77,7 @@
       };
       terminal.integrated = {
         fontFamily = "'Jetbrains Mono'";
+        fontSize = 10;
       };
       redhat.telemetry.enabled = false;
       "[jsonc]" = {

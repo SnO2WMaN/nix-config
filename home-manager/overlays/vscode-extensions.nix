@@ -1,3 +1,4 @@
+# https://github.com/NixOS/nixpkgs/blob/42d815d1026e57f7e6f178de5a280c14f7aba1a5/pkgs/misc/vscode-extensions/update_installed_exts.sh
 final: prev: {
   vscode-extensions = with final.vscode-utils; prev.vscode-extensions // {
     ahmadalli.vscode-nginx-conf = extensionFromVscodeMarketplace {
@@ -108,31 +109,53 @@ final: prev: {
       version = "0.20.0";
       sha256 = "1l073hqdivzyadjg8cn68wrmvbcrhc67yll4sypvb7rwvdznp80q";
     };
+    ms-vscode-remote.remote-containers = extensionFromVscodeMarketplace {
+      name = "remote-containers";
+      publisher = "ms-vscode-remote";
+      version = "0.233.0";
+      sha256 = "1xlczc788avyy1wnxlhgm2fbkxmw2dbbdlqalwpipn33w07gzpg0";
+    };
+    ms-vscode-remote.remote-ssh = extensionFromVscodeMarketplace {
+      name = "remote-ssh";
+      publisher = "ms-vscode-remote";
+      version = "0.79.2022040715";
+      sha256 = "041x9q2nb86p5npf5gjmg102phvm4s4nxmirfz7nfa2qlbn2rl74";
+    };
     ms-vscode-remote.remote-ssh-edit = extensionFromVscodeMarketplace {
       name = "remote-ssh-edit";
       publisher = "ms-vscode-remote";
-      version = "0.50.0";
-      sha256 = "1b2lqd89vnynbzd3rss1jahc1zxs769s921rclgy1v7z1sd1kqxy";
+      version = "0.80.0";
+      sha256 = "0zgrd2909xpr3416cji0ha3yl6gl2ry2f38bvx4lsjfmgik0ic6s";
     };
-    # VisualStudioExptTeam.vscodeintellicode = extensionFromVscodeMarketplace {
-    #   publisher = "VisualStudioExptTeam";
-    #   name = "vscodeintellicode";
-    #   version = "v1.20.0";
-    # };
-    # ms-vscode-remote.remote-containers = extensionFromVscodeMarketplace {
-    #   publisher = "ms-vscode-remote";
-    #   name = "remote-containers";
-    #   version = "0.231.6";
-    # };
-    # ms-vscode-remote.remote-ssh = extensionFromVscodeMarketplace {
-    #   publisher = "ms-vscode-remote";
-    #   name = "remote-ssh";
-    #   version = "v0.78.0";
-    # };
-    # ms-vscode-remote.remote-ssh-edit = extensionFromVscodeMarketplace {
-    #   publisher = "ms-vscode-remote";
-    #   name = "remote-ssh-edit";
-    #   version = "v0.80.0";
-    # };
+    VisualStudioExptTeam.vscodeintellicode = extensionFromVscodeMarketplace {
+      name = "vscodeintellicode";
+      publisher = "VisualStudioExptTeam";
+      version = "1.2.20";
+      sha256 = "0h5wsplz90skan54hwl47m6g65awxprgcmsd5jrasd0aha0akwb1";
+    };
+    nimsaem.nimvscode = extensionFromVscodeMarketplace {
+      name = "nimvscode";
+      publisher = "nimsaem";
+      version = "0.1.25";
+      sha256 = "1zyq0kgmv6fsmva9apsrk076i510854q68yzs7hvkfw2b44c6k3z";
+    };
+    jroesch.lean = extensionFromVscodeMarketplace {
+      name = "lean";
+      publisher = "jroesch";
+      version = "0.16.46";
+      sha256 = "1bwc9q4vn5hmrnjxzrwlf22wm1m627jmr31ywirimsxs1fxp5h84";
+    };
+    leanprover.lean4 = extensionFromVscodeMarketplace {
+      name = "lean4";
+      publisher = "leanprover";
+      version = "0.0.71";
+      sha256 = "0k7sa0cg1335y4gvxmr4l5frysjkrd5cwbvklfcwq47w8ldg2s1y";
+    };
+    avli.clojure = extensionFromVscodeMarketplace {
+      name = "clojure";
+      publisher = "avli";
+      version = "0.13.1";
+      sha256 = "1qh17lp7xpc9ggf5awya9d65wxxmr0z1cbpb2w6i63w0118iggx8";
+    };
   };
 }
