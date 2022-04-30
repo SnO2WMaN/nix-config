@@ -98,13 +98,22 @@
   ];
 
   # OpenGL
-  hardware.opengl = { enable = true; };
+  hardware.opengl = {
+    enable = true;
+    package = pkgs.mesa_drivers;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
 
   # Sound
   sound.enable = true;
-  hardware.pulseaudio = { enable = true; };
+  hardware.pulseaudio.enable = false;
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+  };
 
-  # TODO: ?
+  # TODO: GTK?
   programs.dconf = { enable = true; };
   services.dbus = {
     packages = with pkgs; [ dconf ];
