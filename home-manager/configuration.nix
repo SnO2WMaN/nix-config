@@ -15,6 +15,7 @@ let
 
         nixpkgs.overlays = [
           nixpkgs-wayland.overlay
+          (import ./overlays/vscode-extensions.nix)
         ];
       };
     });
