@@ -3,41 +3,35 @@
     allowUnfree = true;
   };
   imports = [
-    ./modules/home-manager
-    ./modules/miscellaneous
-
-    ./modules/zsh
-    ./modules/git
-    ./modules/zellij
-    ./modules/neovim
-    ./modules/asdf-vm
-    ./modules/ssh
-
-    ./modules/fonts
-    ./modules/gtk
+    ./modules/1password
     ./modules/alacritty
-		./modules/kitty
-    ./modules/pcmanfm
-    ./modules/ristretto
-    ./modules/gscan2pdf
-
+    ./modules/android
+    ./modules/asdf-vm
+    ./modules/discord
     ./modules/fcitx
     ./modules/firefox
-
-		./modules/sway
-    # ./modules/sway/kanshi.nix
-    # ./modules/sway/mako.nix
-    # ./modules/sway/waybar.nix
-    # ./modules/sway/wofi.nix
+    ./modules/fonts
     ./modules/gammastep
-
-    ./modules/1password
+    ./modules/git
     ./modules/gitkraken
-    ./modules/spotify
+    ./modules/gpg
+    ./modules/gscan2pdf
+    ./modules/gtk
+    ./modules/home-manager
+    ./modules/kitty
+    ./modules/miscellaneous
+    ./modules/neovim
+    ./modules/pcmanfm
+    ./modules/ristretto
     ./modules/slack
-    # ./modules/discord
+    ./modules/sound
+    ./modules/spotify
+    ./modules/ssh
+    ./modules/sway
     ./modules/vscode
-
-    ./modules/android
+    ./modules/zellij
+    ./modules/zsh
   ];
+
+  services.spotifyd.settings.global.device_name = "yukari";
 }
