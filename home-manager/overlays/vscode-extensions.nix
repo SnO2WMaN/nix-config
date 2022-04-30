@@ -19,9 +19,10 @@ final: prev: {
       sha256 = "0fa4h9hk1xq6j3zfxvf483sbb4bd17fjl5cdm3rll7z9kaigdqwg";
     };
     richie5um2.vscode-sort-json = extensionFromVscodeMarketplace {
-      publisher = "richie5um2";
       name = "vscode-sort-json";
-      version = "v1.20.0";
+      publisher = "richie5um2";
+      version = "1.20.0";
+      sha256 = "1zcbdzsv6vv3zwx5ddbarqizs8s9s57dnf328waq8jgqyzjg31i6";
     };
     denoland.vscode-deno = extensionFromVscodeMarketplace {
       name = "vscode-deno";
@@ -77,25 +78,46 @@ final: prev: {
       version = "0.41.2022042909";
       sha256 = "0y4nsgf6chlflds36008ff60h2f4ppb5zp0gki396091n2rq84ps";
     };
+    styled-components.vscode-styled-components = extensionFromVscodeMarketplace {
+      name = "vscode-styled-components";
+      publisher = "styled-components";
+      version = "1.7.4";
+      sha256 = "0qx1mvvw0bqa0psm35yxv9lvzw40bp8syjx4sp13502hg63r4h7n";
+    };
+    timonwong.shellcheck = extensionFromVscodeMarketplace {
+      name = "shellcheck";
+      publisher = "timonwong";
+      version = "0.19.2";
+      sha256 = "0fsf9nvwlgyx57w6q67pk4j5rndp8x0b5i0w0w69s3abn9sx54h9";
+    };
+    James-Yu.latex-workshop = extensionFromVscodeMarketplace {
+      name = "latex-workshop";
+      publisher = "James-Yu";
+      version = "8.25.0";
+      sha256 = "1nnxdzwmamyv4lbxmm1wn3fijlpacfcxwvkxqlfy28xw27xbn9a0";
+    };
     redhat.vscode-yaml = extensionFromVscodeMarketplace {
-      publisher = "redhat";
       name = "vscode-yaml";
-      version = "v1.7.0";
+      publisher = "redhat";
+      version = "1.7.0";
+      sha256 = "1bbjpaypp0mq5akww5f0pkpq01j0xhhvkfr44f4lb2rdhr5nmnvc";
     };
     redhat.vscode-xml = extensionFromVscodeMarketplace {
-      publisher = "redhat";
       name = "vscode-xml";
-      version = "v0.20.0";
+      publisher = "redhat";
+      version = "0.20.0";
+      sha256 = "1l073hqdivzyadjg8cn68wrmvbcrhc67yll4sypvb7rwvdznp80q";
+    };
+    ms-vscode-remote.remote-ssh-edit = extensionFromVscodeMarketplace {
+      name = "remote-ssh-edit";
+      publisher = "ms-vscode-remote";
+      version = "0.50.0";
+      sha256 = "1b2lqd89vnynbzd3rss1jahc1zxs769s921rclgy1v7z1sd1kqxy";
     };
     # VisualStudioExptTeam.vscodeintellicode = extensionFromVscodeMarketplace {
     #   publisher = "VisualStudioExptTeam";
     #   name = "vscodeintellicode";
     #   version = "v1.20.0";
-    # };
-    # styled-components.vscode-styled-components = extensionFromVscodeMarketplace {
-    #   publisher = "styled-components";
-    #   name = "vscode-styled-components";
-    #   version = "v1.7.4";
     # };
     # ms-vscode-remote.remote-containers = extensionFromVscodeMarketplace {
     #   publisher = "ms-vscode-remote";

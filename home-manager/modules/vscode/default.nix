@@ -15,17 +15,12 @@
     enable = true;
     package = pkgs.vscodium;
     extensions = with pkgs.vscode-extensions; [
-      # James-Yu.latex-workshop
       # johnsoncodehk.volar  
       # ms-vscode-remote.remote-containers
       # ms-vscode-remote.remote-ssh
       # ms-vscode-remote.remote-ssh-edit 
-      # Prisma.prisma
       # redhat.vscode-xml
       # redhat.vscode-yaml 
-      # richie5um2.vscode-sort-json
-      # styled-components.vscode-styled-components
-      # timonwong.shellcheck
       # VisualStudioExptTeam.vscodeintellicode
       ahmadalli.vscode-nginx-conf
       alefragnani.Bookmarks
@@ -46,12 +41,18 @@
       golang.go
       GraphQL.vscode-graphql
       hashicorp.terraform
+      James-Yu.latex-workshop
       jnoortheen.nix-ide
       ms-azuretools.vscode-docker
       ms-python.python
       ms-python.vscode-pylance
       ms-toolsai.jupyter-keymap
       ms-toolsai.jupyter-renderers
+      ms-vscode-remote.remote-ssh-edit
+      Prisma.prisma
+      richie5um2.vscode-sort-json
+      styled-components.vscode-styled-components
+      timonwong.shellcheck
     ];
     userSettings = {
       editor = {
