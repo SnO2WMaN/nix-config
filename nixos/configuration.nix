@@ -13,4 +13,7 @@ in
   yukari = nixosConfig {
     extraModules = [ ./yukari.nix ];
   };
+  kaguya = nixosConfig {
+    extraModules = [ ./kaguya.nix ];
+  };
 }
