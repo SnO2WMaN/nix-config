@@ -22,5 +22,6 @@ let
 in
 {
   yukari = hmConfig { extraConfigs = [ ./yukari.nix ]; };
+  reimu = hmConfig { extraConfigs = [ ./reimu.nix ]; };
   marisa = hmConfig { extraConfigs = [ ./marisa.nix ]; };
 }
