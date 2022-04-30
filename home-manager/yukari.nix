@@ -37,5 +37,7 @@
     ./modules/slack
     # ./modules/discord
     ./modules/vscode
+
+    ./modules/android
   ];
 }
