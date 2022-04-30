@@ -1,7 +1,12 @@
 { config, pkgs, ... }:
+
 {
   programs.kitty = {
     enable = true;
-    theme = "Nord";
+		theme = "Nord";
+		font = {
+			name = "JetBrains Mono";
+			size = 10;
+		};
   };
 }
