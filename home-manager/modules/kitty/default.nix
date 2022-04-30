@@ -8,5 +8,8 @@
       name = "JetBrains Mono";
       size = 9;
     };
+    settings = {
+      enable_audio_bell = false;
+    };
   };
 }
