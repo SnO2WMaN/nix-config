@@ -10,9 +10,11 @@
     };
     nixpkgs-wayland = {
       url = "github:nix-community/nixpkgs-wayland";
+			inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
+			inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware";

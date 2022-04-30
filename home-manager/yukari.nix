@@ -23,7 +23,7 @@
     ./modules/fcitx
     ./modules/firefox
 
-    # ./modules/sway
+		./modules/sway
     # ./modules/sway/kanshi.nix
     # ./modules/sway/mako.nix
     # ./modules/sway/waybar.nix
