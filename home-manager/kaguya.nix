@@ -5,8 +5,7 @@
   imports = [
     ./modules/1password
     ./modules/alacritty
-    ./modules/android
-    ./modules/asdf-vm
+    # ./modules/android 
     ./modules/discord
     ./modules/fcitx
     ./modules/firefox
@@ -25,7 +24,7 @@
     ./modules/ristretto
     ./modules/slack
     ./modules/sound
-    ./modules/spotify
+    # ./modules/spotify
     ./modules/ssh
     ./modules/sway
     ./modules/vscode
