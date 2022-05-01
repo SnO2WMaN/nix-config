@@ -3,6 +3,7 @@
 , pkgs
 , inputs
 , modulesPath
+, nixpkgs
 , nixos-hardware
 , flake-registry
 , ...
@@ -18,11 +19,11 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
- 
+
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelModules = [ "kvm-intel" ];
 
-  boot.extraModulePackages = [ ]; 
+  boot.extraModulePackages = [ ];
 
   powerManagement.cpuFreqGovernor = "performance";
 
@@ -58,6 +59,8 @@
         experimental-features = nix-command flakes
         flake-registry = ${flake-registry}
       '';
+
+    nixPath = [ "nixpkgs=${nixpkgs}" ];
 
     # Storage optimize
     autoOptimiseStore = true;
