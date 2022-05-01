@@ -7,12 +7,15 @@
     enableSyntaxHighlighting = true;
 
     shellAliases = {
+      # Shortener / Replacement
+      clip = "copy";
+      d = "docker";
+      dc = "docker compose";
+      drill = "dig";
       g = "git";
+      serve = "miniserve";
       v = "vim";
-
-      z = "${pkgs.zoxide}/bin/zoxide";
-      ze = "${pkgs.zellij}/bin/zellij";
-      serve = "${pkgs.miniserve}/bin/miniserve";
+      wq = "wg-quick";
 
       # human friendly
       cp = "cp -i";
@@ -20,23 +23,23 @@
       free = "free -m";
 
       # ls
+      l = "clear && l";
       ll = "ls -alF";
       la = "ls -a";
       lt = "ls -T";
       l1 = "ls -1";
 
-      # compatible
-      drill = "dig";
-      vim = "${pkgs.neovim}/bin/nvim";
-
-      # replacement
-      ls = "${pkgs.lsd}/bin/lsd";
       cat = "${pkgs.bat}/bin/bat";
+      dig = "${pkgs.dogdns}/bin/dog";
       du = "${pkgs.du-dust}/bin/dust";
+      ls = "${pkgs.lsd}/bin/lsd";
       ps = "${pkgs.procs}/bin/procs";
       rm = "${pkgs.rm-improved}/bin/rip -i";
-      dig = "${pkgs.dogdns}/bin/dog";
+      miniserve = "${pkgs.miniserve}/bin/miniserve";
       time = "${pkgs.hyperfine}/bin/hyperfine";
+      z = "${pkgs.zoxide}/bin/zoxide";
+      ze = "${pkgs.zellij}/bin/zellij";
+      vim = "${pkgs.neovim}/bin/nvim";
     };
 
     zplug = {

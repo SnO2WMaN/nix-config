@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
-  nixpkgs.config.allowUnfree = true;
-  home.packages = with pkgs; [
-    spotify
+  imports = [
+    ./desktop.nix
+    ./spotify-tui.nix
   ];
 }

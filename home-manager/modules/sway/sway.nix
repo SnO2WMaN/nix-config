@@ -12,26 +12,23 @@
     wev
   ];
 
-  home.sessionVariables = {
-    XDG_SESSION_TYPE = "wayland";
-    QT_QPA_PLATFORM = "wayland";
-
-    XDG_CURRENT_DESKTOP = "sway";
-  };
   wayland.windowManager.sway = {
     enable = true;
     package = pkgs.sway-unwrapped;
     wrapperFeatures.gtk = true;
     extraSessionCommands =
       ''
+        export XDG_SESSION_TYPE = wayland
+        export XDG_CURRENT_DESKTOP = sway
+
         export QT_QPA_PLATFORM=wayland
-        export QT_WAYLAND_DISABLE_WINDOWDECORATION="1" 
+        export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 
         export _JAVA_AWT_WM_NONREPARENTING=1
       '';
     config = {
       modifier = "Mod4";
-      terminal = "${pkgs.alacritty}";
+      terminal = "${pkgs.kitty}/bin/kitty";
       menu = "${pkgs.psmisc}/bin/killall -q -e ${pkgs.wofi}/bin/wofi || ${pkgs.wofi}/bin/wofi --show drun";
       startup = [
         { command = "${pkgs.fcitx5}/bin/fcitx5 -rd"; always = true; }
@@ -79,4 +76,8 @@
   };
 
   xdg.configFile."swaylock/config".source = ./swaylock/config;
+
+  programs.zsh.shellAliases = {
+    copy = "${pkgs.wl-clipboard}/bin/wl-copy";
+  };
 }
