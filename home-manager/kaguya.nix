@@ -5,10 +5,8 @@
   imports = [
     ./modules/1password
     ./modules/alacritty
-    ./modules/android
-    ./modules/asdf-vm
+    # ./modules/android 
     ./modules/discord
-    ./modules/dev
     ./modules/fcitx
     ./modules/firefox
     ./modules/fonts
@@ -26,7 +24,7 @@
     ./modules/ristretto
     ./modules/slack
     ./modules/sound
-    ./modules/spotify
+    # ./modules/spotify
     ./modules/ssh
     ./modules/sway
     ./modules/vscode
@@ -34,5 +32,5 @@
     ./modules/zsh
   ];
 
-  services.spotifyd.settings.global.device_name = "yukari";
+  services.spotifyd.settings.global.device_name = "kaguya";
 }

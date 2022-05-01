@@ -9,7 +9,7 @@
     swayidle
     # swaylock-effects
     wf-recorder
-		wev
+    wev
   ];
 
   wayland.windowManager.sway = {
@@ -17,14 +17,14 @@
     package = pkgs.sway-unwrapped;
     wrapperFeatures.gtk = true;
     extraSessionCommands =
-			''
-				export XDG_SESSION_TYPE = wayland
-				export XDG_CURRENT_DESKTOP = sway
+      ''
+        export XDG_SESSION_TYPE = wayland
+        export XDG_CURRENT_DESKTOP = sway
 
         export QT_QPA_PLATFORM=wayland
         export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 
-				export _JAVA_AWT_WM_NONREPARENTING=1
+        export _JAVA_AWT_WM_NONREPARENTING=1
       '';
     config = {
       modifier = "Mod4";
@@ -76,4 +76,8 @@
   };
 
   xdg.configFile."swaylock/config".source = ./swaylock/config;
+
+  programs.zsh.shellAliases = {
+    copy = "${pkgs.wl-clipboard}/bin/wl-copy";
+  };
 }
