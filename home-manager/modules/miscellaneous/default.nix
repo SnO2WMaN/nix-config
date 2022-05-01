@@ -12,52 +12,7 @@
     fd
 
     neofetch
-    psmisc
-
-    curl
-    httpie
-    wget
-
-    tree
-    file
-    binutils
-
-    jq
-    yq
-    fzf
-    skim
-
-    cachix
-    niv
-    rnix-lsp
-    nix-prefetch-github
-    nixpkgs-fmt
-    nixops
-
     libreoffice
-
-    # nettools
-    traceroute
-    tcpdump
-    lsof
-    nmap
-    findomain
-    websocat
-    wireguard-tools
-    ethtool
-    smartmontools # hdd monitor 
-
-    # dev tools
-    act # GitHub Actions Runner 
-    dive # docker image tool 
-    buf # Protobuf tool
-    grpcurl # curl for gRPC 
-    altair # GraphQL GUI 
-    hadolint # linter for Dockerfile
-    treefmt # unified formatter
-    shellcheck
-    git-crypt
-    rustup
 
     # shell play
     pipes-rs

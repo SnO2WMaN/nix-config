@@ -69,17 +69,50 @@
         fontLigatures = true;
         fontSize = 12;
         fontWeight = "normal";
+
+        suggestSelection = "first";
+
+        bracketPairColorization.enabled = true;
+        minimap.enabled = false;
+      };
+      explorer = {
+        confirmDragAndDrop = false;
       };
       workbench = {
         colorTheme = "Nord";
         iconTheme = "file-icons";
+
         sideBar.location = "right";
+
+        tree.indent = 12;
       };
       terminal.integrated = {
         fontFamily = "'Jetbrains Mono'";
         fontSize = 10;
+        rightClickBehavior = "paste";
       };
-      redhat.telemetry.enabled = false;
+      files.associations = {
+        ".renovaterc" = "jsonc";
+      };
+      git = {
+        autofetch = true;
+        confirmSync = false;
+      };
+      javascript = {
+        updateImportsOnFileMove.enabled = true;
+      };
+      typescript = {
+        updateImportsOnFileMove.enabled = true;
+      };
+      redhat = {
+        telemetry.enabled = false;
+      };
+      latex-workshop = {
+        view.pdf.viewer = "browser";
+      };
+      nix = {
+        formatterPath = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
+      };
       "[jsonc]" = {
         editor.defaultFormatter = "vscode.json-language-features";
       };

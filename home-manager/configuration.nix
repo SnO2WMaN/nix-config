@@ -1,4 +1,4 @@
-{ home-manager, nixpkgs-wayland, ... }@inputs:
+{ home-manager, nixpkgs-wayland, nixgl, ... }@inputs:
 let
   hmConfig =
     { extraConfigs ? [ ]
@@ -15,13 +15,15 @@ let
 
         nixpkgs.overlays = [
           nixpkgs-wayland.overlay
+          nixgl.overlay
           (import ./overlays/vscode-extensions.nix)
         ];
       };
     });
 in
 {
-  yukari = hmConfig { extraConfigs = [ ./yukari.nix ]; };
-  reimu = hmConfig { extraConfigs = [ ./reimu.nix ]; };
+  kaguya = hmConfig { extraConfigs = [ ./kaguya.nix ]; };
   marisa = hmConfig { extraConfigs = [ ./marisa.nix ]; };
+  reimu = hmConfig { extraConfigs = [ ./reimu.nix ]; };
+  yukari = hmConfig { extraConfigs = [ ./yukari.nix ]; };
 }

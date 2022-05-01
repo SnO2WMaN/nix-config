@@ -11,34 +11,29 @@
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    nixos-hardware.nixosModules.common-cpu-amd
+    nixos-hardware.nixosModules.common-cpu-intel
     nixos-hardware.nixosModules.common-pc-ssd
 
     ./modules/chrony
-    ./modules/docker
     ./modules/nix
     ./modules/networkmanager
     ./modules/opengl
     ./modules/sane
     ./modules/sound
     ./modules/ssh
-    ./modules/virtualbox
   ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usbhid" "usb_storage" "sd_mod" "amdgpu" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
 
-  boot.kernelParams = [ "amdgpu.freesync_video=1" "amd_iommu=on" "pcie_aspm=off" ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [ "kvm-intel" ];
 
   boot.extraModulePackages = [ ];
 
   powerManagement.cpuFreqGovernor = "performance";
-
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   fileSystems."/" = {
     fsType = "ext4";
@@ -71,10 +66,10 @@
 
   # Network  
   networking = {
-    hostName = "yukari";
+    hostName = "kaguya";
 
     useDHCP = false;
-    interfaces.enp3s0.useDHCP = true;
+    interfaces.eno1.useDHCP = true;
   };
 
   # TODO: GTK?
