@@ -8,6 +8,7 @@
     ./modules/android
     ./modules/asdf-vm
     ./modules/discord
+    ./modules/dev
     ./modules/fcitx
     ./modules/firefox
     ./modules/fonts
