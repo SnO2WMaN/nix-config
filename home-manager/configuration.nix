@@ -22,6 +22,7 @@ let
     });
 in
 {
-  yukari = hmConfig { extraConfigs = [ ./yukari.nix ]; };
+  kaguya = hmConfig { extraConfigs = [ ./kaguya.nix ]; };
   marisa = hmConfig { extraConfigs = [ ./marisa.nix ]; };
+  yukari = hmConfig { extraConfigs = [ ./yukari.nix ]; };
 }
