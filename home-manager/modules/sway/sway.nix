@@ -1,4 +1,18 @@
 { config, pkgs, lib, ... }:
+let
+  killall = "${pkgs.psmisc}/bin/killall";
+  wofi = "${pkgs.wofi}/bin/wofi";
+
+  ghq = "${pkgs.ghq}/bin/ghq";
+
+  code = "code";
+
+  wofi_ghq = pkgs.writeShellScriptBin "wofi_ghq"
+    ''
+      choice=$(${killall} -q -e ${wofi} || ${ghq} list | ${wofi} -i -b --dmenu --lines=10) 
+      [[ -n "$choice" ]] && ${code} $(${ghq} root)/$choice
+    '';
+in
 {
   home.packages = with pkgs; [
     clipman
@@ -10,6 +24,8 @@
     # swaylock-effects
     wf-recorder
     wev
+
+    wofi_ghq
   ];
 
   wayland.windowManager.sway = {
@@ -62,9 +78,7 @@
           "${modifier}+0" = "workspace number 10";
           "${modifier}+Shift+0" = "move container to workspace number 10";
           "${modifier}+Shift+Delete" = "kill";
-          "${modifier}+F1" = "exec code";
-          "${modifier}+F2" = "exec firefox";
-          "${modifier}+P" = "exec pcmanfm";
+            "${modifier}+g" = "exec --no-startup-id wofi_ghq";
           "${modifier}+Shift+S" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot --notify save area $HOME/Pictures/screenshots/$(date +\"%Y_%m_%d__%H_%M_%S\").png";
           "XF86AudioRaiseVolume" = "exec pactl set-sink-volume 0 +5%";
           "XF86AudioLowerVolume" = "exec pactl set-sink-volume 0 -5%";
