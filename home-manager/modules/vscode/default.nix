@@ -113,6 +113,12 @@
       nix = {
         formatterPath = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
       };
+      dprint = {
+        path = "${pkgs.dprint}/bin/dprint";
+      };
+      "[json]" = {
+        editor.defaultFormatter = "vscode.json-language-features";
+      };
       "[jsonc]" = {
         editor.defaultFormatter = "vscode.json-language-features";
       };
