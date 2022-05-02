@@ -1,5 +1,0 @@
-profile {
-    output DP-1 position 0,0 mode 1920x1080 transform 270
-    output DP-2 position 1200,1080 mode 2560x1080
-    output DP-3 position 1200,0 mode 2560x1080
-}
