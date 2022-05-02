@@ -1,4 +1,5 @@
 [
 	"md-to-pdf",
-	"zenn-cli"
+	"zenn-cli",
+	"vercel"
 ]
