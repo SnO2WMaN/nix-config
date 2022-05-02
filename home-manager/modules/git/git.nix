@@ -19,6 +19,9 @@
       fetch = {
         prune = "true";
       };
+      ghq = {
+        root = "~/src/ghq";
+      };
     };
 
     # signing = {
