@@ -69,6 +69,9 @@ in
         names = [ "JetBrains Mono" ];
         size = 8.0;
       };
+      focus = {
+        followMouse = false;
+      };
       floating = {
         criteria = [
           { app_id = "pavucontrol"; }
