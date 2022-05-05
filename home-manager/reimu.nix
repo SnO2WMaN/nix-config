@@ -7,7 +7,7 @@
     ./modules/alacritty
     ./modules/asdf-vm
     ./modules/fcitx
-    ./modules/firefox
+    # ./modules/firefox
     ./modules/fonts
     ./modules/gammastep
     ./modules/git
@@ -23,6 +23,10 @@
     ./modules/slack
     ./modules/ssh
     ./modules/sway
+    ./modules/sway/kanshi.nix
+    ./modules/sway/mako.nix
+    ./modules/sway/waybar.nix
+    ./modules/sway/wofi.nix
     ./modules/vscode
     ./modules/zellij
     ./modules/zsh
