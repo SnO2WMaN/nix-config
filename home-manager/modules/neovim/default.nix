@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   home.sessionVariables = {
-    EDITOR = "nvim";
+    EDITOR = "${pkgs.neovim}/bin/nvim";
   };
   programs.neovim = {
     enable = true;
