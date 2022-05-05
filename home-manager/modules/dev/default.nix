@@ -10,6 +10,7 @@
     httpie
     wget
     psmisc
+    gnumake
     yq
     fzf
     skim #fzf in rust
@@ -39,7 +40,19 @@
     treefmt # unified formatter
     websocat
     wireguard-tools
-  ];
+  ] ++ (
+    with pkgs.nodePackages; [
+      node2nix
+
+      npm
+      yarn
+      pnpm
+
+      zenn-cli
+      vercel
+      md-to-pdf
+    ]
+  );
 
   programs.direnv = {
     enable = true;

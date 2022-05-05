@@ -12,6 +12,7 @@
       };
       core = {
         symlinks = "true";
+        editor = "${pkgs.neovim}/bin/nvim";
       };
       pull = {
         rebase = "false";
@@ -19,6 +20,13 @@
       fetch = {
         prune = "true";
       };
+      ghq = {
+        root = "~/src/ghq";
+      };
+    };
+
+    delta = {
+      enable = true;
     };
 
     # signing = {
