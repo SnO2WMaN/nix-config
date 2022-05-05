@@ -17,6 +17,7 @@ let
           nixpkgs-wayland.overlay
           nixgl.overlay
           (import ./overlays/vscode-extensions.nix)
+          (import ./overlays/node-packages.nix)
         ];
       };
     });
