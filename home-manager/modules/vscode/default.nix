@@ -116,11 +116,20 @@
       dprint = {
         path = "${pkgs.dprint}/bin/dprint";
       };
+      vscode-dhall-lsp-server = {
+        executable = "${pkgs.dhall-lsp-server}/bin/dhall-lsp-server";
+      };
       "[json]" = {
         editor.defaultFormatter = "vscode.json-language-features";
       };
       "[jsonc]" = {
         editor.defaultFormatter = "vscode.json-language-features";
+      };
+      "[nix]" = {
+        editor.defaultFormatter = "jnoortheen.nix-ide";
+      };
+      "[dhall]" = {
+        editor.defaultFormatter = "dhall.vscode-dhall-lsp-server";
       };
     };
   };
