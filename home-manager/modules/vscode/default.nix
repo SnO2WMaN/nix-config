@@ -66,7 +66,7 @@
         formatOnSave = true;
 
         fontFamily = "'Jetbrains Mono'";
-        fontLigatures = true;
+        fontLigatures = false;
         fontSize = 12;
         fontWeight = "normal";
 
