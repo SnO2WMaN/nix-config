@@ -72,6 +72,11 @@ in
       focus = {
         followMouse = false;
       };
+      seat = {
+        seat0 = {
+          x_cursor_theme = "Breeze 48";
+        };
+      };
       floating = {
         criteria = [
           { app_id = "pavucontrol"; }
