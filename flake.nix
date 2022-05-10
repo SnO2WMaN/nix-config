@@ -27,6 +27,9 @@
       url = "github:guibou/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    vscode-extensions = {
+      url = "path:./flakes/vscode-extensions";
+    };
   };
 
   outputs = { self, ... }@inputs: {

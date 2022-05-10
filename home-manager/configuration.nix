@@ -1,4 +1,4 @@
-{ home-manager, nixpkgs-wayland, nixgl, ... }@inputs:
+{ home-manager, nixpkgs-wayland, nixgl, vscode-extensions, ... }@inputs:
 let
   hmConfig =
     { extraConfigs ? [ ]
@@ -16,7 +16,7 @@ let
         nixpkgs.overlays = [
           nixpkgs-wayland.overlay
           nixgl.overlay
-          (import ./overlays/vscode-extensions.nix)
+          vscode-extensions.overlay
           (import ./overlays/node-packages.nix)
         ];
       };
