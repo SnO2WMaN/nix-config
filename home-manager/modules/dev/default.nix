@@ -40,6 +40,7 @@
     treefmt # unified formatter
     websocat
     wireguard-tools
+    nodejs
   ] ++ (
     with pkgs.nodePackages; [
       node2nix
@@ -48,9 +49,12 @@
       yarn
       pnpm
 
-      zenn-cli
-      vercel
-      md-to-pdf
+      # zenn-cli
+      # vercel
+      # md-to-pdf
+      # (vsce.overrideAttrs (old: {
+      #   buildInputs = old.buildInputs;
+      # }))
     ]
   );
 
