@@ -16,8 +16,11 @@
     package = pkgs.vscode;
     extensions = with pkgs.vscode-extensions; [
       # johnsoncodehk.volar  
+      # ms-toolsai.jupyter
+      # ms-toolsai.jupyter-renderers
+      # rust-lang.rust
       ahmadalli.vscode-nginx-conf
-      alefragnani.Bookmarks
+      alefragnani.bookmarks
       arcticicestudio.nord-visual-studio-code
       arrterian.nix-env-selector
       avli.clojure
@@ -28,38 +31,38 @@
       dhall.dhall-lang
       dhall.vscode-dhall-lsp-server
       dprint.dprint
-      EditorConfig.EditorConfig
+      editorconfig.editorconfig
       eg2.vscode-npm-script
       esbenp.prettier-vscode
       exiasr.hadolint
       file-icons.file-icons
       formulahendry.auto-close-tag
       formulahendry.auto-rename-tag
-      GitHub.vscode-pull-request-github
+      github.vscode-pull-request-github
       golang.go
-      GraphQL.vscode-graphql
+      graphql.vscode-graphql
       hashicorp.terraform
-      James-Yu.latex-workshop
+      haskell.haskell
+      james-yu.latex-workshop
+      jkillian.custom-local-formatters
       jnoortheen.nix-ide
       jroesch.lean
       leanprover.lean4
       ms-azuretools.vscode-docker
       ms-python.python
       ms-python.vscode-pylance
-      ms-toolsai.jupyter-keymap
-      ms-toolsai.jupyter-renderers
       ms-vscode-remote.remote-containers
       ms-vscode-remote.remote-ssh
       ms-vscode-remote.remote-ssh-edit
-      ms-vscode-remote.remote-ssh-edit
       nimsaem.nimvscode
-      Prisma.prisma
+      prisma.prisma
       redhat.vscode-xml
       redhat.vscode-yaml
       richie5um2.vscode-sort-json
       styled-components.vscode-styled-components
+      tamasfe.even-better-toml
       timonwong.shellcheck
-      VisualStudioExptTeam.vscodeintellicode
+      visualstudioexptteam.vscodeintellicode
     ];
     userSettings = {
       editor = {
