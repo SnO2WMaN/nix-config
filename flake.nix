@@ -29,7 +29,14 @@
     };
     vscode-extensions = {
       url = "path:./flakes/vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
     };
+    # plemoljp = {
+    #   url = "path:./flakes/plemoljp";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.flake-utils.follows = "flake-utils";
+    # };
   };
 
   outputs = { self, ... }@inputs: {
