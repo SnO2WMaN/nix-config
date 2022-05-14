@@ -16,7 +16,6 @@
     package = pkgs.vscode;
     extensions = with pkgs.vscode-extensions; [
       # johnsoncodehk.volar  
-      # ms-toolsai.jupyter
       # ms-toolsai.jupyter-renderers
       # rust-lang.rust
       ahmadalli.vscode-nginx-conf
@@ -26,6 +25,8 @@
       avli.clojure
       bradlc.vscode-tailwindcss
       christian-kohler.path-intellisense
+      dart-code.dart-code
+      dart-code.flutter
       dbaeumer.vscode-eslint
       denoland.vscode-deno
       dhall.dhall-lang
@@ -38,6 +39,7 @@
       file-icons.file-icons
       formulahendry.auto-close-tag
       formulahendry.auto-rename-tag
+      fwcd.kotlin
       github.vscode-pull-request-github
       golang.go
       graphql.vscode-graphql
@@ -51,6 +53,7 @@
       ms-azuretools.vscode-docker
       ms-python.python
       ms-python.vscode-pylance
+      ms-toolsai.jupyter
       ms-vscode-remote.remote-containers
       ms-vscode-remote.remote-ssh
       ms-vscode-remote.remote-ssh-edit
@@ -80,6 +83,9 @@
       };
       explorer = {
         confirmDragAndDrop = false;
+      };
+      debug = {
+        console.fontSize = 12;
       };
       workbench = {
         colorTheme = "Nord";
@@ -119,6 +125,9 @@
       dprint = {
         path = "${pkgs.dprint}/bin/dprint";
       };
+      dart = {
+        checkForSdkUpdates = false;
+      };
       vscode-dhall-lsp-server = {
         executable = "${pkgs.dhall-lsp-server}/bin/dhall-lsp-server";
       };
@@ -134,6 +143,14 @@
       "[dhall]" = {
         editor.defaultFormatter = "dhall.vscode-dhall-lsp-server";
       };
+      "[dart]" = {
+        editor.selectionHighlight = false;
+        editor.suggest.snippetsPreventQuickSuggestions = false;
+        editor.suggestSelection = "first";
+        editor.tabCompletion = "onlySnippets";
+        editor.wordBasedSuggestions = false;
+      };
     };
   };
 }
+
