@@ -14,6 +14,7 @@
     nixos-hardware.nixosModules.common-cpu-amd
     nixos-hardware.nixosModules.common-pc-ssd
 
+    ./modules/android
     ./modules/chrony
     ./modules/dm
     ./modules/docker
