@@ -15,8 +15,9 @@
     nixos-hardware.nixosModules.common-pc-ssd
 
     ./modules/chrony
-    ./modules/nix
+    ./modules/dm
     ./modules/networkmanager
+    ./modules/nix
     ./modules/opengl
     ./modules/sane
     ./modules/sound
