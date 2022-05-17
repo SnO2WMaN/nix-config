@@ -6,5 +6,6 @@
     ./kanshi.nix
     ./waybar.nix
     ./wofi.nix
+    ./wl-clipboard.nix
   ];
 }

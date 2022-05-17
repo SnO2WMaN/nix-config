@@ -17,7 +17,6 @@ in
   home.packages = with pkgs; [
     clipman
     wdisplays
-    wl-clipboard
     wf-recorder
     pavucontrol
     swayidle
@@ -109,8 +108,4 @@ in
   };
 
   xdg.configFile."swaylock/config".source = ./swaylock/config;
-
-  programs.zsh.shellAliases = {
-    copy = "${pkgs.wl-clipboard}/bin/wl-copy";
-  };
 }
