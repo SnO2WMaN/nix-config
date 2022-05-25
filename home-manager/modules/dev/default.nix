@@ -17,6 +17,7 @@
     act # GitHub Actions Runner 
     altair # GraphQL GUI 
     buf # Protobuf tool
+    gcc
     cachix
     direnv
     dive # docker image tool 
@@ -41,6 +42,18 @@
     websocat
     wireguard-tools
     nodejs
+    deno
+    unzip
+    kotlin
+    go
+    gotools
+    gopls
+    go-outline
+    gocode
+    gopkgs
+    gocode-gomod
+    godef
+    golint
   ] ++ (
     with pkgs.nodePackages; [
       node2nix
