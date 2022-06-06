@@ -80,6 +80,10 @@
 
         bracketPairColorization.enabled = true;
         minimap.enabled = false;
+
+        codeActionsOnSave = {
+          "source.fixAll.eslint" = true;
+        };
       };
       explorer = {
         confirmDragAndDrop = false;
@@ -108,10 +112,10 @@
         confirmSync = false;
       };
       javascript = {
-        updateImportsOnFileMove.enabled = true;
+        updateImportsOnFileMove.enabled = "always";
       };
       typescript = {
-        updateImportsOnFileMove.enabled = true;
+        updateImportsOnFileMove.enabled = "always";
       };
       redhat = {
         telemetry.enabled = false;
@@ -131,6 +135,9 @@
       vscode-dhall-lsp-server = {
         executable = "${pkgs.dhall-lsp-server}/bin/dhall-lsp-server";
       };
+      eslint = {
+        enable = true;
+      };
       "[json]" = {
         editor.defaultFormatter = "vscode.json-language-features";
       };
@@ -149,6 +156,9 @@
         editor.suggestSelection = "first";
         editor.tabCompletion = "onlySnippets";
         editor.wordBasedSuggestions = false;
+      };
+      "[prisma]" = {
+        editor.defaultFormatter = "Prisma.prisma";
       };
     };
   };

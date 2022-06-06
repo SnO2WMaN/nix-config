@@ -43,6 +43,18 @@
       sha256 = "04vardis9k6yzaha5hhhv16c3z6np48adih46xj88y83ipvg5z2l";
     }
     {
+      name = "dart-code";
+      publisher = "Dart-Code";
+      version = "3.40.0";
+      sha256 = "1cvibhazgz42zzwlk354sihrimw26qvgsq5nirvwx4v27gcirq81";
+    }
+    {
+      name = "flutter";
+      publisher = "Dart-Code";
+      version = "3.40.0";
+      sha256 = "0yxkqr6ajpdl06rxxad4c1zx5ci4sbaj2lk2xl9bws51imn58wry";
+    }
+    {
       name = "vscode-eslint";
       publisher = "dbaeumer";
       version = "2.2.3";
@@ -115,10 +127,16 @@
       sha256 = "0nyilwfs2kbf8v3v9njx1s7ppdp1472yhimiaja0c3v7piwrcymr";
     }
     {
+      name = "kotlin";
+      publisher = "fwcd";
+      version = "0.2.26";
+      sha256 = "1br0vr4v1xcl4c7bcqwzfqd4xr6q2ajwkipqrwm928mj96dkafkn";
+    }
+    {
       name = "vscode-pull-request-github";
       publisher = "GitHub";
-      version = "0.43.2022050913";
-      sha256 = "1y9axli24csy1rm1d1wmrmircvhvm4bvs713gcs8gkr5kj5bxad0";
+      version = "0.43.2022051220";
+      sha256 = "1mvxyajnlg8jvahszm8z0swdr5k2npdxlidcch8bh83d4gc81a19";
     }
     {
       name = "go";
@@ -139,10 +157,22 @@
       sha256 = "1mjw7aab7xk8hzy7s3iswmmdgnaknmpwp53ib8khwcb35cy8ism2";
     }
     {
+      name = "haskell";
+      publisher = "haskell";
+      version = "2.2.0";
+      sha256 = "0qgp93m5d5kz7bxlnvlshcd8ms5ag48nk5hb37x02giqcavg4qv0";
+    }
+    {
       name = "latex-workshop";
       publisher = "James-Yu";
       version = "8.26.0";
       sha256 = "1isgrxr71ylqzhg133mknkr57pf2jgx25lx17qsn5304ccs1n8b4";
+    }
+    {
+      name = "custom-local-formatters";
+      publisher = "jkillian";
+      version = "0.0.6";
+      sha256 = "1xvz4kxws7d7snd6diidrsmz0c5mm9iz8ihiw1vg65r2x8xf900m";
     }
     {
       name = "nix-ide";
@@ -171,26 +201,14 @@
     {
       name = "python";
       publisher = "ms-python";
-      version = "2022.7.11291008";
-      sha256 = "1h9xc69jmw1dkjvqhxgvxnm7rnfnq1ap6kvv1x72bcsm9b9n1wjp";
+      version = "2022.7.11332232";
+      sha256 = "12qdg3r071jn6rafsn708nbk73h3h8q9bvg5p6qjhnvl746aj7vc";
     }
     {
       name = "vscode-pylance";
       publisher = "ms-python";
-      version = "2022.4.3";
-      sha256 = "0ykn0wy8qasafdl9dkwg5nhsq2w7i73f2iy1gy3gyav84r945d42";
-    }
-    {
-      name = "jupyter-keymap";
-      publisher = "ms-toolsai";
-      version = "1.0.0";
-      sha256 = "0wkwllghadil9hk6zamh9brhgn539yhz6dlr97bzf9szyd36dzv8";
-    }
-    {
-      name = "jupyter-renderers";
-      publisher = "ms-toolsai";
-      version = "1.0.6";
-      sha256 = "0sb3ngpl4skylbmz7zbj7s79xala29wrgn1c3m4agp00ixz451fq";
+      version = "2022.5.1";
+      sha256 = "0f6591q95a2fgm0rd9mlk0akhk85wr6fkzarlbdfl0r1wvns91d6";
     }
     {
       name = "remote-containers";
@@ -201,8 +219,8 @@
     {
       name = "remote-ssh";
       publisher = "ms-vscode-remote";
-      version = "0.79.2022040715";
-      sha256 = "041x9q2nb86p5npf5gjmg102phvm4s4nxmirfz7nfa2qlbn2rl74";
+      version = "0.81.2022051115";
+      sha256 = "1g1hhm837942ywp2zxdfdf7gp42yycp4cclv609bf8c4vz2lg3dm";
     }
     {
       name = "remote-ssh-edit";
@@ -219,8 +237,8 @@
     {
       name = "prisma";
       publisher = "Prisma";
-      version = "3.13.0";
-      sha256 = "0wjikwxawgvh4d2nwq8f1q2xm3bm4l90s2qdfdfymb9c75slmr0z";
+      version = "3.14.0";
+      sha256 = "09dlm2awd2h0xmx1vcx95kdvz3xf4f5pd7zcdg3mb0g2az4nfld7";
     }
     {
       name = "vscode-xml";
@@ -247,6 +265,12 @@
       sha256 = "0qx1mvvw0bqa0psm35yxv9lvzw40bp8syjx4sp13502hg63r4h7n";
     }
     {
+      name = "even-better-toml";
+      publisher = "tamasfe";
+      version = "0.14.2";
+      sha256 = "17djwa2bnjfga21nvyz8wwmgnjllr4a7nvrsqvzm02hzlpwaskcl";
+    }
+    {
       name = "shellcheck";
       publisher = "timonwong";
       version = "0.19.2";
@@ -255,8 +279,8 @@
     {
       name = "vscodeintellicode";
       publisher = "VisualStudioExptTeam";
-      version = "1.2.20";
-      sha256 = "0h5wsplz90skan54hwl47m6g65awxprgcmsd5jrasd0aha0akwb1";
+      version = "1.2.21";
+      sha256 = "17sk2zwl2qmcvyajvgvzx22hzxrv0bal5qs7jwih573f3q124dnv";
     }
   ];
 }
