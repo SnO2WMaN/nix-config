@@ -4,5 +4,7 @@
     ./firefox
     ./fonts.nix
     ./vscode
+    ./gtk.nix
+    ./fcitx
   ];
 }
