@@ -4,6 +4,10 @@
     ./bat.nix
     ./bottom.nix
     ./clean-emptydir.nix
+    ./home-manager.nix
+    ./binutils.nix
+    ./fzf.nix
+    ./httpie.nix
     ./delta.nix
     ./direnv.nix
     ./du-dust.nix
