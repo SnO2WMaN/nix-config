@@ -42,7 +42,7 @@ in
       '';
     config = {
       modifier = "Mod4";
-      terminal = "${pkgs.alacritty}/bin/alacritty";
+      terminal = "${pkgs.kitty}/bin/kitty";
       menu = "${pkgs.psmisc}/bin/killall -q -e ${pkgs.wofi}/bin/wofi || ${pkgs.wofi}/bin/wofi --show drun";
       startup = [
         { command = "${pkgs.fcitx5}/bin/fcitx5 -rd"; always = true; }
