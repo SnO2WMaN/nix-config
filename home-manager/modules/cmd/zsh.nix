@@ -6,6 +6,12 @@ in
 {
   imports = [
     ./bat.nix
+    ./du-dust.nix
+    ./hyperfine.nix
+    ./lsd.nix
+    ./neovim.nix
+    ./procs.nix
+    ./zellij.nix
   ];
 
   home.packages = with pkgs;
