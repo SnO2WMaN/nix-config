@@ -3,15 +3,13 @@
 
   inputs = {
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-unstable";
+      url = "github:NixOS/nixpkgs/nixos-22.05";
     };
     nixpkgs-wayland = {
       url = "github:nix-community/nixpkgs-wayland";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware";
@@ -25,7 +23,6 @@
     };
     nixgl = {
       url = "github:guibou/nixGL";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     vscode-extensions = {
       url = "path:./flakes/vscode-extensions";
