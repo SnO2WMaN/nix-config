@@ -104,7 +104,10 @@ in
       bindkey '^[[8~' end-of-line # End
       bindkey '^[[H' beginning-of-line
       bindkey '^[[F' end-of-line
-      bindkey '^[[Z' undo # Shift+Tab 
+      bindkey '^[[Z' undo # Shift+Tab
+
+      EMULATOR=$(cat /proc/$PPID/comm)
+      [[ $EMULATOR != "code" && $EMULATOR != "zellij" ]] && ${pkgs.zellij}/bin/zellij
     '';
   };
 }
