@@ -54,6 +54,7 @@
     gocode-gomod
     godef
     golint
+    mongodb-compass
   ] ++ (
     with pkgs.nodePackages; [
       node2nix
