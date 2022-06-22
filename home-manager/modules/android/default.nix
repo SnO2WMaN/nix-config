@@ -3,9 +3,8 @@
   home.packages = with pkgs; [
     android-tools
     android-studio
-    nubank.dart
-    nubank.flutter
-    nubank.flutter-patch
+    dart
+    flutter
   ];
   home.sessionVariables = {
     ANDROID_SDK_ROOT = "${builtins.getEnv "HOME"}/Android/Sdk";
