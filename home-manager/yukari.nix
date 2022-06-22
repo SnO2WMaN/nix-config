@@ -40,5 +40,6 @@
 
   home.packages = with pkgs; [
     steam
+    w3m
   ];
 }
