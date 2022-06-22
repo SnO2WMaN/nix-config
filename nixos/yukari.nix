@@ -24,7 +24,7 @@
     ./modules/sane
     ./modules/sound
     ./modules/ssh
-    ./modules/virtualbox
+    # ./modules/virtualbox
   ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -65,6 +65,7 @@
     wget
     corectrl
     seatd
+    ly
   ];
 
   nixpkgs = {
@@ -96,5 +97,24 @@
       "video"
     ];
   };
+
+  fonts = {
+    fonts = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      jetbrains-mono
+      ipaexfont
+    ];
+    fontconfig = {
+      defaultFonts = {
+        serif = [ "IPAexMincho" "JetBrains Mono" ]; # [ "Noto Serif CJK JP" "Noto Serif" ];
+        sansSerif = [ "IPAexGothic" "JetBrains Mono" ]; # [ "Noto Sans CJK JP" "Noto Sans" ];
+        monospace = [ "JetBrains Mono" ];
+      };
+    };
+  };
+
+  virtualisation.anbox = { enable = true; };
   programs.sway = { enable = true; };
 }
