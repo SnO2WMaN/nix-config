@@ -25,8 +25,8 @@
       avli.clojure
       bradlc.vscode-tailwindcss
       christian-kohler.path-intellisense
-      dart-code.dart-code
-      dart-code.flutter
+      # dart-code.dart-code
+      # dart-code.flutter
       dbaeumer.vscode-eslint
       denoland.vscode-deno
       dhall.dhall-lang
@@ -39,7 +39,7 @@
       file-icons.file-icons
       formulahendry.auto-close-tag
       formulahendry.auto-rename-tag
-      fwcd.kotlin
+      # fwcd.kotlin
       github.vscode-pull-request-github
       golang.go
       graphql.vscode-graphql
@@ -53,7 +53,7 @@
       ms-azuretools.vscode-docker
       ms-python.python
       ms-python.vscode-pylance
-      ms-toolsai.jupyter
+      # ms-toolsai.jupyter
       ms-vscode-remote.remote-containers
       ms-vscode-remote.remote-ssh
       ms-vscode-remote.remote-ssh-edit
@@ -96,6 +96,7 @@
         iconTheme = "file-icons";
 
         sideBar.location = "right";
+        startupEditor = "none";
 
         tree.indent = 12;
       };
