@@ -19,6 +19,7 @@
     };
 
     binaryCaches = [
+      "https://sno2wman.cachix.org"
       "https://cache.nixos.org"
       "https://cache.dhall-lang.org"
       "https://dhall.cachix.org"
@@ -26,6 +27,7 @@
     binaryCachePublicKeys = [
       "cache.dhall-lang.org:I9/H18WHd60olG5GsIjolp7CtepSgJmM2CsO813VTmM="
       "dhall.cachix.org-1:8laGciue2JBwD49ICFtg+cIF8ddDaW7OFBjDb/dHEAo="
+      sno2wman.cachix.org-1:JHDNKuz+q1xthbonwirDQzMZtwPrDnwCq3wUX3kmBVU=
     ];
   };
 }
