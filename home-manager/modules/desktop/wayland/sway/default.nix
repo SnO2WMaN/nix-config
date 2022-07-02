@@ -5,8 +5,8 @@
 }: {
   imports = [
     ./sway.nix
-    ./mako/mako.nix
+    ./mako
     ./kanshi.nix
-    ./swaylock/swaylock.nix
+    ./swaylock
   ];
 }
