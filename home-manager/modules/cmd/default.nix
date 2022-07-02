@@ -13,6 +13,7 @@
     ./du-dust.nix
     ./fd.nix
     ./gh.nix
+    ./node.nix
     ./ghq.nix
     ./git.nix
     ./hexyl.nix
