@@ -37,10 +37,32 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     #   inputs.flake-utils.follows = "flake-utils";
     # };
+    devshell.url = "github:numtide/devshell";
+    flake-compat = {
+      url = "github:edolstra/flake-compat";
+      flake = false;
+    };
   };
 
-  outputs = { self, ... }@inputs: {
+  outputs = { self, nixpkgs, devshell, flake-utils, ... }@inputs: {
     nixosConfigurations = import ./nixos/configuration.nix (inputs);
     homeConfigurations = import ./home-manager/configuration.nix (inputs);
+  } // flake-utils.lib.eachDefaultSystem (
+    system:
+    let
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [
+          devshell.overlay
+        ];
   };
+    in
+    {
+      devShells.default = pkgs.devshell.mkShell {
+        imports = [
+          (pkgs.devshell.importTOML ./devshell.toml)
+        ];
+      };
+    }
+  );
 }

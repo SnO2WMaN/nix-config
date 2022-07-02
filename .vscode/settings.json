@@ -1,0 +1,6 @@
+{
+	"nixEnvSelector.nixFile": "${workspaceRoot}/shell.nix",
+	"[json]": {
+		"editor.defaultFormatter": "vscode.json-language-features"
+	}
+}
