@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   nixpkgs.config = {
     allowUnfree = true;
   };
@@ -36,10 +40,11 @@
   ];
 
   services.spotifyd.settings.global.device_name = "yukari";
-  nixpkgs.config.allowUnfreePredicate = (pkg: true);
+  nixpkgs.config.allowUnfreePredicate = pkg: true;
 
   home.packages = with pkgs; [
     steam
     w3m
+    slurp
   ];
 }

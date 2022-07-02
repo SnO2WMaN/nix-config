@@ -1,14 +1,14 @@
-{ config
-, lib
-, pkgs
-, inputs
-, modulesPath
-, nixpkgs
-, nixos-hardware
-, flake-registry
-, ...
-}:
 {
+  config,
+  lib,
+  pkgs,
+  inputs,
+  modulesPath,
+  nixpkgs,
+  nixos-hardware,
+  flake-registry,
+  ...
+}: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     nixos-hardware.nixosModules.common-cpu-amd
@@ -18,7 +18,7 @@
     ./modules/chrony
     ./modules/dm
     ./modules/docker
-    ./modules/networkmanager
+    # ./modules/networkmanager
     ./modules/nix
     ./modules/opengl
     ./modules/sane
@@ -29,18 +29,18 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usbhid" "usb_storage" "sd_mod" "amdgpu" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "usbhid" "usb_storage" "sd_mod" "amdgpu"];
+  boot.initrd.kernelModules = [];
 
-  boot.kernelParams = [ "amdgpu.freesync_video=1" "amd_iommu=on" "pcie_aspm=off" ];
+  boot.kernelParams = ["amdgpu.freesync_video=1" "amd_iommu=on" "pcie_aspm=off"];
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = ["kvm-amd"];
 
-  boot.extraModulePackages = [ ];
+  boot.extraModulePackages = [];
 
   powerManagement.cpuFreqGovernor = "performance";
 
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  boot.binfmt.emulatedSystems = ["aarch64-linux"];
 
   fileSystems."/" = {
     fsType = "ext4";
@@ -53,7 +53,7 @@
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-label/swap"; }
+    {device = "/dev/disk/by-label/swap";}
   ];
 
   # Additional packages
@@ -66,13 +66,14 @@
     corectrl
     seatd
     ly
+    openssl
   ];
 
   nixpkgs = {
     config.allowUnfree = true;
   };
 
-  # Network  
+  # Network
   networking = {
     hostName = "yukari";
 
@@ -81,9 +82,9 @@
   };
 
   # TODO: GTK?
-  programs.dconf = { enable = true; };
+  programs.dconf = {enable = true;};
   services.dbus = {
-    packages = with pkgs; [ dconf ];
+    packages = with pkgs; [dconf];
   };
 
   users.users.sno2wman = {
@@ -108,13 +109,13 @@
     ];
     fontconfig = {
       defaultFonts = {
-        serif = [ "IPAexMincho" "JetBrains Mono" ]; # [ "Noto Serif CJK JP" "Noto Serif" ];
-        sansSerif = [ "IPAexGothic" "JetBrains Mono" ]; # [ "Noto Sans CJK JP" "Noto Sans" ];
-        monospace = [ "JetBrains Mono" ];
+        serif = ["IPAexMincho" "JetBrains Mono"]; # [ "Noto Serif CJK JP" "Noto Serif" ];
+        sansSerif = ["IPAexGothic" "JetBrains Mono"]; # [ "Noto Sans CJK JP" "Noto Sans" ];
+        monospace = ["JetBrains Mono"];
       };
     };
   };
 
-  virtualisation.anbox = { enable = true; };
-  programs.sway = { enable = true; };
+  virtualisation.anbox = {enable = true;};
+  programs.sway = {enable = true;};
 }

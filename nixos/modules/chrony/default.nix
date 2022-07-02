@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   time.timeZone = "Asia/Tokyo";
   networking.timeServers = [
     "0.jp.pool.ntp.org"

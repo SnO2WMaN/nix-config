@@ -27,11 +27,11 @@
       url = "github:guibou/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    vscode-extensions = {
-      url = "path:./flakes/vscode-extensions";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-    };
+    # vscode-extensions = {
+    #   url = "path:./flakes/vscode-extensions";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.flake-utils.follows = "flake-utils";
+    # };
     # plemoljp = {
     #   url = "path:./flakes/plemoljp";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -44,25 +44,31 @@
     };
   };
 
-  outputs = { self, nixpkgs, devshell, flake-utils, ... }@inputs: {
-    nixosConfigurations = import ./nixos/configuration.nix (inputs);
-    homeConfigurations = import ./home-manager/configuration.nix (inputs);
-  } // flake-utils.lib.eachDefaultSystem (
-    system:
-    let
-      pkgs = import nixpkgs {
-        inherit system;
-        overlays = [
-          devshell.overlay
-        ];
-  };
-    in
+  outputs = {
+    self,
+    nixpkgs,
+    devshell,
+    flake-utils,
+    ...
+  } @ inputs:
     {
-      devShells.default = pkgs.devshell.mkShell {
-        imports = [
-          (pkgs.devshell.importTOML ./devshell.toml)
-        ];
-      };
+      nixosConfigurations = import ./nixos/configuration.nix inputs;
+      homeConfigurations = import ./home-manager/configuration.nix inputs;
     }
-  );
+    // flake-utils.lib.eachDefaultSystem (
+      system: let
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [
+            devshell.overlay
+          ];
+        };
+      in {
+        devShells.default = pkgs.devshell.mkShell {
+          imports = [
+            (pkgs.devshell.importTOML ./devshell.toml)
+          ];
+        };
+      }
+    );
 }

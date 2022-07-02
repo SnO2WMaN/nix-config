@@ -1,9 +1,13 @@
-{ config, lib, pkgs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   virtualisation.virtualbox.host = {
     enable = true;
     enableExtensionPack = true;
   };
 
-  users.extraGroups.vboxusers.members = [ "sno2wman" ];
+  users.extraGroups.vboxusers.members = ["sno2wman"];
 }

@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
@@ -8,7 +11,7 @@
 
   xdg.mimeApps = {
     defaultApplications = {
-      "x-scheme-handler/gitkraken" = [ "GitKraken.desktop" ];
+      "x-scheme-handler/gitkraken" = ["GitKraken.desktop"];
     };
   };
 }

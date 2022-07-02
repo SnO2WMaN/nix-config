@@ -1,11 +1,15 @@
-{ config, pkgs, ... }: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   nixpkgs.config = {
     allowUnfree = true;
   };
   imports = [
     ./modules/1password
     ./modules/alacritty
-    # ./modules/android 
+    # ./modules/android
     ./modules/discord
     ./modules/fcitx
     ./modules/firefox
