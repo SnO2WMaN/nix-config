@@ -1,12 +1,11 @@
-{ config
-, pkgs
-, ...
-}:
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   listgroups = pkgs.writeShellScriptBin "listgroups" "cat /etc/group | cut -d: -f1";
   listpath = pkgs.writeShellScriptBin "listpath" "echo $PATH | sed -e \"s/:/\\n/g\"";
-in
-{
+in {
   imports = [
     ./bat.nix
     ./du-dust.nix
@@ -17,11 +16,10 @@ in
     ./zellij.nix
   ];
 
-  home.packages = with pkgs;
-    [
-      listgroups
-      listpath
-    ];
+  home.packages = with pkgs; [
+    listgroups
+    listpath
+  ];
 
   programs.zsh = {
     enable = true;
@@ -72,10 +70,10 @@ in
     zplug = {
       enable = true;
       plugins = [
-        { name = "zsh-users/zsh-completions"; }
-        { name = "zsh-users/zsh-autosuggestions"; }
-        { name = "zsh-users/zsh-history-substring-search"; }
-        { name = "zdharma-continuum/fast-syntax-highlighting"; }
+        {name = "zsh-users/zsh-completions";}
+        {name = "zsh-users/zsh-autosuggestions";}
+        {name = "zsh-users/zsh-history-substring-search";}
+        {name = "zdharma-continuum/fast-syntax-highlighting";}
       ];
     };
 
@@ -87,33 +85,30 @@ in
     };
 
     initExtra = ''
-            bindkey '^[[A' history-substring-search-up # Up
-            bindkey '^[[B' history-substring-search-down # Down
-            bindkey '^[[D' backward-char # Left
-            bindkey '^[[C' forward-char # Right
+      bindkey '^[[A' history-substring-search-up # Up
+      bindkey '^[[B' history-substring-search-down # Down
+      bindkey '^[[D' backward-char # Left
+      bindkey '^[[C' forward-char # Right
 
-            bindkey '^[[1;2D' backward-word
-            bindkey '^[[1;2C' forward-word
+      bindkey '^[[1;2D' backward-word
+      bindkey '^[[1;2C' forward-word
 
-            bindkey '^[Od' backward-word # Ctrl+Left
-            bindkey '^[Oc' forward-word # Ctrl+Right
-            bindkey '^H' backward-kill-word # Ctrl+Backspace
+      bindkey '^[Od' backward-word # Ctrl+Left
+      bindkey '^[Oc' forward-word # Ctrl+Right
+      bindkey '^H' backward-kill-word # Ctrl+Backspace
 
-            bindkey '^[[2~' overwrite-mode # Insert
-            bindkey '^[[3~' delete-char # Delete
-            bindkey '^[[5~' history-beginning-search-backward # PgUp
-            bindkey '^[[6~' history-beginning-search-forward # PgDn
-            bindkey '^[[7~' beginning-of-line # Home
-            bindkey '^[[8~' end-of-line # End
-            bindkey '^[[H' beginning-of-line
-            bindkey '^[[F' end-of-line
-            bindkey '^[[Z' undo # Shift+Tab
-      <<<<<<< HEAD:home-manager/modules/zsh/zsh.nix
-      =======
+      bindkey '^[[2~' overwrite-mode # Insert
+      bindkey '^[[3~' delete-char # Delete
+      bindkey '^[[5~' history-beginning-search-backward # PgUp
+      bindkey '^[[6~' history-beginning-search-forward # PgDn
+      bindkey '^[[7~' beginning-of-line # Home
+      bindkey '^[[8~' end-of-line # End
+      bindkey '^[[H' beginning-of-line
+      bindkey '^[[F' end-of-line
+      bindkey '^[[Z' undo # Shift+Tab
 
-            EMULATOR=$(cat /proc/$PPID/comm)
-            [[ $EMULATOR != "code" && $EMULATOR != "zellij" ]] && ${pkgs.zellij}/bin/zellij
-      >>>>>>> marisa:home-manager/modules/cmd/zsh.nix
+      # EMULATOR=$(cat /proc/$PPID/comm)
+      # [[ $EMULATOR != "code" && $EMULATOR != "zellij" ]] && ${pkgs.zellij}/bin/zellij
     '';
   };
 }
