@@ -4,8 +4,7 @@
   ...
 }: {
   home.packages = with pkgs; [
-    nodejs
-    nodePackages.npm
+    nodejs-18_x
     nodePackages.yarn
     nodePackages.pnpm
   ];
