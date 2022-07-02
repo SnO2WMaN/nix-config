@@ -1,5 +1,16 @@
 {
 	"nixEnvSelector.nixFile": "${workspaceRoot}/shell.nix",
+	"customLocalFormatters.formatters": [
+		{
+			"command": "treefmt -q --stdin ${file}",
+			"languages": [
+				"nix",
+			]
+		}
+	],
+	"[nix]": {
+		"editor.defaultFormatter": "jkillian.custom-local-formatters"
+	},
 	"[json]": {
 		"editor.defaultFormatter": "vscode.json-language-features"
 	}
