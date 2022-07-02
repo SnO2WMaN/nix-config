@@ -107,6 +107,9 @@
         fontFamily = "'Jetbrains Mono'";
         fontSize = 10;
         rightClickBehavior = "paste";
+        commandsToSkipShell = [
+          "language-julia.interrupt"
+        ];
       };
       files.associations = {
         ".renovaterc" = "jsonc";
@@ -141,6 +144,10 @@
       };
       eslint = {
         enable = true;
+      };
+      julia = {
+        enableTelemetry = false;
+        symbolCacheDownload = true;
       };
       "[json]" = {
         editor.defaultFormatter = "vscode.json-language-features";
