@@ -5,10 +5,8 @@
 }: {
   imports = [
     ./sway.nix
-    ./mako.nix
+    ./mako/mako.nix
     ./kanshi.nix
-    ./waybar.nix
-    ./wofi.nix
-    ./wl-clipboard.nix
+    ./swaylock/swaylock.nix
   ];
 }

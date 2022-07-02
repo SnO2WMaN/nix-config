@@ -26,7 +26,7 @@ in {
     swayidle
     # swaylock-effects
     wf-recorder
-    wev
+    # wev
 
     wofi_ghq
   ];

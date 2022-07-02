@@ -8,5 +8,5 @@
     swaylock-effects
   ];
 
-  xdg.configFile."swaylock/config".source = ./swaylock/config;
+  xdg.configFile."swaylock/config".source = ./config;
 }

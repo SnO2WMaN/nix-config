@@ -6,5 +6,5 @@
 }: {
   home.packages = with pkgs; [mako];
 
-  xdg.configFile."mako/config".source = ./mako/config;
+  xdg.configFile."mako/config".source = ./config;
 }
