@@ -1,11 +1,14 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   programs.firefox = {
     enable = true;
     # package = pkgs.firefox-wayland;
     profiles.default = {
-      userChrome = (builtins.readFile ./userChrome.css);
-      extraConfig = (builtins.readFile ./config.js);
+      userChrome = builtins.readFile ./userChrome.css;
+      extraConfig = builtins.readFile ./config.js;
     };
   };
   home.sessionVariables = {
@@ -16,9 +19,9 @@
 
   xdg.mimeApps = {
     defaultApplications = {
-      "x-scheme-handler/ftp" = [ "firefox.desktop" ];
-      "x-scheme-handler/http" = [ "firefox.desktop" ];
-      "x-scheme-handler/https" = [ "firefox.desktop" ];
+      "x-scheme-handler/ftp" = ["firefox.desktop"];
+      "x-scheme-handler/http" = ["firefox.desktop"];
+      "x-scheme-handler/https" = ["firefox.desktop"];
     };
   };
 }

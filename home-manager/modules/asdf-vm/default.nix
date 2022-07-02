@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   home.sessionPath = [
     "$HOME/.asdf/shims"
   ];

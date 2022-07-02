@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   i18n.inputMethod = {
     enabled = "fcitx5";
     fcitx5.addons = with pkgs; [
@@ -11,5 +14,4 @@
   };
 
   xdg.configFile."fcitx5/conf/classicui.conf".source = ./fcitx5/classicui.conf;
-
 }

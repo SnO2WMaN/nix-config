@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   nixpkgs.config = {
     allowUnfree = true;
   };
@@ -8,6 +12,7 @@
     ./modules/android
     ./modules/asdf-vm
     ./modules/discord
+    ./modules/chrome
     ./modules/dev
     ./modules/fcitx
     ./modules/firefox
@@ -35,4 +40,11 @@
   ];
 
   services.spotifyd.settings.global.device_name = "yukari";
+  nixpkgs.config.allowUnfreePredicate = pkg: true;
+
+  home.packages = with pkgs; [
+    steam
+    w3m
+    slurp
+  ];
 }

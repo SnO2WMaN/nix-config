@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   gtk = {
     enable = true;
     theme = {
@@ -14,6 +17,10 @@
       name = "Quintom-Ink";
       package = pkgs.quintom-cursor-theme;
       size = 24;
+    };
+    font = {
+      package = pkgs.noto-fonts-cjk;
+      name = "Noto Sans CJK JP";
     };
     gtk3 = {
       extraConfig = {

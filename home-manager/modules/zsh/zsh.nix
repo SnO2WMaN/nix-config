@@ -1,10 +1,22 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: let
+  listgroups = pkgs.writeShellScriptBin "listgroups" "cat /etc/group | cut -d: -f1";
+  listpath = pkgs.writeShellScriptBin "listpath" "echo $PATH | sed -e \"s/:/\\n/g\"";
+in {
+  home.packages = with pkgs; [
+    listgroups
+    listpath
+  ];
+
   programs.zsh = {
     enable = true;
 
     enableAutosuggestions = true;
     enableSyntaxHighlighting = true;
+    autocd = false;
 
     shellAliases = {
       # Shortener / Replacement
@@ -40,15 +52,18 @@
       z = "${pkgs.zoxide}/bin/zoxide";
       ze = "${pkgs.zellij}/bin/zellij";
       vim = "${pkgs.neovim}/bin/nvim";
+
+      lsgroups = "${listgroups}/bin/listgroups";
+      lspath = "${listpath}/bin/listpath";
     };
 
     zplug = {
       enable = true;
       plugins = [
-        { name = "zsh-users/zsh-completions"; }
-        { name = "zsh-users/zsh-autosuggestions"; }
-        { name = "zsh-users/zsh-history-substring-search"; }
-        { name = "zdharma-continuum/fast-syntax-highlighting"; }
+        {name = "zsh-users/zsh-completions";}
+        {name = "zsh-users/zsh-autosuggestions";}
+        {name = "zsh-users/zsh-history-substring-search";}
+        {name = "zdharma-continuum/fast-syntax-highlighting";}
       ];
     };
 
@@ -80,7 +95,7 @@
       bindkey '^[[8~' end-of-line # End
       bindkey '^[[H' beginning-of-line
       bindkey '^[[F' end-of-line
-      bindkey '^[[Z' undo # Shift+Tab 
+      bindkey '^[[Z' undo # Shift+Tab
     '';
   };
 }
