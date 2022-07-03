@@ -130,7 +130,9 @@
     },
     "home-manager": {
       "inputs": {
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
         "utils": "utils"
       },
       "locked": {
@@ -237,14 +239,16 @@
         "cachix": "cachix",
         "flake-compat": "flake-compat_2",
         "lib-aggregate": "lib-aggregate",
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
-        "lastModified": 1656307672,
-        "narHash": "sha256-N71wTWeElxJDdrFxwuVSva/iPH6/GPWeJ3MTeODvliM=",
+        "lastModified": 1656766524,
+        "narHash": "sha256-PHScYv9/IxaYeZgqZlXQaeh/tEhe3hiiO6rMWA1+qSQ=",
         "owner": "nix-community",
         "repo": "nixpkgs-wayland",
-        "rev": "e5d1c531de5cd678ca257b59d11d1a070f5bbc4a",
+        "rev": "1446abe5e85b4fb2b19491b3f1617c2e53be5d3b",
         "type": "github"
       },
       "original": {
@@ -254,22 +258,6 @@
       }
     },
     "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1654230545,
-        "narHash": "sha256-8Vlwf0x8ow6pPOK2a04bT+pxIeRnM1+O0Xv9/CuDzRs=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "236cc2971ac72acd90f0ae3a797f9f83098b17ec",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_3": {
       "locked": {
         "lastModified": 1656461576,
         "narHash": "sha256-rlmmw6lIlkMQIiB+NsnO8wQYWTfle8TA41UREPLP5VY=",
@@ -285,22 +273,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
-      "locked": {
-        "lastModified": 1656239181,
-        "narHash": "sha256-wW1xRFBn376yGloXZ4QzBE4hjipMawpV18Lshd9QSPw=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "f2537a505d45c31fe5d9c27ea9829b6f4c4e6ac5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "devshell": "devshell",
@@ -310,7 +282,7 @@
         "home-manager": "home-manager",
         "nixgl": "nixgl",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_2",
         "nixpkgs-wayland": "nixpkgs-wayland"
       }
     },

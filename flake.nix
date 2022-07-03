@@ -7,9 +7,11 @@
     };
     nixpkgs-wayland = {
       url = "github:nix-community/nixpkgs-wayland";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware";
@@ -42,28 +44,26 @@
     };
   };
 
-  outputs =
-    { self
-    , nixpkgs
-    , devshell
-    , flake-utils
-    , ...
-    } @ inputs:
+  outputs = {
+    self,
+    nixpkgs,
+    devshell,
+    flake-utils,
+    ...
+  } @ inputs:
     {
       nixosConfigurations = import ./nixos/configuration.nix inputs;
       homeConfigurations = import ./home-manager/configuration.nix inputs;
     }
     // flake-utils.lib.eachDefaultSystem (
-      system:
-      let
+      system: let
         pkgs = import nixpkgs {
           inherit system;
           overlays = [
             devshell.overlay
           ];
         };
-      in
-      {
+      in {
         devShells.default = pkgs.devshell.mkShell {
           imports = [
             (pkgs.devshell.importTOML ./devshell.toml)
