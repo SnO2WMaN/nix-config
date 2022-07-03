@@ -133,6 +133,9 @@
       nix = {
         formatterPath = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
       };
+      diffEditor = {
+        ignoreTrimWhitespace = false;
+      };
       dprint = {
         path = "${pkgs.dprint}/bin/dprint";
       };
