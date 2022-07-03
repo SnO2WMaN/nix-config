@@ -67,6 +67,7 @@
     seatd
     ly
     openssl
+    sudo
   ];
 
   nixpkgs = {
