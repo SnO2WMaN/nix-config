@@ -1,0 +1,6 @@
+[devshell]
+packages = ["alejandra"]
+
+[[commands]]
+package = "treefmt"
+category = "formatter"

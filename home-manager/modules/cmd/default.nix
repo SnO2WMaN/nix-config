@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./bat.nix
     ./bottom.nix
@@ -29,5 +32,9 @@
     ./yq.nix
     ./zellij.nix
     ./zsh.nix
+  ];
+  home.packages = with pkgs; [
+    sudo
+    unzip
   ];
 }

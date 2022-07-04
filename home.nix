@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   home.homeDirectory = builtins.getEnv "HOME";
   home.username = builtins.getEnv "USER";
   home.stateVersion = "22.05";
@@ -7,5 +10,5 @@
 
   programs.home-manager. enable = true;
 
-  home.packages = with pkgs; [ git ];
+  home.packages = with pkgs; [git];
 }

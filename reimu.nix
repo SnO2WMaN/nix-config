@@ -1,5 +1,9 @@
-{ config, pkgs, lib, ... }:
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   home.homeDirectory = builtins.getEnv "HOME";
   home.username = builtins.getEnv "USER";
 
@@ -7,8 +11,10 @@
 
   nixpkgs.overlays = [
     (
-      let rev = "688e5927e149f07c4f909c51716093aff9f21759"; in
-      import "${builtins.fetchTarball "https://github.com/nix-community/nixpkgs-wayland/archive/${rev}.tar.gz" }/overlay.nix"
+      let
+        rev = "688e5927e149f07c4f909c51716093aff9f21759";
+      in
+        import "${builtins.fetchTarball "https://github.com/nix-community/nixpkgs-wayland/archive/${rev}.tar.gz"}/overlay.nix"
     )
   ];
 
@@ -54,11 +60,11 @@
 
     pavucontrol
 
-    act # GitHub Actions Runner 
-    dive # docker image tool 
+    act # GitHub Actions Runner
+    dive # docker image tool
     buf # Protobuf tool
-    grpcurl # curl for gRPC 
-    altair # GraphQL GUI 
+    grpcurl # curl for gRPC
+    altair # GraphQL GUI
     hadolint # linter for Dockerfile
     treefmt
     rustup

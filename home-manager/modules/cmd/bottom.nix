@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
-{ 
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.bottom = {
     enable = true;
     settings = {

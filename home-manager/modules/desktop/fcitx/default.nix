@@ -1,5 +1,7 @@
-{ config, pkgs, ... }:
-{
+{ config
+, pkgs
+, ...
+}: {
   i18n.inputMethod = {
     enabled = "fcitx5";
     fcitx5.addons = with pkgs; [
@@ -11,7 +13,6 @@
   };
 
   xdg.configFile."fcitx5/conf/classicui.conf".source = ./fcitx5/classicui.conf;
-
   home.file.".local/share/fcitx5/themes/Nord-Dark" = {
     source = ./fcitx5/Nord-Dark;
     recursive = true;

@@ -1,0 +1,4 @@
+[formatter.alejandra]
+command = "alejandra"
+includes = ["*.nix"]
+excludes = ["*.secret.nix"]

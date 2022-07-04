@@ -1,14 +1,14 @@
-{ config
-, lib
-, pkgs
-, inputs
-, modulesPath
-, nixpkgs
-, nixos-hardware
-, flake-registry
-, ...
-}:
 {
+  config,
+  lib,
+  pkgs,
+  inputs,
+  modulesPath,
+  nixpkgs,
+  nixos-hardware,
+  flake-registry,
+  ...
+}: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     nixos-hardware.nixosModules.common-cpu-intel
@@ -26,13 +26,13 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.availableKernelModules = ["xhci_pci" "ehci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sr_mod"];
+  boot.initrd.kernelModules = [];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = ["kvm-intel"];
 
-  boot.extraModulePackages = [ ];
+  boot.extraModulePackages = [];
 
   powerManagement.cpuFreqGovernor = "performance";
 
@@ -47,7 +47,7 @@
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-label/swap"; }
+    {device = "/dev/disk/by-label/swap";}
   ];
 
   # Additional packages
@@ -65,7 +65,7 @@
     config.allowUnfree = true;
   };
 
-  # Network  
+  # Network
   networking = {
     hostName = "kaguya";
 
@@ -74,9 +74,9 @@
   };
 
   # TODO: GTK?
-  programs.dconf = { enable = true; };
+  programs.dconf = {enable = true;};
   services.dbus = {
-    packages = with pkgs; [ dconf ];
+    packages = with pkgs; [dconf];
   };
 
   users.users.sno2wman = {

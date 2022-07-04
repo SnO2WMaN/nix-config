@@ -7,7 +7,7 @@
     };
   };
 
-  outputs = { flake-utils, ... }@inputs:
+  outputs = {flake-utils, ...} @ inputs:
     flake-utils.lib.eachDefaultSystem (system: rec {
     });
 }

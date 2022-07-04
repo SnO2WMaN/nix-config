@@ -1,9 +1,11 @@
-{ config, pkgs, ... }:
-let
-  listgroups = (pkgs.writeShellScriptBin "listgroups" "cat /etc/group | cut -d: -f1");
-  listpath = (pkgs.writeShellScriptBin "listpath" "echo $PATH | sed -e \"s/:/\\n/g\"");
-in
 {
+  config,
+  pkgs,
+  ...
+}: let
+  listgroups = pkgs.writeShellScriptBin "listgroups" "cat /etc/group | cut -d: -f1";
+  listpath = pkgs.writeShellScriptBin "listpath" "echo $PATH | sed -e \"s/:/\\n/g\"";
+in {
   imports = [
     ./bat.nix
     ./du-dust.nix
@@ -14,11 +16,10 @@ in
     ./zellij.nix
   ];
 
-  home.packages = with pkgs;
-    [
-      listgroups
-      listpath
-    ];
+  home.packages = with pkgs; [
+    listgroups
+    listpath
+  ];
 
   programs.zsh = {
     enable = true;
@@ -69,10 +70,10 @@ in
     zplug = {
       enable = true;
       plugins = [
-        { name = "zsh-users/zsh-completions"; }
-        { name = "zsh-users/zsh-autosuggestions"; }
-        { name = "zsh-users/zsh-history-substring-search"; }
-        { name = "zdharma-continuum/fast-syntax-highlighting"; }
+        {name = "zsh-users/zsh-completions";}
+        {name = "zsh-users/zsh-autosuggestions";}
+        {name = "zsh-users/zsh-history-substring-search";}
+        {name = "zdharma-continuum/fast-syntax-highlighting";}
       ];
     };
 
@@ -106,8 +107,8 @@ in
       bindkey '^[[F' end-of-line
       bindkey '^[[Z' undo # Shift+Tab
 
-      EMULATOR=$(cat /proc/$PPID/comm)
-      [[ $EMULATOR != "code" && $EMULATOR != "zellij" ]] && ${pkgs.zellij}/bin/zellij
+      # EMULATOR=$(cat /proc/$PPID/comm)
+      # [[ $EMULATOR != "code" && $EMULATOR != "zellij" ]] && ${pkgs.zellij}/bin/zellij
     '';
   };
 }

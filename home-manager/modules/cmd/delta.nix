@@ -1,2 +1,9 @@
-{ config, pkgs, ... }:
-{ }
+{
+  config,
+  pkgs,
+  ...
+}: {
+  home.packages = with pkgs; [
+    delta
+  ];
+}
