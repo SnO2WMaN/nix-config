@@ -71,7 +71,7 @@
       editor = {
         formatOnSave = true;
 
-        fontFamily = "'Jetbrains Mono'";
+        fontFamily = "'JetBrains Mono'";
         fontLigatures = false;
         fontSize = 12;
         fontWeight = "normal";
