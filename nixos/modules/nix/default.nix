@@ -35,4 +35,5 @@
       "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
     ];
   };
+  nixpkgs.config.allowUnfree = true;
 }
