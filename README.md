@@ -1,18 +1,15 @@
-# sno2wman/dotfiles
+# sno2wman/nix-config
 
 ## Usage
 
-Setup nix, home-manager, and nix flake
+### `nixos-rebuild`
 
 ```
-rm -rf ~/.config/nixpkgs
-git clone https://github.com/SnO2WMaN/nix-dotfiles ~/.config/nixpkgs
-
-home-manager switch --flake ".#marisa"
+nixos-rebuild switch --use-remote-sudo
 ```
 
-### Update lockfile
+### Home Manager
 
 ```
-nix flake update ~/.config/nixpkgs   
+home-manager switch --flake ".#marisa" --impure
 ```
