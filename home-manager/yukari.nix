@@ -42,5 +42,6 @@
     ./modules/desktop/wayland/wofi/wofi.nix
     ./modules/desktop/wayland/gammastep.nix
     ./modules/desktop/wayland/wl-clipboard.nix
+    ./modules/ssh
   ];
 }

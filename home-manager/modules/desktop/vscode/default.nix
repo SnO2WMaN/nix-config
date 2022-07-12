@@ -16,7 +16,7 @@
 
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode-fhs;
+    package = pkgs.vscode;
     # extensions = with pkgs.vscode-extensions; [
     #   # johnsoncodehk.volar
     #   # ms-toolsai.jupyter-renderers
