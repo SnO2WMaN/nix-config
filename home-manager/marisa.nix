@@ -13,8 +13,7 @@
     homeDirectory = "/home/sno2wman";
   };
   home.packages = with pkgs; [
-    steam
-    w3m
+    networkmanagerapplet
     slurp
   ];
   home.sessionVariables = {
