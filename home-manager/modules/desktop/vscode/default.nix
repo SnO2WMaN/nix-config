@@ -17,6 +17,63 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
+    extensions = with pkgs.vscode-extensions; [
+      arcticicestudio.nord-visual-studio-code
+      bradlc.vscode-tailwindcss
+      christian-kohler.path-intellisense
+      editorconfig.editorconfig
+      file-icons.file-icons
+      formulahendry.auto-close-tag
+      formulahendry.auto-rename-tag
+      jkillian.custom-local-formatters
+      jnoortheen.nix-ide
+      dbaeumer.vscode-eslint
+      ms-azuretools.vscode-docker
+      (
+        pkgs.vscode-utils.extensionFromVscodeMarketplace {
+          publisher = "redhat";
+          name = "vscode-xml";
+          version = "0.20.0";
+          sha256 = "1l073hqdivzyadjg8cn68wrmvbcrhc67yll4sypvb7rwvdznp80q";
+        }
+      )
+      (
+        pkgs.vscode-utils.extensionFromVscodeMarketplace {
+          publisher = "redhat";
+          name = "vscode-yaml";
+          version = "1.7.0";
+          sha256 = "1bbjpaypp0mq5akww5f0pkpq01j0xhhvkfr44f4lb2rdhr5nmnvc";
+        }
+      )
+      tamasfe.even-better-toml
+      (
+        pkgs.vscode-utils.extensionFromVscodeMarketplace
+        {
+          publisher = "ms-vscode-remote";
+          name = "remote-containers";
+          version = "0.233.0";
+          sha256 = "1xlczc788avyy1wnxlhgm2fbkxmw2dbbdlqalwpipn33w07gzpg0";
+        }
+      )
+      (
+        pkgs.vscode-utils.extensionFromVscodeMarketplace
+        {
+          publisher = "ms-vscode-remote";
+          name = "remote-ssh";
+          version = "0.79.2022040715";
+          sha256 = "041x9q2nb86p5npf5gjmg102phvm4s4nxmirfz7nfa2qlbn2rl74";
+        }
+      )
+      (
+        pkgs.vscode-utils.extensionFromVscodeMarketplace
+        {
+          publisher = "ms-vscode-remote";
+          name = "remote-ssh-edit";
+          version = "0.80.0";
+          sha256 = "0zgrd2909xpr3416cji0ha3yl6gl2ry2f38bvx4lsjfmgik0ic6s";
+        }
+      )
+    ];
     # extensions = with pkgs.vscode-extensions; [
     #   # johnsoncodehk.volar
     #   # ms-toolsai.jupyter-renderers
@@ -107,9 +164,10 @@
         fontFamily = "'Jetbrains Mono'";
         fontSize = 10;
         rightClickBehavior = "paste";
-        commandsToSkipShell = [
-          "language-julia.interrupt"
-        ];
+        shellIntegration.enabled = true;
+        # commandsToSkipShell = [
+        #   "language-julia.interrupt"
+        # ];
       };
       files.associations = {
         ".renovaterc" = "jsonc";
@@ -130,9 +188,9 @@
       latex-workshop = {
         view.pdf.viewer = "browser";
       };
-      nix = {
-        formatterPath = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
-      };
+      # nix = {
+      #   formatterPath = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
+      # };
       diffEditor = {
         ignoreTrimWhitespace = false;
       };
@@ -142,9 +200,9 @@
       dart = {
         checkForSdkUpdates = false;
       };
-      vscode-dhall-lsp-server = {
-        executable = "${pkgs.dhall-lsp-server}/bin/dhall-lsp-server";
-      };
+      # vscode-dhall-lsp-server = {
+      #   executable = "${pkgs.dhall-lsp-server}/bin/dhall-lsp-server";
+      # };
       eslint = {
         enable = true;
       };

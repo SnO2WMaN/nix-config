@@ -6,12 +6,7 @@
   fzf_ghq = (
     pkgs.writeShellScriptBin
     "fzf_ghq"
-    ''
-      local src = $(ghq list -p | fzf --preview "ls -p {}")
-      if [ -n "$src" ]; then
-        cd $src
-      fi
-    ''
+    "ghq list -p | fzf --preview \"ls -p {}\""
   );
 in {
   home.packages = [fzf_ghq];

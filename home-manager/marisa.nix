@@ -6,28 +6,43 @@
   nixpkgs.config = {
     allowUnfree = true;
   };
+
+  home = {
+    stateVersion = "22.05";
+    username = "sno2wman";
+    homeDirectory = "/home/sno2wman";
+  };
+  home.packages = with pkgs; [
+    steam
+    w3m
+    slurp
+  ];
+  home.sessionVariables = {
+    LC_ALL = "C";
+    LOCALE_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
+  };
+
   imports = [
-    ./modules/home-manager
-    ./modules/miscellaneous
-    ./modules/asdf-vm
-    ./modules/zellij
-    ./modules/neovim
-
-    ./modules/pcmanfm
-    ./modules/ristretto
-
-    ./modules/gtk
-
-    ./modules/gammastep
-
-    ./modules/1password
-    ./modules/gitkraken
-    ./modules/spotify
-    ./modules/slack
-
-    ./modules/git/ghq.nix
-    ./modules/git/git.nix
-
-    ./modules/zsh/starship.nix
+    ./modules/cmd
+    ./modules/desktop/common.nix
+    # ./modules/miscellaneous
+    # ./modules/1password
+    # ./modules/alacritty
+    # ./modules/discord
+    # ./modules/fcitx
+    # ./modules/fonts
+    # ./modules/gammastep
+    # ./modules/gitkraken
+    # ./modules/gtk
+    # ./modules/kitty
+    # ./modules/pcmanfm
+    # ./modules/ristretto
+    # ./modules/slack
+    # ./modules/spotify/desktop.nix
+    # ./modules/sway
+    # ./modules/sway/kanshi.nix
+    # ./modules/sway/mako.nix
+    # ./modules/sway/waybar.nix
+    # ./modules/sway/wofi.nix
   ];
 }

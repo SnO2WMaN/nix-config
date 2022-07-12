@@ -18,6 +18,15 @@
       [[ -n "$choice" ]] && ${code} $(${ghq} root)/$choice
     '';
 in {
+  imports = [
+    ../../vscode
+
+    ../waybar/waybar.nix
+    ../wofi/wofi.nix
+    ../gammastep.nix
+    ../wl-clipboard.nix
+  ];
+
   home.packages = with pkgs; [
     clipman
     wdisplays
@@ -69,7 +78,18 @@ in {
         {command = "${pkgs.waybar}/bin/waybar";}
       ];
       input = {
-        "*" = {xkb_layout = "\"jp\"";};
+        "*" = {
+          xkb_layout = "\"jp\"";
+        };
+        "type:touchpad" = {
+          tap = "enabled";
+          natural_scroll = "enabled";
+        };
+      };
+      output = {
+        #  "*" = "bg #d8dee9 solid_color";
+        #  "HDMI-A-1" = "pos 0 0 res 1920x1080";
+        #  "eDP-1" = "pos 1920 0 res 1920x1080";
       };
       fonts = {
         names = ["JetBrains Mono"];
@@ -105,6 +125,8 @@ in {
           "${modifier}+F2" = "exec ${pkgs.firefox}/bin/firefox";
           "${modifier}+P" = "exec ${pkgs.pcmanfm}/bin/pcmanfm";
           "${modifier}+Shift+S" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot --notify save area $HOME/Pictures/screenshots/$(date +\"%Y_%m_%d__%H_%M_%S\").png";
+          "${modifier}+u" = "border none";
+          "${modifier}+n" = "border normal";
           "XF86AudioRaiseVolume" = "exec pactl set-sink-volume 0 +5%";
           "XF86AudioLowerVolume" = "exec pactl set-sink-volume 0 -5%";
           "XF86AudioMute" = "exec pactl set-sink-mute 0 toggle";
