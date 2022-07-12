@@ -11,4 +11,7 @@ in {
   kaguya = nixosConfig {
     extraModules = [./kaguya.nix];
   };
+  marisa = nixosConfig {
+    extraModules = [./marisa.nix];
+  };
 }
