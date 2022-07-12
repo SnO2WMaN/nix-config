@@ -21,8 +21,8 @@ in {
   imports = [
     ../../vscode
 
-    ../waybar/waybar.nix
-    ../wofi/wofi.nix
+    ../waybar
+    ../wofi
     ../gammastep.nix
     ../wl-clipboard.nix
   ];
