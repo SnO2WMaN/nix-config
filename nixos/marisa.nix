@@ -18,7 +18,7 @@
     ./modules/chrony
     ./modules/dm
     ./modules/docker
-    # ./modules/networkmanager
+    ./modules/networkmanager
     ./modules/nix
     ./modules/opengl
     # ./modules/sane
@@ -67,14 +67,16 @@
     ly
     openssl
     sudo
+    home-manager
   ];
 
   # Network
   networking.hostName = "marisa";
   networking = {
     useDHCP = false;
-    interfaces.enp3s0.useDHCP = true;
-  };
+    interfaces.enp2s0.useDHCP = true;
+    interfaces.wlp4s0.useDHCP = true;
+  }; 
 
   # TODO: GTK?
   programs.dconf = {enable = true;};
