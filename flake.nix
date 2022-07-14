@@ -42,6 +42,7 @@
       url = "github:edolstra/flake-compat";
       flake = false;
     };
+    vscode-marketplace.url = "github:AmeerTaweel/nix-vscode-marketplace";
   };
 
   outputs = {
@@ -49,11 +50,14 @@
     nixpkgs,
     devshell,
     flake-utils,
+    vscode-marketplace,
     ...
   } @ inputs:
     {
       nixosConfigurations = import ./nixos/configuration.nix inputs;
       homeConfigurations = import ./home-manager/configuration.nix inputs;
+
+      overlays.bin = import ./bin/overlay.nix;
     }
     // flake-utils.lib.eachDefaultSystem (
       system: let

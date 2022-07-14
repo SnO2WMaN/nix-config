@@ -28,5 +28,11 @@
         gtk-application-prefer-dark-theme = true;
       };
     };
+    gtk4 = {
+      extraConfig = {
+        gtk-menu-images = true;
+        gtk-application-prefer-dark-theme = true;
+      };
+    };
   };
 }

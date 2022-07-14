@@ -9,7 +9,10 @@
 	"margin-left": 0,
 	"margin-right": 0,
 	// Choose the order of the modules
-	"modules-left": ["sway/workspaces", "sway/mode"],
+	"modules-left": [
+		"sway/workspaces",
+		"sway/mode"
+	],
 	"module-center": [],
 	"modules-right": [
 		"battery",
@@ -64,7 +67,6 @@
 		"on-click": "activate",
 		"on-click-middle": "close"
 	},
-
 	"mpd": {
 		"format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ ",
 		"format-disconnected": "Disconnected ",
@@ -122,16 +124,18 @@
 		"interval": 5,
 		"format-critical": "{icon} {temperatureC}°C",
 		"format": "{icon} {temperatureC}°C",
-		"format-icons": ["", "", ""]
+		"format-icons": [
+			"",
+			"",
+			""
+		]
 	},
-
 	"disk": {
 		"interval": 30,
 		"format": "  {percentage_used}%",
 		//        "path": "/" //
-		"on-click": "thunar"
+		"on-click": "pcmanfm"
 	},
-
 	//    "backlight": {
 	//        "device": "/dev/i2c-2",
 	//        "format": "{percent}% {icon}",
@@ -140,9 +144,18 @@
 	"battery": {
 		"interval": 5,
 		"states": [
-			{ "name": "good", "value": 95 },
-			{ "name": "warning", "value": 30 },
-			{ "name": "critical", "value": 20 }
+			{
+				"name": "good",
+				"value": 95
+			},
+			{
+				"name": "warning",
+				"value": 30
+			},
+			{
+				"name": "critical",
+				"value": 20
+			}
 		],
 		"format": "{icon}  {capacity}%",
 		"format-charging": "  {capacity}%",
@@ -150,7 +163,13 @@
 		"format-alt": "{icon} {time}",
 		"format-good": "", // An empty format will hide the module
 		"format-full": "",
-		"format-icons": ["", "", "", "", ""]
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		]
 	},
 	//    "battery#bat2": {
 	//        "bat": "BAT2"
@@ -180,7 +199,11 @@
 			"phone": "",
 			"portable": "",
 			"car": "",
-			"default": ["", "", ""]
+			"default": [
+				"",
+				"",
+				""
+			]
 		},
 		"on-click": "pavucontrol"
 	},

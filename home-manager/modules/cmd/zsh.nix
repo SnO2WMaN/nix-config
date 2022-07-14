@@ -2,10 +2,7 @@
   config,
   pkgs,
   ...
-}: let
-  listgroups = pkgs.writeShellScriptBin "listgroups" "cat /etc/group | cut -d: -f1";
-  listpath = pkgs.writeShellScriptBin "listpath" "echo $PATH | sed -e \"s/:/\\n/g\"";
-in {
+}: {
   imports = [
     ./bat.nix
     ./du-dust.nix
@@ -14,11 +11,6 @@ in {
     ./neovim.nix
     ./procs.nix
     ./zellij.nix
-  ];
-
-  home.packages = with pkgs; [
-    listgroups
-    listpath
   ];
 
   programs.zsh = {
@@ -62,9 +54,10 @@ in {
       z = "${pkgs.zoxide}/bin/zoxide";
       ze = "${pkgs.zellij}/bin/zellij";
       vim = "${pkgs.neovim}/bin/nvim";
+      imagemagick = "${pkgs.imagemagick}/bin/convert";
 
-      lsgroups = "${listgroups}/bin/listgroups";
-      lspath = "${listpath}/bin/listpath";
+      lsgroups = "${pkgs.listgroups}/bin/listgroups";
+      lspath = "${pkgs.listpath}/bin/listpath";
     };
 
     zplug = {

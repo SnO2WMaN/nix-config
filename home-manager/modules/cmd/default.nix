@@ -6,9 +6,9 @@
   imports = [
     ./bat.nix
     ./bottom.nix
-    ./clean-emptydir.nix
     ./home-manager.nix
     ./binutils.nix
+    ./fzf-ghq.nix
     ./fzf.nix
     ./httpie.nix
     ./delta.nix
@@ -28,13 +28,15 @@
     ./procs.nix
     ./pueue.nix
     ./ripgrep.nix
+    ./satysfi.nix
     ./starship.nix
     ./yq.nix
     ./zellij.nix
     ./zsh.nix
   ];
   home.packages = with pkgs; [
-    sudo
     unzip
+    psmisc
+    clean-emptydir
   ];
 }

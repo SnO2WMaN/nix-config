@@ -1,9 +1,10 @@
 {
+  self,
   nixpkgs,
   home-manager,
   nixpkgs-wayland,
   nixgl,
-  # , vscode-extensions
+  vscode-marketplace,
   ...
 } @ inputs: let
   hmConfig = {
@@ -12,8 +13,12 @@
   }: let
     pkgs = import nixpkgs {
       overlays = [
+        self.overlays.bin
         nixpkgs-wayland.overlay
         nixgl.overlay
+        (final: prev: {
+          vscode-extensions = prev.vscode-extensions // vscode-marketplace.packages.${system};
+        })
         (import ./overlays/node-packages.nix)
       ];
     };
