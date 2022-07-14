@@ -38,10 +38,6 @@
     ./modules/desktop/spotify.nix
     ./modules/desktop/vscode
     ./modules/desktop/wayland/sway
-    ./modules/desktop/wayland/waybar/waybar.nix
-    ./modules/desktop/wayland/wofi/wofi.nix
-    ./modules/desktop/wayland/gammastep.nix
-    ./modules/desktop/wayland/wl-clipboard.nix
     ./modules/ssh
   ];
 }
