@@ -62,6 +62,7 @@ in {
       z = "${pkgs.zoxide}/bin/zoxide";
       ze = "${pkgs.zellij}/bin/zellij";
       vim = "${pkgs.neovim}/bin/nvim";
+      imagemagick = "${pkgs.imagemagick}/bin/convert";
 
       lsgroups = "${listgroups}/bin/listgroups";
       lspath = "${listpath}/bin/listpath";
