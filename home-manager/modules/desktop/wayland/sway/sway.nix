@@ -20,6 +20,8 @@
 in {
   imports = [
     ../../vscode
+    ../../alacritty.nix
+    ../../pcmanfm.nix
 
     ../waybar
     ../wofi
