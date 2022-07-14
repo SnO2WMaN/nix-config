@@ -2,3 +2,8 @@
 command = "alejandra"
 includes = ["*.nix"]
 excludes = ["*.secret.nix"]
+
+[formatter.dprint]
+command = "dprint"
+options = ["fmt"]
+includes = ["*.json", "*.toml", "*.md"]

@@ -1,5 +1,5 @@
 [devshell]
-packages = ["alejandra"]
+packages = ["alejandra", "dprint", "deadnix"]
 
 [[commands]]
 package = "treefmt"
