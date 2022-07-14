@@ -14,17 +14,17 @@
     nixos-hardware.nixosModules.common-cpu-amd
     nixos-hardware.nixosModules.common-pc-ssd
 
-    ./modules/android
+    # ./modules/android
     ./modules/chrony
     ./modules/dm
     ./modules/docker
-    # ./modules/networkmanager
+    ./modules/networkmanager
     ./modules/nix
     ./modules/opengl
-    ./modules/sane
+    # ./modules/sane
     ./modules/sound
-    ./modules/ssh
     ./modules/fonts
+    # ./modules/ssh
     # ./modules/virtualbox
   ];
   boot.loader.systemd-boot.enable = true;
@@ -40,8 +40,6 @@
   boot.extraModulePackages = [];
 
   powerManagement.cpuFreqGovernor = "performance";
-
-  boot.binfmt.emulatedSystems = ["aarch64-linux"];
 
   fileSystems."/" = {
     fsType = "ext4";
@@ -69,18 +67,15 @@
     ly
     openssl
     sudo
+    home-manager
   ];
 
-  nixpkgs = {
-    config.allowUnfree = true;
-  };
-
   # Network
+  networking.hostName = "marisa";
   networking = {
-    hostName = "yukari";
-
     useDHCP = false;
-    interfaces.enp3s0.useDHCP = true;
+    interfaces.enp2s0.useDHCP = true;
+    interfaces.wlp4s0.useDHCP = true;
   };
 
   # TODO: GTK?
@@ -101,6 +96,5 @@
     ];
   };
 
-  virtualisation.anbox = {enable = true;};
   programs.sway = {enable = true;};
 }

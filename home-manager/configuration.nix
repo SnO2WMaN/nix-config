@@ -1,30 +1,32 @@
 {
+  self,
+  nixpkgs,
   home-manager,
   nixpkgs-wayland,
   nixgl,
-  # , vscode-extensions
+  vscode-marketplace,
   ...
 } @ inputs: let
-  hmConfig = {extraConfigs ? []}: (home-manager.lib.homeManagerConfiguration {
-    system = "x86_64-linux";
-    stateVersion = "22.05";
-
-    username = "sno2wman";
-    homeDirectory = "/home/sno2wman";
-
-    configuration = {...}: {
-      imports = [] ++ extraConfigs;
-
-      nixpkgs.overlays = [
+  hmConfig = {
+    system ? "x86_64-linux",
+    modules ? [],
+  }: let
+    pkgs = import nixpkgs {
+      overlays = [
+        self.overlays.bin
         nixpkgs-wayland.overlay
         nixgl.overlay
-        # vscode-extensions.overlay
+        (final: prev: {
+          vscode-extensions = prev.vscode-extensions // vscode-marketplace.packages.${system};
+        })
         (import ./overlays/node-packages.nix)
       ];
     };
+  in (home-manager.lib.homeManagerConfiguration rec {
+    inherit pkgs modules;
   });
 in {
-  kaguya = hmConfig {extraConfigs = [./kaguya.nix];};
-  marisa = hmConfig {extraConfigs = [./marisa.nix];};
-  yukari = hmConfig {extraConfigs = [./yukari.nix];};
+  kaguya = hmConfig {modules = [./kaguya.nix];};
+  marisa = hmConfig {modules = [./marisa.nix];};
+  yukari = hmConfig {modules = [./yukari.nix];};
 }
