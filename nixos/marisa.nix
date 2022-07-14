@@ -76,7 +76,7 @@
     useDHCP = false;
     interfaces.enp2s0.useDHCP = true;
     interfaces.wlp4s0.useDHCP = true;
-  }; 
+  };
 
   # TODO: GTK?
   programs.dconf = {enable = true;};
