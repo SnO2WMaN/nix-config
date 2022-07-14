@@ -6,7 +6,6 @@
   imports = [
     ./bat.nix
     ./bottom.nix
-    ./clean-emptydir.nix
     ./home-manager.nix
     ./binutils.nix
     ./fzf-ghq.nix
