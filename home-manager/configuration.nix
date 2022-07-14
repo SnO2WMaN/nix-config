@@ -17,7 +17,7 @@
         nixpkgs-wayland.overlay
         nixgl.overlay
         (final: prev: {
-          vscode-extensions = prev.vscode-extensions // vscode-marketplace.packages;
+          vscode-extensions = prev.vscode-extensions // vscode-marketplace.packages.${system};
         })
         (import ./overlays/node-packages.nix)
       ];
