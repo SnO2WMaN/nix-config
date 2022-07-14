@@ -42,6 +42,7 @@
       url = "github:edolstra/flake-compat";
       flake = false;
     };
+    vscode-marketplace.url = "github:AmeerTaweel/nix-vscode-marketplace";
   };
 
   outputs = {
@@ -49,6 +50,7 @@
     nixpkgs,
     devshell,
     flake-utils,
+    vscode-marketplace,
     ...
   } @ inputs:
     {
