@@ -68,6 +68,7 @@
     ly
     openssl
     sudo
+    home-manager
   ];
 
   nixpkgs = {
