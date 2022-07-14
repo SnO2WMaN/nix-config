@@ -1,4 +1,5 @@
 {
+  self,
   nixpkgs,
   home-manager,
   nixpkgs-wayland,
@@ -12,6 +13,7 @@
   }: let
     pkgs = import nixpkgs {
       overlays = [
+        self.overlays.bin
         nixpkgs-wayland.overlay
         nixgl.overlay
         (import ./overlays/node-packages.nix)

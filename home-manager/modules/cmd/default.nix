@@ -38,5 +38,6 @@
   home.packages = with pkgs; [
     unzip
     psmisc
+    clean-emptydir
   ];
 }
