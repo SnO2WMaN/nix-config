@@ -20,11 +20,11 @@
 
   imports = [
     ./modules/cmd
-    ./modules/desktop/1password.nix 
+    ./modules/desktop/1password.nix
     ./modules/desktop/chrome
     ./modules/desktop/discord.nix
     ./modules/desktop/fcitx
-    ./modules/desktop/firefox 
+    ./modules/desktop/firefox
     ./modules/desktop/fonts.nix
     ./modules/desktop/gitkraken.nix
     ./modules/desktop/gtk.nix
