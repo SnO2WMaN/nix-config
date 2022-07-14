@@ -14,16 +14,29 @@
   };
   home.packages = with pkgs; [
     networkmanagerapplet
+    w3m
     slurp
   ];
-  home.sessionVariables = {
-    LC_ALL = "C";
-    LOCALE_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
-  };
 
   imports = [
     ./modules/cmd
-    ./modules/desktop/common.nix
+    ./modules/desktop/1password.nix 
+    ./modules/desktop/chrome
+    ./modules/desktop/discord.nix
+    ./modules/desktop/fcitx
+    ./modules/desktop/firefox 
+    ./modules/desktop/fonts.nix
+    ./modules/desktop/gitkraken.nix
+    ./modules/desktop/gtk.nix
+    ./modules/desktop/ristretto.nix
+    ./modules/desktop/slack.nix
+    ./modules/desktop/spotify.nix
+    ./modules/desktop/wayland/sway
+    ./modules/desktop/helvum.nix
+    ./modules/desktop/gscan2pdf.nix
+    ./modules/desktop/kitty.nix
+    ./modules/ssh
+    ./modules/gpg
     # ./modules/miscellaneous
     # ./modules/1password
     # ./modules/alacritty
