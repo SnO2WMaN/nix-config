@@ -19,10 +19,6 @@
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
-    flake-registry = {
-      url = "github:NixOS/flake-registry";
-      flake = false;
-    };
     nixgl = {
       url = "github:guibou/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
