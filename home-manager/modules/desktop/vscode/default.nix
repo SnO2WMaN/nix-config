@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  system,
   ...
 }: {
   nixpkgs.config.allowUnfree = true;
@@ -16,7 +17,31 @@
 
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode;
+    package = pkgs.vscode.overrideAttrs (old: let
+      inherit (pkgs) stdenv;
+      inherit (stdenv.hostPlatform) system;
+      plat =
+        {
+          x86_64-linux = "linux-x64";
+        }
+        .${system};
+      sha256 =
+        {
+          x86_64-linux = "sha256-uXoECatm72QGkuarqnI7CMp5OrmDabRm/oAmGOSSPUo=";
+        }
+        .${system};
+      archive_fmt =
+        if stdenv.isDarwin
+        then "zip"
+        else "tar.gz";
+    in rec {
+      version = "1.69.1";
+      src = pkgs.fetchurl {
+        name = "VSCode_${version}_${plat}.${archive_fmt}";
+        url = "https://update.code.visualstudio.com/${version}/${plat}/stable";
+        inherit sha256;
+      };
+    });
     extensions = with pkgs.vscode-extensions; [
       arcticicestudio.nord-visual-studio-code
       bradlc.vscode-tailwindcss
@@ -29,6 +54,7 @@
       jnoortheen.nix-ide
       dbaeumer.vscode-eslint
       ms-azuretools.vscode-docker
+      # arrterian.nix-env-selector
       (
         pkgs.vscode-utils.extensionFromVscodeMarketplace {
           publisher = "redhat";
