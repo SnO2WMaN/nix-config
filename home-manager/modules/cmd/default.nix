@@ -38,5 +38,6 @@
     unzip
     psmisc
     clean-emptydir
+    pipr
   ];
 }
