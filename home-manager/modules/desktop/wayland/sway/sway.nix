@@ -19,7 +19,7 @@
     '';
 in {
   imports = [
-    ../../vscode
+    # ../../vscode
     ../../alacritty.nix
     ../../pcmanfm.nix
 
@@ -123,7 +123,7 @@ in {
           "${modifier}+Shift+0" = "move container to workspace number 10";
           "${modifier}+Shift+Delete" = "kill";
           "${modifier}+g" = "exec --no-startup-id wofi_ghq";
-          "${modifier}+F1" = "exec ${pkgs.vscode}/bin/code";
+          # "${modifier}+F1" = "exec ${pkgs.vscode}/bin/code";
           "${modifier}+F2" = "exec ${pkgs.firefox}/bin/firefox";
           "${modifier}+P" = "exec ${pkgs.pcmanfm}/bin/pcmanfm";
           "${modifier}+Shift+S" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot --notify save area $HOME/Pictures/screenshots/$(date +\"%Y_%m_%d__%H_%M_%S\").png";
