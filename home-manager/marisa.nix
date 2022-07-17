@@ -34,7 +34,8 @@
     ./modules/desktop/wayland/sway
     ./modules/desktop/helvum.nix
     ./modules/desktop/gscan2pdf.nix
-    ./modules/desktop/kitty.nix
+		./modules/desktop/kitty.nix
+		./modules/desktop/vscode
     ./modules/ssh
     ./modules/gpg
     # ./modules/miscellaneous

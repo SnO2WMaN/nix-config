@@ -3,7 +3,6 @@
   lib,
   pkgs,
   nixpkgs,
-  flake-registry,
   ...
 }: {
   nix = {

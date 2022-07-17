@@ -6,7 +6,6 @@
   modulesPath,
   nixpkgs,
   nixos-hardware,
-  flake-registry,
   ...
 }: {
   imports = [
