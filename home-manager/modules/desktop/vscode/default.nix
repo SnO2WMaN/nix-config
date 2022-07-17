@@ -164,7 +164,7 @@
         fontFamily = "'Jetbrains Mono'";
         fontSize = 10;
         rightClickBehavior = "paste";
-        shellIntegration.enabled = true;
+        shellIntegration.enabled = false;
         # commandsToSkipShell = [
         #   "language-julia.interrupt"
         # ];
