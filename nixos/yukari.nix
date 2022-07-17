@@ -1,44 +1,46 @@
-{ config
-, lib
-, pkgs
-, inputs
-, modulesPath
-, nixpkgs
-, nixos-hardware
-, flake-registry
-, ...
-}:
 {
+  config,
+  lib,
+  pkgs,
+  inputs,
+  modulesPath,
+  nixpkgs,
+  nixos-hardware,
+  ...
+}: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     nixos-hardware.nixosModules.common-cpu-amd
     nixos-hardware.nixosModules.common-pc-ssd
 
+    ./modules/android
     ./modules/chrony
+    ./modules/dm
     ./modules/docker
+    # ./modules/networkmanager
     ./modules/nix
-    ./modules/networkmanager
     ./modules/opengl
     ./modules/sane
     ./modules/sound
     ./modules/ssh
-    ./modules/virtualbox
+    ./modules/fonts
+    # ./modules/virtualbox
   ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usbhid" "usb_storage" "sd_mod" "amdgpu" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "usbhid" "usb_storage" "sd_mod" "amdgpu"];
+  boot.initrd.kernelModules = [];
 
-  boot.kernelParams = [ "amdgpu.freesync_video=1" "amd_iommu=on" "pcie_aspm=off" ];
+  boot.kernelParams = ["amdgpu.freesync_video=1" "amd_iommu=on" "pcie_aspm=off"];
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = ["kvm-amd"];
 
-  boot.extraModulePackages = [ ];
+  boot.extraModulePackages = [];
 
   powerManagement.cpuFreqGovernor = "performance";
 
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  boot.binfmt.emulatedSystems = ["aarch64-linux"];
 
   fileSystems."/" = {
     fsType = "ext4";
@@ -51,7 +53,7 @@
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-label/swap"; }
+    {device = "/dev/disk/by-label/swap";}
   ];
 
   # Additional packages
@@ -63,13 +65,16 @@
     wget
     corectrl
     seatd
+    ly
+    openssl
+    sudo
   ];
 
   nixpkgs = {
     config.allowUnfree = true;
   };
 
-  # Network  
+  # Network
   networking = {
     hostName = "yukari";
 
@@ -78,9 +83,9 @@
   };
 
   # TODO: GTK?
-  programs.dconf = { enable = true; };
+  programs.dconf = {enable = true;};
   services.dbus = {
-    packages = with pkgs; [ dconf ];
+    packages = with pkgs; [dconf];
   };
 
   users.users.sno2wman = {
@@ -94,4 +99,7 @@
       "video"
     ];
   };
+
+  virtualisation.anbox = {enable = true;};
+  programs.sway = {enable = true;};
 }

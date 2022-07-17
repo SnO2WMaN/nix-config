@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   hardware.opengl = {
     enable = true;
     package = pkgs.mesa_drivers;

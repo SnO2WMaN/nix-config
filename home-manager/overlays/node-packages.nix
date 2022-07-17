@@ -1,14 +1,12 @@
-final: prev:
-let
-  nodePackage = (import ./node2nix { pkgs = final; });
-in
-{
+final: prev: let
+  nodePackage = import ./node2nix {pkgs = final;};
+in {
   nodePackages =
-    prev.nodePackages //
-    nodePackage //
-    {
+    prev.nodePackages
+    // nodePackage
+    // {
       md-to-pdf = nodePackage.md-to-pdf.override {
-        buildInputs = [ final.chromium ];
+        buildInputs = [final.chromium];
 
         preInstallPhases = "skipPuppeteerDownload";
         skipPuppeteerDownload = ''
