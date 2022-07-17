@@ -5,13 +5,13 @@
 ### `nixos-rebuild`
 
 ```sh
-nixos-rebuild switch --use-remote-sudo
+nixos-rebuild switch --flake ".#$(hostname)" --use-remote-sudo
 ```
 
 ### Home Manager
 
 ```sh
-home-manager switch --flake ".#marisa" --impure
+home-manager switch --flake ".#$(hostname)" --impure
 ```
 
 #### memo
