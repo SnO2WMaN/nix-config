@@ -40,5 +40,6 @@
     clean-emptydir
     pipr
     tokei
+    vagrant
   ];
 }
