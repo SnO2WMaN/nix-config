@@ -191,6 +191,7 @@
         fontSize = 10;
         rightClickBehavior = "paste";
         shellIntegration.enabled = false;
+        enableMultiLinePasteWarning = false;
         # commandsToSkipShell = [
         #   "language-julia.interrupt"
         # ];
