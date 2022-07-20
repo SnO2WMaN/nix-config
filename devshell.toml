@@ -4,3 +4,7 @@ packages = ["alejandra", "dprint", "deadnix"]
 [[commands]]
 package = "treefmt"
 category = "formatter"
+
+[[env]]
+name = "NIXPKGS_ALLOW_UNFREE"
+value = 1
