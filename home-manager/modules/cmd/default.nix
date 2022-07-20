@@ -39,5 +39,6 @@
     psmisc
     clean-emptydir
     pipr
+    tokei
   ];
 }
