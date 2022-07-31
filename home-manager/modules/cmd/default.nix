@@ -41,5 +41,6 @@
     pipr
     tokei
     vagrant
+    python3
   ];
 }
