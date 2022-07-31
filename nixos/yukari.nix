@@ -24,7 +24,7 @@
     ./modules/sound
     ./modules/ssh
     ./modules/fonts
-    ./modules/virtualbox
+    # ./modules/virtualbox
   ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
