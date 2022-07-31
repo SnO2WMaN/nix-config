@@ -167,6 +167,8 @@
         bracketPairColorization.enabled = true;
         minimap.enabled = false;
 
+        linkedEditing = true;
+
         codeActionsOnSave = {
           "source.fixAll.eslint" = true;
         };
