@@ -39,5 +39,8 @@
     psmisc
     clean-emptydir
     pipr
+    tokei
+    vagrant
+    python3
   ];
 }

@@ -4,3 +4,27 @@ packages = ["alejandra", "dprint", "deadnix"]
 [[commands]]
 package = "treefmt"
 category = "formatter"
+
+[[commands]]
+name = "my-home-manager-build"
+category = "home-manager"
+command = "home-manager build --flake \".#$(hostname)\" --impure"
+
+[[commands]]
+name = "my-home-manager-switch"
+category = "home-manager"
+command = "home-manager switch --flake \".#$(hostname)\" --impure -b backup"
+
+[[commands]]
+name = "my-nixos-build"
+category = "nixos"
+command = "nixos-rebuild build --flake \".#$(hostname)\""
+
+[[commands]]
+name = "my-nixos-switch"
+category = "nixos"
+command = "nixos-rebuild switch --flake \".#$(hostname)\" --use-remote-sudo"
+
+[[env]]
+name = "NIXPKGS_ALLOW_UNFREE"
+value = 1
