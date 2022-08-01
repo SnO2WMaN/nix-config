@@ -37,6 +37,7 @@
     ./modules/desktop/slack.nix
     ./modules/desktop/spotify.nix
     ./modules/desktop/vscode
+    ./modules/desktop/mongodb-compass.nix
     ./modules/desktop/wayland/sway
     ./modules/ssh
   ];
