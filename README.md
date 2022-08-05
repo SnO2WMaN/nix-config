@@ -1,18 +1,29 @@
-# sno2wman/dotfiles
+# sno2wman/nix-config
 
 ## Usage
 
-Setup nix, home-manager, and nix flake
+### `nixos-rebuild`
 
-```
-rm -rf ~/.config/nixpkgs
-git clone https://github.com/SnO2WMaN/nix-dotfiles ~/.config/nixpkgs
-
-home-manager switch --flake ".#marisa"
+```sh
+nixos-rebuild switch --flake ".#$(hostname)" --use-remote-sudo
 ```
 
-### Update lockfile
+### Home Manager
 
+```sh
+home-manager switch --flake ".#$(hostname)" --impure
 ```
-nix flake update ~/.config/nixpkgs   
+
+#### memo
+
+How to install home-manager
+
+```sh
+nix-channel --add https://github.com/nix-community/home-manager/archive/release-22.05.tar.gz home-manager
+nix-channel --update
+
+export NIX_PATH=$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels${NIX_PATH:+:$NIX_PATH}
+nix-shell '<home-manager>' -A install
 ```
+
+See [Manual](https://nix-community.github.io/home-manager/)
