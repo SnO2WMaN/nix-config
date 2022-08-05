@@ -42,5 +42,7 @@
     tokei
     vagrant
     python3
+    gnumake
+    gcc
   ];
 }
