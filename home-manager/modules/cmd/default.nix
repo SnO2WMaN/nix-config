@@ -44,5 +44,7 @@
     python3
     gnumake
     gcc
+    zip
+    gzip
   ];
 }
