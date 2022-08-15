@@ -71,10 +71,6 @@
     home-manager
   ];
 
-  nixpkgs = {
-    config.allowUnfree = true;
-  };
-
   # Network
   networking = {
     hostName = "yukari";

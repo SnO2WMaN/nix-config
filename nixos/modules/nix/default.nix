@@ -34,12 +34,10 @@
     };
   };
 
-  nixpkgs.config = {
-    allowUnfreePackages = [
-      "vscode"
-    ];
-    permittedInsecurePackages = [
-      "libdwarf-20210528"
-    ];
-  };
+  nixpkgs.config.allowUnfreePackages = [
+    "vscode"
+  ];
+  nixpkgs.config.permittedInsecurePackages = [
+    "libdwarf-20181024"
+  ];
 }
