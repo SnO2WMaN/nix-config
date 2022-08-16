@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  inputs,
   modulesPath,
   nixpkgs,
   nixos-hardware,
@@ -70,10 +69,6 @@
     sudo
     home-manager
   ];
-
-  nixpkgs = {
-    config.allowUnfree = true;
-  };
 
   # Network
   networking = {

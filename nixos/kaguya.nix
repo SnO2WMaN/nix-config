@@ -89,4 +89,6 @@
       "video"
     ];
   };
+
+  programs.sway = {enable = true;};
 }

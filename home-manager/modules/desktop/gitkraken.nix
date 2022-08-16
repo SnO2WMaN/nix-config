@@ -3,8 +3,6 @@
   pkgs,
   ...
 }: {
-  nixpkgs.config.allowUnfree = true;
-
   home.packages = with pkgs; [
     (gitkraken.overrideAttrs (old: let
       version = "8.7.0";

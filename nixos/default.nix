@@ -1,17 +1,43 @@
-{nixpkgs, ...} @ inputs: let
-  nixosConfig = {extraModules ? []}: (nixpkgs.lib.nixosSystem {
+inputs: let
+  inherit (inputs) self nixpkgs;
+  inherit (nixpkgs.lib) nixosSystem;
+
+  commonModules = [
+    inputs.nixpkgs.nixosModules.notDetected
+    inputs.home-manager.nixosModules.home-manager
+    {home-manager.useGlobalPkgs = true;}
+  ];
+in {
+  yukari = nixosSystem {
     system = "x86_64-linux";
     specialArgs = inputs;
-    modules = [] ++ extraModules;
-  });
-in {
-  yukari = nixosConfig {
-    extraModules = [./yukari.nix];
+    modules =
+      [
+        ./yukari.nix
+        {home-manager.users.sno2wman = (import "${self}/home-manager/profiles")."yukari";}
+      ]
+      ++ commonModules;
   };
-  kaguya = nixosConfig {
-    extraModules = [./kaguya.nix];
+
+  kaguya = nixosSystem {
+    system = "x86_64-linux";
+    specialArgs = inputs;
+    modules =
+      [
+        ./kaguya.nix
+        {home-manager.users.sno2wman = (import "${self}/home-manager/profiles")."kaguya";}
+      ]
+      ++ commonModules;
   };
-  marisa = nixosConfig {
-    extraModules = [./marisa.nix];
+
+  marisa = nixosSystem {
+    system = "x86_64-linux";
+    specialArgs = inputs;
+    modules =
+      [
+        ./marisa.nix
+        {home-manager.users.sno2wman = (import "${self}/home-manager/profiles")."marisa";}
+      ]
+      ++ commonModules;
   };
 }

@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-unstable";
+      url = "github:NixOS/nixpkgs/release-22.05";
     };
     nixpkgs-wayland = {
       url = "github:nix-community/nixpkgs-wayland";
@@ -21,6 +21,10 @@
     };
     nixgl = {
       url = "github:guibou/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    useful-scripts = {
+      url = "github:SnO2WMaN/my-useful-scripts-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # vscode-extensions = {
@@ -46,12 +50,11 @@
     nixpkgs,
     devshell,
     flake-utils,
-    vscode-marketplace,
     ...
   } @ inputs:
     {
       nixosConfigurations = import ./nixos inputs;
-      homeConfigurations = import ./home-manager inputs;
+      # homeConfigurations = import ./home-manager inputs;
 
       overlays.bin = import ./bin/overlay.nix;
     }

@@ -3,8 +3,19 @@
   lib,
   pkgs,
   nixpkgs,
+  nixpkgs-wayland,
+  nixgl,
+  useful-scripts,
   ...
 }: {
+  imports = [
+    ./cachix/dhall.nix
+    ./cachix/nix-community.nix
+    ./cachix/nixpkgs-wayland.nix
+    ./cachix/helix.nix
+    ./cachix/sno2wman.nix
+  ];
+
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = ''
@@ -19,27 +30,38 @@
     };
 
     settings = {
+      max-jobs = lib.mkDefault 4;
       auto-optimise-store = true;
-      substituters = [
-        "https://cache.nixos.org"
-        "https://sno2wman.cachix.org"
-        "https://dhall.cachix.org"
-        "https://nixpkgs-wayland.cachix.org"
-      ];
-      trusted-public-keys = [
-        "sno2wman.cachix.org-1:JHDNKuz+q1xthbonwirDQzMZtwPrDnwCq3wUX3kmBVU="
-        "dhall.cachix.org-1:8laGciue2JBwD49ICFtg+cIF8ddDaW7OFBjDb/dHEAo="
-        "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
-      ];
+      substituters = ["https://cache.nixos.org/"];
     };
   };
 
-  nixpkgs.config = {
-    allowUnfreePackages = [
+  nixpkgs.overlays = [
+    # (final: prev: {
+    #   clean-emptydir = (import ./clean-emptydir.nix) {pkgs = final;};
+    #   listgroups = (import ./listgroups.nix) {pkgs = final;};
+    #   listpath = (import ./listpath.nix) {pkgs = final;};
+    # })
+    nixpkgs-wayland.overlay
+    nixgl.overlay
+    useful-scripts.overlays.default
+  ];
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "1password"
+      "android-studio-stable"
+      "discord"
+      "gitkraken"
+      "google-chrome"
+      "mongodb-compass"
+      "slack"
+      "spotify-unwrapped"
+      "spotify"
+      "steam"
+      "steam-original"
       "vscode"
     ];
-    permittedInsecurePackages = [
-      "libdwarf-20210528"
-    ];
-  };
+  nixpkgs.config.permittedInsecurePackages = [
+    "libdwarf-20181024"
+  ];
 }
