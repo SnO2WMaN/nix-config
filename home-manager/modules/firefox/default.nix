@@ -5,10 +5,32 @@
 }: {
   programs.firefox = {
     enable = true;
-    # package = pkgs.firefox-wayland;
+    package = pkgs.firefox-wayland.override {
+      extraPrefs = ''
+        lockPref("ui.key.menuAccessKeyFocuses", false);
+
+        lockPref("toolkit.legacyUserProfileCustomizations.stylesheets", false);
+
+
+        lockPref("browser.fullscreen.autohide", false);
+        lockPref("browser.startup.homepage", "about:home");
+        lockPref("browser.newtabpage.enabled", true);
+        lockPref("browser.startup.page", 1);
+
+        lockPref("extensions.screenshots.disabled", false);
+      '';
+      extraPolicies = {
+        DisableFirefoxStudies = true;
+        DisablePocket = true;
+        DisableTelemetry = true;
+        FirefoxHome = {
+          Pocket = false;
+          Snippets = false;
+        };
+      };
+    };
     profiles.default = {
       userChrome = builtins.readFile ./userChrome.css;
-      extraConfig = builtins.readFile ./config.js;
     };
   };
   home.sessionVariables = {
