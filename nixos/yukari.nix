@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  inputs,
   modulesPath,
   nixpkgs,
   nixos-hardware,

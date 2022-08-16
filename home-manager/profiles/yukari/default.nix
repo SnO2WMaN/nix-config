@@ -1,4 +1,18 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
+  home = {
+    stateVersion = "22.05";
+    username = "sno2wman";
+    homeDirectory = "/home/sno2wman";
+  };
+  home.packages = with pkgs; [
+    steam
+    w3m
+    slurp
+  ];
   imports = [
     ../../modules/cmd
     ../../modules/desktop/1password.nix

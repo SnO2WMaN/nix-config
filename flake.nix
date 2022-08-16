@@ -23,6 +23,10 @@
       url = "github:guibou/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    useful-scripts = {
+      url = "github:SnO2WMaN/my-useful-scripts-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # vscode-extensions = {
     #   url = "path:./flakes/vscode-extensions";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -46,7 +50,6 @@
     nixpkgs,
     devshell,
     flake-utils,
-    vscode-marketplace,
     ...
   } @ inputs:
     {

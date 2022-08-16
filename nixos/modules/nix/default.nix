@@ -3,6 +3,9 @@
   lib,
   pkgs,
   nixpkgs,
+  nixpkgs-wayland,
+  nixgl,
+  useful-scripts,
   ...
 }: {
   imports = [
@@ -33,9 +36,31 @@
     };
   };
 
-  nixpkgs.config.allowUnfreePackages = [
-    "vscode"
+  nixpkgs.overlays = [
+    # (final: prev: {
+    #   clean-emptydir = (import ./clean-emptydir.nix) {pkgs = final;};
+    #   listgroups = (import ./listgroups.nix) {pkgs = final;};
+    #   listpath = (import ./listpath.nix) {pkgs = final;};
+    # })
+    nixpkgs-wayland.overlay
+    nixgl.overlay
+    useful-scripts.overlays.default
   ];
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "1password"
+      "android-studio-stable"
+      "discord"
+      "gitkraken"
+      "google-chrome"
+      "mongodb-compass"
+      "slack"
+      "spotify-unwrapped"
+      "spotify"
+      "steam"
+      "steam-original"
+      "vscode"
+    ];
   nixpkgs.config.permittedInsecurePackages = [
     "libdwarf-20181024"
   ];
