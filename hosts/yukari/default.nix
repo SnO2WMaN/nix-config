@@ -81,6 +81,8 @@
       "wheel"
       # TODO: for ?
       "video"
+      # docker
+      "docker"
     ];
   };
 
