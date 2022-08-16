@@ -7,28 +7,53 @@
   ];
   imports = [
     ../../modules
-    ../../modules/desktop/1password.nix
-    ../../modules/desktop/alacritty.nix
-    ../../modules/desktop/android-studio.nix
-    ../../modules/desktop/chrome
-    ../../modules/desktop/common.nix
-    ../../modules/desktop/discord.nix
-    ../../modules/desktop/easyeffects.nix
-    ../../modules/desktop/fcitx
-    ../../modules/desktop/firefox
-    ../../modules/desktop/fonts.nix
-    ../../modules/desktop/gitkraken.nix
-    ../../modules/desktop/gscan2pdf.nix
-    ../../modules/desktop/gtk.nix
-    ../../modules/desktop/helvum.nix
-    ../../modules/desktop/kitty.nix
-    ../../modules/desktop/pcmanfm.nix
-    ../../modules/desktop/ristretto.nix
-    ../../modules/desktop/slack.nix
-    ../../modules/desktop/spotify.nix
-    ../../modules/desktop/vscode
-    ../../modules/desktop/mongodb-compass.nix
-    ../../modules/desktop/wayland/sway
+    ../../modules/1password
+    ../../modules/alacritty
+    ../../modules/android-studio
+    ../../modules/chrome
+    ../../modules/discord
+    ../../modules/easyeffects
+    ../../modules/fcitx
+    ../../modules/firefox
+    ../../modules/gammastep
+    ../../modules/gitkraken
+    ../../modules/gscan2pdf
+    ../../modules/gtk
+    ../../modules/helvum
+    ../../modules/kitty
+    ../../modules/mongodb-compass
+    ../../modules/pcmanfm
+    ../../modules/ristretto
+    ../../modules/slack
+    ../../modules/spotify
     ../../modules/ssh
+    ../../modules/sway
+    ../../modules/vscode
+    ../../modules/waybar
+    ../../modules/wofi
+    ../../modules/wl-clipboard
   ];
+
+  services.kanshi.profiles = {
+    yukari = {
+      outputs = [
+        {
+          criteria = "DP-2";
+          position = "0,0";
+          mode = "1920x1080";
+          transform = "270";
+        }
+        {
+          criteria = "DP-1";
+          position = "1200,0";
+          mode = "2560x1080";
+        }
+        {
+          criteria = "DP-3";
+          position = "1200,1080";
+          mode = "2560x1080";
+        }
+      ];
+    };
+  };
 }

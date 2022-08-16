@@ -7,43 +7,43 @@
   ];
 
   imports = [
-    ../../modules/cmd
-    ../../modules/desktop/1password.nix
-    ../../modules/desktop/chrome
-    ../../modules/desktop/discord.nix
-    ../../modules/desktop/fcitx
-    ../../modules/desktop/firefox
-    ../../modules/desktop/fonts.nix
-    ../../modules/desktop/gitkraken.nix
-    ../../modules/desktop/gtk.nix
-    ../../modules/desktop/ristretto.nix
-    ../../modules/desktop/slack.nix
-    ../../modules/desktop/spotify.nix
-    ../../modules/desktop/wayland/sway
-    ../../modules/desktop/helvum.nix
-    ../../modules/desktop/gscan2pdf.nix
-    ../../modules/desktop/kitty.nix
-    ../../modules/desktop/vscode
+    ../../modules
+    ../../modules/1password
+    ../../modules/chrome
+    ../../modules/discord
+    ../../modules/fcitx
+    ../../modules/firefox
+    ../../modules/gammastep
+    ../../modules/gitkraken
+    ../../modules/gscan2pdf
+    ../../modules/gtk
+    ../../modules/helvum
+    ../../modules/kitty
+    ../../modules/ristretto
+    ../../modules/slack
+    ../../modules/spotify
     ../../modules/ssh
-    ../../modules/gpg
-    # ./modules/miscellaneous
-    # ./modules/1password
-    # ./modules/alacritty
-    # ./modules/discord
-    # ./modules/fcitx
-    # ./modules/fonts
-    # ./modules/gammastep
-    # ./modules/gitkraken
-    # ./modules/gtk
-    # ./modules/kitty
-    # ./modules/pcmanfm
-    # ./modules/ristretto
-    # ./modules/slack
-    # ./modules/spotify/desktop.nix
-    # ./modules/sway
-    # ./modules/sway/kanshi.nix
-    # ./modules/sway/mako.nix
-    # ./modules/sway/waybar.nix
-    # ./modules/sway/wofi.nix
+    ../../modules/sway
+    ../../modules/vscode
+    ../../modules/waybar
+    ../../modules/wl-clipboard
+    ../../modules/wofi
   ];
+
+  services.kanshi.profiles = {
+    marisa = {
+      outputs = [
+        {
+          criteria = "HDMI-A-1";
+          position = "0,0";
+          mode = "1920x1080";
+        }
+        {
+          criteria = "eDP-1";
+          position = "1920,0";
+          mode = "1920x1080";
+        }
+      ];
+    };
+  };
 }

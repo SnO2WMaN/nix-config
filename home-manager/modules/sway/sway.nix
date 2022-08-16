@@ -18,17 +18,6 @@
       [[ -n "$choice" ]] && ${code} $(${ghq} root)/$choice
     '';
 in {
-  imports = [
-    # ../../vscode
-    ../../alacritty.nix
-    ../../pcmanfm.nix
-
-    ../waybar
-    ../wofi
-    ../gammastep.nix
-    ../wl-clipboard.nix
-  ];
-
   home.packages = with pkgs; [
     clipman
     wdisplays

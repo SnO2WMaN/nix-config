@@ -5,6 +5,6 @@
 }: {
   imports = [
     ./desktop.nix
-    ./spotify-tui.nix
+    # ./spotify-tui.nix
   ];
 }

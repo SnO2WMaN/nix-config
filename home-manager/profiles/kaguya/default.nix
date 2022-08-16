@@ -1,22 +1,24 @@
 {pkgs, ...}: {
   home.stateVersion = "22.05";
   imports = [
-    ../../modules/cmd
-    ../../modules/desktop/1password.nix
-    ../../modules/desktop/alacritty.nix
-    ../../modules/desktop/common.nix
-    ../../modules/desktop/discord.nix
-    ../../modules/desktop/fcitx
-    ../../modules/desktop/firefox
-    ../../modules/desktop/fonts.nix
-    ../../modules/desktop/gtk.nix
-    ../../modules/desktop/helvum.nix
-    ../../modules/desktop/kitty.nix
-    ../../modules/desktop/pcmanfm.nix
-    ../../modules/desktop/ristretto.nix
-    ../../modules/desktop/spotify.nix
-    ../../modules/desktop/vscode
-    ../../modules/desktop/wayland/sway
+    ../../modules
+    ../../modules/1password
+    ../../modules/alacritty
+    ../../modules/discord
+    ../../modules/fcitx
+    ../../modules/firefox
+    ../../modules/gammastep
+    ../../modules/gtk
+    ../../modules/helvum
+    ../../modules/kitty
+    ../../modules/pcmanfm
+    ../../modules/ristretto
+    ../../modules/spotify
     ../../modules/ssh
+    ../../modules/sway
+    ../../modules/vscode
+    ../../modules/waybar
+    ../../modules/wl-clipboard
+    ../../modules/wofi
   ];
 }
