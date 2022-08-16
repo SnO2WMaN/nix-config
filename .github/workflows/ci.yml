@@ -13,7 +13,15 @@ jobs:
         with:
           name: sno2wman
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - run: nix flake check --impure
-        env:
-          NIXPKGS_ALLOW_UNFREE: 1
-          NIXPKGS_ALLOW_INSECURE: 1
+      - run: nix flake check
+
+  treefmt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cachix/install-nix-action@v17
+      - uses: cachix/cachix-action@v10
+        with:
+          name: sno2wman
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+      - run: nix-shell --run "treefmt --no-cache --fail-on-change"
