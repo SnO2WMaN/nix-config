@@ -1,18 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
-  imports = [
-    ./bat.nix
-    ./du-dust.nix
-    ./hyperfine.nix
-    ./lsd.nix
-    ./neovim.nix
-    ./procs.nix
-    ./zellij.nix
-  ];
-
+{pkgs, ...}: {
   programs.zsh = {
     enable = true;
 

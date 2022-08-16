@@ -1,12 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
-  imports = [
-    ./git.nix
-  ];
-
+{pkgs, ...}: {
   home.packages = with pkgs; [
     ghq
   ];

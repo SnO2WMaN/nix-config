@@ -6,7 +6,7 @@
     slurp
   ];
   imports = [
-    ../../modules/cmd
+    ../../modules
     ../../modules/desktop/1password.nix
     ../../modules/desktop/alacritty.nix
     ../../modules/desktop/android-studio.nix

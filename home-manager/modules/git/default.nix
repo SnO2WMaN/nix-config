@@ -1,12 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
-  imports = [
-    ./delta.nix
-  ];
-
+{pkgs, ...}: {
   programs.git = {
     enable = true;
 

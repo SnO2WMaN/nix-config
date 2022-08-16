@@ -29,7 +29,7 @@
     ./pueue.nix
     ./ripgrep.nix
     ./satysfi.nix
-    ./starship.nix
+    # ./starship.nix
     ./yq.nix
     ./zellij.nix
     ./zsh.nix
