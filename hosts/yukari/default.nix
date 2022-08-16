@@ -7,20 +7,21 @@
   nixos-hardware,
   ...
 }: {
-  imports = [
-    nixpkgs.nixosModules.notDetected
-    nixos-hardware.nixosModules.common-cpu-amd
-    nixos-hardware.nixosModules.common-pc-ssd
-
-    ../../modules
-    ../../modules/fonts
-    ../../modules/sound
-    ../../modules/ssh
-    ../../modules/sane
-    ../../modules/desktop/sway
-    ../../modules/develop/docker
-    # ../../modules/develop/virtualbox
-  ];
+  imports =
+    [
+      ../../modules
+      ../../modules/fonts
+      ../../modules/sound
+      ../../modules/ssh
+      ../../modules/sane
+      ../../modules/desktop/sway
+      ../../modules/develop/docker
+      # ../../modules/develop/virtualbox
+    ]
+    ++ (with nixos-hardware.nixosModules; [
+      common-cpu-amd
+      common-pc-ssd
+    ]);
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

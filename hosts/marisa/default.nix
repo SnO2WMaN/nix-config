@@ -8,28 +8,38 @@
   nixos-hardware,
   ...
 }: {
-  imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
-    nixos-hardware.nixosModules.common-cpu-intel
-    nixos-hardware.nixosModules.common-pc-ssd
-
-    ./modules/chrony
-    ./modules/dm
-    ./modules/networkmanager
-    ./modules/nix
-    ./modules/opengl
-    ./modules/sane
-    ./modules/sound
-    ./modules/ssh
-  ];
+  imports =
+    [
+      ../../modules
+      ../../modules/fonts
+      ../../modules/sound
+      ../../modules/ssh
+      ../../modules/sane
+      ../../modules/desktop/sway
+      ../../modules/develop/docker
+      ../../modules/network/networkmanager
+      ../../modules/power/tlp
+    ]
+    ++ (with nixos-hardware.nixosModules; [
+      common-cpu-amd
+      common-pc-ssd
+    ]);
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.availableKernelModules = ["xhci_pci" "ehci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sr_mod"];
+  boot.initrd.availableKernelModules = [
+    "nvme"
+    "xhci_pci"
+    "ahci"
+    "usbhid"
+    "usb_storage"
+    "sd_mod"
+  ];
   boot.initrd.kernelModules = [];
 
+  boot.kernelParams = ["amdgpu.freesync_video=1" "amd_iommu=on" "pcie_aspm=off"];
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelModules = ["kvm-intel"];
+  boot.kernelModules = ["kvm-amd"];
 
   boot.extraModulePackages = [];
 
@@ -49,27 +59,14 @@
     {device = "/dev/disk/by-label/swap";}
   ];
 
-  # Additional packages
-  system.stateVersion = "21.11";
-
-  environment.systemPackages = with pkgs; [
-    git
-    vim
-    wget
-    corectrl
-    seatd
-  ];
-
-  nixpkgs = {
-    config.allowUnfree = true;
-  };
+  environment.systemPackages = with pkgs; [];
 
   # Network
+  networking.hostName = "marisa";
   networking = {
-    hostName = "kaguya";
-
     useDHCP = false;
-    interfaces.eno1.useDHCP = true;
+    interfaces.enp2s0.useDHCP = true;
+    interfaces.wlp4s0.useDHCP = true;
   };
 
   # TODO: GTK?
@@ -87,8 +84,7 @@
       "wheel"
       # TODO: for ?
       "video"
+      "networkmanager"
     ];
   };
-
-  programs.sway = {enable = true;};
 }

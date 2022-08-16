@@ -8,40 +8,27 @@
   nixos-hardware,
   ...
 }: {
-  imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
-    nixos-hardware.nixosModules.common-cpu-amd
-    nixos-hardware.nixosModules.common-pc-ssd
-
-    # ./modules/android
-    ./modules/chrony
-    ./modules/dm
-    ./modules/docker
-    ./modules/networkmanager
-    ./modules/nix
-    ./modules/opengl
-    # ./modules/sane
-    ./modules/sound
-    ./modules/fonts
-    # ./modules/ssh
-    # ./modules/virtualbox
-  ];
+  imports =
+    [
+      ../../modules
+      ../../modules/fonts
+      ../../modules/sound
+      ../../modules/ssh
+      ../../modules/sane
+      ../../modules/desktop/sway
+    ]
+    ++ (with nixos-hardware.nixosModules; [
+      common-cpu-intel
+      common-pc-ssd
+    ]);
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.availableKernelModules = [
-    "nvme"
-    "xhci_pci"
-    "ahci"
-    "usbhid"
-    "usb_storage"
-    "sd_mod"
-  ];
+  boot.initrd.availableKernelModules = ["xhci_pci" "ehci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sr_mod"];
   boot.initrd.kernelModules = [];
 
-  boot.kernelParams = ["amdgpu.freesync_video=1" "amd_iommu=on" "pcie_aspm=off"];
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelModules = ["kvm-amd"];
+  boot.kernelModules = ["kvm-intel"];
 
   boot.extraModulePackages = [];
 
@@ -70,18 +57,18 @@
     wget
     corectrl
     seatd
-    ly
-    openssl
-    sudo
-    home-manager
   ];
 
+  nixpkgs = {
+    config.allowUnfree = true;
+  };
+
   # Network
-  networking.hostName = "marisa";
   networking = {
+    hostName = "kaguya";
+
     useDHCP = false;
-    interfaces.enp2s0.useDHCP = true;
-    interfaces.wlp4s0.useDHCP = true;
+    interfaces.eno1.useDHCP = true;
   };
 
   # TODO: GTK?
@@ -101,13 +88,4 @@
       "video"
     ];
   };
-
-  services.tlp = {
-    enable = true;
-    settings = {
-      USB_EXCLUDE_PHONE = 1;
-    };
-  };
-
-  programs.sway = {enable = true;};
 }

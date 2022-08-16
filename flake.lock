@@ -433,22 +433,6 @@
         "type": "indirect"
       }
     },
-    "nixpkgs_6": {
-      "locked": {
-        "lastModified": 1657208011,
-        "narHash": "sha256-BlIFwopAykvdy1DYayEkj6ZZdkn+cVgPNX98QVLc0jM=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "2770cc0b1e8faa0e20eb2c6aea64c256a706d4f2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "pypi-deps-db": {
       "flake": false,
       "locked": {
@@ -541,7 +525,9 @@
       "inputs": {
         "flake-utils": "flake-utils_7",
         "mach-nix": "mach-nix",
-        "nixpkgs": "nixpkgs_6"
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1657659278,

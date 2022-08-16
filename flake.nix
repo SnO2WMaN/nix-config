@@ -2,9 +2,7 @@
   description = "A very basic flake";
 
   inputs = {
-    nixpkgs = {
-      url = "github:NixOS/nixpkgs/release-22.05";
-    };
+    nixpkgs.url = "github:NixOS/nixpkgs/release-22.05";
     nixpkgs-wayland = {
       url = "github:nix-community/nixpkgs-wayland";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -16,9 +14,6 @@
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware";
     };
-    flake-utils = {
-      url = "github:numtide/flake-utils";
-    };
     nixgl = {
       url = "github:guibou/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,22 +22,18 @@
       url = "github:SnO2WMaN/my-useful-scripts-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # vscode-extensions = {
-    #   url = "path:./flakes/vscode-extensions";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.flake-utils.follows = "flake-utils";
-    # };
-    # plemoljp = {
-    #   url = "path:./flakes/plemoljp";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.flake-utils.follows = "flake-utils";
-    # };
+    vscode-marketplace = {
+      url = "github:AmeerTaweel/nix-vscode-marketplace";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # dev
     devshell.url = "github:numtide/devshell";
+    flake-utils.url = "github:numtide/flake-utils";
     flake-compat = {
       url = "github:edolstra/flake-compat";
       flake = false;
     };
-    vscode-marketplace.url = "github:AmeerTaweel/nix-vscode-marketplace";
   };
 
   outputs = {
@@ -53,7 +44,7 @@
     ...
   } @ inputs:
     {
-      nixosConfigurations = import ./nixos inputs // import ./hosts inputs;
+      nixosConfigurations = import ./hosts inputs;
       # homeConfigurations = import ./home-manager inputs;
 
       overlays.default = import ./pkgs/overlay.nix;

@@ -20,4 +20,16 @@ in {
       {home-manager.users.sno2wman = (import "${self}/home-manager/profiles")."yukari";}
     ];
   };
+  marisa = mkNixosSystem {
+    extraModules = [
+      ./marisa
+      {home-manager.users.sno2wman = (import "${self}/home-manager/profiles")."marisa";}
+    ];
+  };
+  kaguya = mkNixosSystem {
+    extraModules = [
+      ./kaguya
+      {home-manager.users.sno2wman = (import "${self}/home-manager/profiles")."kaguya";}
+    ];
+  };
 }
