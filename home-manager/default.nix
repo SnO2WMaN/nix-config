@@ -1,9 +1,9 @@
 {
   self,
-  nixpkgs,
   home-manager,
   nixpkgs-wayland,
   nixgl,
+  useful-scripts,
   vscode-marketplace,
   ...
 } @ inputs: let
@@ -16,6 +16,7 @@
         self.overlays.bin
         nixpkgs-wayland.overlay
         nixgl.overlay
+        useful-scripts.overlays.default
         (final: prev: {
           vscode-extensions = prev.vscode-extensions // vscode-marketplace.packages.${system};
         })

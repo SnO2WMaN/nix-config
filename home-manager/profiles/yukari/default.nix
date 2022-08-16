@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home = {
     stateVersion = "22.05";
     username = "sno2wman";
