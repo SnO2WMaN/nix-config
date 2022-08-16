@@ -13,6 +13,7 @@
     ./starship
     ./vim
     ./zellij
+    ./command-not-found
     ./zsh
   ];
   home.packages = with pkgs; [
