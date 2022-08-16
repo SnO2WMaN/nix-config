@@ -1,9 +1,5 @@
 {pkgs, ...}: {
-  home = {
-    stateVersion = "22.05";
-    username = "sno2wman";
-    homeDirectory = "/home/sno2wman";
-  };
+  home.stateVersion = "22.05";
   home.packages = with pkgs; [
     networkmanagerapplet
     w3m
