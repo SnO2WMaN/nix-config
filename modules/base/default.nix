@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   imports = [
     ./nix.nix
-    ./time.nix
     ./overlays.nix
     ./hm-system-defaults.nix
   ];

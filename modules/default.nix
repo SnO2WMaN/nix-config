@@ -4,5 +4,6 @@
     ./cachix
     ./insecure
     ./unfree
+    ./locale
   ];
 }
