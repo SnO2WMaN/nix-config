@@ -53,10 +53,10 @@
     ...
   } @ inputs:
     {
-      nixosConfigurations = import ./nixos inputs;
+      nixosConfigurations = import ./nixos inputs // import ./hosts inputs;
       # homeConfigurations = import ./home-manager inputs;
 
-      overlays.bin = import ./bin/overlay.nix;
+      overlays.default = import ./pkgs/overlay.nix;
     }
     // flake-utils.lib.eachDefaultSystem (
       system: let
