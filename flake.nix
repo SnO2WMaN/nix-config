@@ -54,7 +54,7 @@
   } @ inputs:
     {
       nixosConfigurations = import ./nixos inputs;
-      homeConfigurations = import ./home-manager inputs;
+      # homeConfigurations = import ./home-manager inputs;
 
       overlays.bin = import ./bin/overlay.nix;
     }
