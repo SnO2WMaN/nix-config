@@ -48,9 +48,6 @@
     {device = "/dev/disk/by-label/swap";}
   ];
 
-  # Additional packages
-  system.stateVersion = "21.11";
-
   environment.systemPackages = with pkgs; [
     git
     vim

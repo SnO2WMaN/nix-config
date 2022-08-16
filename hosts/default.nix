@@ -5,6 +5,9 @@ inputs: let
   commonModules = [
     inputs.nixpkgs.nixosModules.notDetected
     inputs.home-manager.nixosModules.home-manager
+    {
+      system.stateVersion = "22.05";
+    }
   ];
 
   mkNixosSystem = {extraModules ? []}:
