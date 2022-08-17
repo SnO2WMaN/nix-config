@@ -82,10 +82,6 @@ in {
         #  "HDMI-A-1" = "pos 0 0 res 1920x1080";
         #  "eDP-1" = "pos 1920 0 res 1920x1080";
       };
-      fonts = {
-        names = ["JetBrains Mono"];
-        size = 8.0;
-      };
       focus = {
         followMouse = false;
       };

@@ -13,7 +13,6 @@
     enable = true;
     plugins = with pkgs.vimPlugins; [
       editorconfig-nvim
-      nord-nvim
       vim-nix
       vim-airline
       vim-airline-themes
@@ -21,8 +20,6 @@
       vim-gitgutter
     ];
     extraConfig = ''
-      colorscheme nord
-
       set number
       set ruler
       set cursorline
