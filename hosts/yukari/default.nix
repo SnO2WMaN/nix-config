@@ -10,7 +10,6 @@
   imports =
     [
       ../../modules
-      ../../modules/fonts
       ../../modules/sound
       ../../modules/ssh
       ../../modules/sane
