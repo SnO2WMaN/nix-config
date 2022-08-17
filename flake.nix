@@ -26,6 +26,13 @@
       url = "github:AmeerTaweel/nix-vscode-marketplace";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+      url = "github:danth/stylix";
+    };
+    base16-schemes = {
+      url = "github:base16-project/base16-schemes";
+      flake = false;
+    };
 
     # dev
     devshell.url = "github:numtide/devshell";

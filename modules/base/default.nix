@@ -3,6 +3,7 @@
     ./nix.nix
     ./overlays.nix
     ./hm-system-defaults.nix
+    ./stylix.nix
   ];
   console.font = "7x14";
 
