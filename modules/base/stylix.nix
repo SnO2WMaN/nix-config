@@ -10,8 +10,8 @@
   ];
 
   stylix.image = pkgs.fetchurl {
-    url = "https://static.wikia.nocookie.net/aesthetics/images/4/41/Liminal5.webp";
-    sha256 = "sha256-Wu+BnEtq/W2MoEcgzti8C/h7avdp2MK3myJWAHMCaJw=";
+    url = "https://raw.githubusercontent.com/cat-milk/Anime-Girls-Holding-Programming-Books/master/Typescript/Chito_Saving_Burning_Mastering_Typescript.png";
+    sha256 = "sha256-ImCrR4jm1+F1U2Hji8CSIgQn8P0o1Kw3HZ8xZiKgCFQ=";
   };
   # stylix.polarity = "dark";
   stylix.base16Scheme = "${base16-schemes}/nord.yaml";
