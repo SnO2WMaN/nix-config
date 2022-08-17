@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./danth.nix
     ./dhall.nix
     ./nix-community.nix
     ./nixpkgs-wayland.nix
