@@ -32,6 +32,7 @@
     ../../modules/waybar
     ../../modules/wofi
     ../../modules/wl-clipboard
+    ../../modules/zathura
   ];
 
   services.kanshi.profiles = {
