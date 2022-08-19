@@ -28,6 +28,7 @@
     ../../modules/waybar
     ../../modules/wl-clipboard
     ../../modules/wofi
+    ../../modules/zathura
   ];
 
   services.kanshi.profiles = {
