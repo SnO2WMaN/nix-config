@@ -192,9 +192,9 @@
       latex-workshop = {
         view.pdf.viewer = "browser";
       };
-      # nix = {
-      #   formatterPath = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
-      # };
+      nix = {
+        formatterPath = "${pkgs.alejandra}/bin/alejandra";
+      };
       diffEditor = {
         ignoreTrimWhitespace = false;
       };
