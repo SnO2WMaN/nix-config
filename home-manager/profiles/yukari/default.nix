@@ -28,10 +28,11 @@
     ../../modules/spotify
     ../../modules/ssh
     ../../modules/sway
+    ../../modules/vlc
     ../../modules/vscode
     ../../modules/waybar
-    ../../modules/wofi
     ../../modules/wl-clipboard
+    ../../modules/wofi
   ];
 
   services.kanshi.profiles = {
