@@ -10,11 +10,11 @@
   ];
 
   stylix.image = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/cat-milk/Anime-Girls-Holding-Programming-Books/master/Typescript/Chito_Saving_Burning_Mastering_Typescript.png";
-    sha256 = "sha256-ImCrR4jm1+F1U2Hji8CSIgQn8P0o1Kw3HZ8xZiKgCFQ=";
+    url = "https://freight.cargo.site/t/original/i/b32f61d8058742b67ac706434c3b1aec306e9bb8e640bdc05a70d7f5e509c65d/ED_33.jpg";
+    sha256 = "sha256-TrnzJBx7WpKKpskBpBYfnnIfIhlhEQG+7KkSCsMDtsE=";
   };
-  # stylix.polarity = "dark";
-  stylix.base16Scheme = "${base16-schemes}/nord.yaml";
+  stylix.polarity = "dark";
+  # stylix.base16Scheme = "${base16-schemes}/nord.yaml";
   stylix.fonts = {
     serif = {
       package = pkgs.ipaexfont;
