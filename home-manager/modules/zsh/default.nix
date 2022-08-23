@@ -85,6 +85,17 @@
       bindkey '^[[H' beginning-of-line
       bindkey '^[[F' end-of-line
       bindkey '^[[Z' undo # Shift+Tab
+
+      function fzf-ghq () {
+        local selected_dir=$(ghq list -p | fzf --query "$LBUFFER")
+        if [ -n "$selected_dir" ]; then
+          BUFFER="cd ''${selected_dir}"
+          zle accept-line
+        fi
+        zle clear-screen
+      }
+      zle -N fzf-ghq
+      bindkey '^g' fzf-ghq
     '';
   };
 }
