@@ -31,7 +31,6 @@
     procs
     pueue
     ripgrep
-    satysfi
     yq
   ];
 }
