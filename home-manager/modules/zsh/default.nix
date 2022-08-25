@@ -86,8 +86,16 @@
       bindkey '^[[F' end-of-line
       bindkey '^[[Z' undo # Shift+Tab
 
-      # EMULATOR=$(cat /proc/$PPID/comm)
-      # [[ $EMULATOR != "code" && $EMULATOR != "zellij" ]] && ${pkgs.zellij}/bin/zellij
+      function fzf-ghq () {
+        local selected_dir=$(ghq list -p | fzf --query "$LBUFFER")
+        if [ -n "$selected_dir" ]; then
+          BUFFER="cd ''${selected_dir}"
+          zle accept-line
+        fi
+        zle clear-screen
+      }
+      zle -N fzf-ghq
+      bindkey '^g' fzf-ghq
     '';
   };
 }

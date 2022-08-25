@@ -17,7 +17,7 @@
     options = "--delete-older-than 30d";
   };
   nix.settings = {
-    max-jobs = lib.mkDefault 4;
+    max-jobs = lib.mkDefault 8;
     auto-optimise-store = true;
     substituters = ["https://cache.nixos.org/"];
   };

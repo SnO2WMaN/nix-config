@@ -21,17 +21,21 @@
     delta
     du-dust
     fd
+    gcc
     git-crypt
+    glib
+    glibc
+    gnumake
     grpcurl
     hexyl
     httpie
     hyperfine
     imagemagick
     jq
+    nix-prefetch-scripts
     procs
     pueue
     ripgrep
-    satysfi
     yq
   ];
 }
