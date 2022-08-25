@@ -7,17 +7,16 @@
     enable = true;
     package = pkgs.firefox-wayland.override {
       extraPrefs = ''
-        lockPref("ui.key.menuAccessKeyFocuses", false);
+        user_pref("ui.key.menuAccessKeyFocuses", false);
 
-        lockPref("toolkit.legacyUserProfileCustomizations.stylesheets", false);
+        user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", false);
 
+        user_pref("browser.fullscreen.autohide", false);
+        user_pref("browser.startup.homepage", "about:home");
+        user_pref("browser.newtabpage.enabled", true);
+        user_pref("browser.startup.page", 1);
 
-        lockPref("browser.fullscreen.autohide", false);
-        lockPref("browser.startup.homepage", "about:home");
-        lockPref("browser.newtabpage.enabled", true);
-        lockPref("browser.startup.page", 1);
-
-        lockPref("extensions.screenshots.disabled", false);
+        user_pref("extensions.screenshots.disabled", false);
       '';
       extraPolicies = {
         DisableFirefoxStudies = true;
