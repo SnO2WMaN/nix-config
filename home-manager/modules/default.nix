@@ -21,7 +21,11 @@
     delta
     du-dust
     fd
+    gcc
     git-crypt
+    glib
+    glibc
+    gnumake
     grpcurl
     hexyl
     httpie
