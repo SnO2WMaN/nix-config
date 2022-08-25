@@ -32,6 +32,7 @@
     hyperfine
     imagemagick
     jq
+    nix-prefetch-scripts
     procs
     pueue
     ripgrep
