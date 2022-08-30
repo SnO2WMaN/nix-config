@@ -44,6 +44,8 @@
 
       lsgroups = "${pkgs.listgroups}/bin/listgroups";
       lspath = "${pkgs.listpath}/bin/listpath";
+
+      rm-ext = "${pkgs.remove-extensions}/bin/remove-extensions";
     };
 
     zplug = {

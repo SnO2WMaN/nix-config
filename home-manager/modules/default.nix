@@ -37,5 +37,6 @@
     pueue
     ripgrep
     yq
+    remove-extensions
   ];
 }

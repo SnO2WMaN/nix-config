@@ -7,4 +7,6 @@
       ];
     doCheck = false;
   });
+
+  remove-extensions = final.callPackage ./remove-extensions {};
 })
