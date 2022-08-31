@@ -29,23 +29,23 @@
       lt = "ls -T";
       l1 = "ls -1";
 
-      cat = "${pkgs.bat}/bin/bat";
-      dig = "${pkgs.dogdns}/bin/dog";
-      du = "${pkgs.du-dust}/bin/dust";
-      ls = "${pkgs.lsd}/bin/lsd";
-      ps = "${pkgs.procs}/bin/procs";
-      rm = "${pkgs.rm-improved}/bin/rip -i";
-      miniserve = "${pkgs.miniserve}/bin/miniserve";
-      time = "${pkgs.hyperfine}/bin/hyperfine";
-      z = "${pkgs.zoxide}/bin/zoxide";
-      ze = "${pkgs.zellij}/bin/zellij";
-      vim = "${pkgs.neovim}/bin/nvim";
-      imagemagick = "${pkgs.imagemagick}/bin/convert";
+      cat = "bat";
+      dig = "dog";
+      du = "dust";
+      ls = "lsd";
+      ps = "procs";
+      rm = "rip -i";
+      miniserve = "miniserve";
+      time = "hyperfine";
+      z = "zoxide";
+      ze = "zellij";
+      vim = "nvim";
+      imagemagick = "convert";
 
-      lsgroups = "${pkgs.listgroups}/bin/listgroups";
-      lspath = "${pkgs.listpath}/bin/listpath";
+      lsgroups = "listgroups";
+      lspath = "listpath";
 
-      rm-ext = "${pkgs.remove-extensions}/bin/remove-extensions";
+      rm-ext = "remove-extensions";
     };
 
     zplug = {

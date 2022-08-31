@@ -19,6 +19,7 @@
   home.packages = with pkgs; [
     binutils
     delta
+    dogdns
     du-dust
     fd
     gcc
@@ -32,11 +33,19 @@
     hyperfine
     imagemagick
     jq
+    listgroup
+    listpath
+    lsd
+    miniserve
+    neovim
     nix-prefetch-scripts
     procs
     pueue
-    ripgrep
-    yq
     remove-extensions
+    ripgrep
+    rm-improved
+    yq
+    zellij
+    zoxide
   ];
 }
