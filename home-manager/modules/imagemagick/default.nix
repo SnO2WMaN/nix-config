@@ -8,6 +8,6 @@
   ];
 
   programs.zsh.shellAliases = {
-    imagemagick = "${pkgs.imagemagick}/bin/convert";
+    imagemagick = "convert";
   };
 }

@@ -29,7 +29,7 @@
       lt = "ls -T";
       l1 = "ls -1";
 
-      cat = "bat";
+      # cat = "bat";
       dig = "dog";
       du = "dust";
       ls = "lsd";
@@ -40,7 +40,6 @@
       z = "zoxide";
       ze = "zellij";
       vim = "nvim";
-      imagemagick = "convert";
 
       lsgroups = "listgroups";
       lspath = "listpath";

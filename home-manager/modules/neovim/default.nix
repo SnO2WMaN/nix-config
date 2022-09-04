@@ -1,11 +1,11 @@
 {pkgs, ...}: {
   home.sessionVariables = {
-    EDITOR = "${pkgs.neovim}/bin/nvim";
+    EDITOR = "nvim";
   };
 
   programs.git = {
     extraConfig = {
-      core.editor = "${pkgs.neovim}/bin/nvim";
+      core.editor = "nvim";
     };
   };
 

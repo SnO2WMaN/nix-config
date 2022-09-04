@@ -9,6 +9,6 @@
   ];
 
   programs.zsh.shellAliases = {
-    copy = "${pkgs.wl-clipboard}/bin/wl-copy";
+    copy = "wl-copy";
   };
 }

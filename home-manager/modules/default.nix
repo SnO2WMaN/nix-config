@@ -18,6 +18,7 @@
   ];
   home.packages = with pkgs; [
     binutils
+    clean-emptydir
     delta
     dogdns
     du-dust
@@ -28,24 +29,31 @@
     glibc
     gnumake
     grpcurl
+    gzip
     hexyl
     httpie
     hyperfine
     imagemagick
     jq
-    listgroup
+    listgroups
     listpath
     lsd
     miniserve
-    neovim
     nix-prefetch-scripts
+    pipr
     procs
+    psmisc
     pueue
+    python3
     remove-extensions
     ripgrep
     rm-improved
+    tokei
+    unzip
+    vagrant
     yq
     zellij
+    zip
     zoxide
   ];
 }
