@@ -17,6 +17,7 @@
     ./zsh
   ];
   home.packages = with pkgs; [
+    altair
     binutils
     clean-emptydir
     delta
