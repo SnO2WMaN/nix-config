@@ -28,6 +28,7 @@
     git-crypt
     glib
     glibc
+    groff
     gnumake
     grpcurl
     gzip
