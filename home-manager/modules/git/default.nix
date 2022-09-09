@@ -11,7 +11,6 @@
       };
       core = {
         symlinks = "true";
-        editor = "${pkgs.neovim}/bin/nvim";
       };
       pull = {
         rebase = "false";

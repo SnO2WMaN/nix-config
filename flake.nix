@@ -18,10 +18,6 @@
       url = "github:guibou/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    useful-scripts = {
-      url = "github:SnO2WMaN/my-useful-scripts-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     vscode-marketplace = {
       url = "github:AmeerTaweel/nix-vscode-marketplace";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -9,6 +9,5 @@
     self.overlays.default
     nixpkgs-wayland.overlay
     nixgl.overlay
-    useful-scripts.overlays.default
   ];
 }
