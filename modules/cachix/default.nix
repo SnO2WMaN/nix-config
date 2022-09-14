@@ -6,5 +6,6 @@
     ./nixpkgs-wayland.nix
     ./helix.nix
     ./sno2wman.nix
+    ./lean.nix
   ];
 }
