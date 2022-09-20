@@ -15,6 +15,9 @@
       pull = {
         rebase = "false";
       };
+      push = {
+        autoSetupRemote = "true";
+      };
       fetch = {
         prune = "true";
       };
