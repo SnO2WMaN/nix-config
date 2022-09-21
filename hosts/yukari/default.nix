@@ -17,27 +17,67 @@
       ../../modules/develop/docker
       # ../../modules/develop/virtualbox
     ]
+    ++ [
+    ]
     ++ (with nixos-hardware.nixosModules; [
       common-cpu-amd
-      common-pc-ssd
       common-gpu-amd
+      common-pc-ssd
     ]);
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernelModules = [
+      "kvm-amd"
 
-  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "usbhid" "usb_storage" "sd_mod" "amdgpu"];
-  boot.initrd.kernelModules = [];
+      "v4l2loopback"
+    ];
 
-  boot.kernelParams = ["amdgpu.freesync_video=1" "amd_iommu=on" "pcie_aspm=off"];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelModules = ["kvm-amd"];
+    extraModulePackages = with pkgs; [
+      config.boot.kernelPackages.v4l2loopback.out
+    ];
 
-  boot.extraModulePackages = [];
+    loader = {
+      systemd-boot.enable = true;
+      # grub = {
+      #   enable = true;
+      #   version = 2;
+      #   device = "nodev";
+      #   efiSupport = true;
+      #   configurationLimit = 10;
+      # };
+      efi.canTouchEfiVariables = true;
+    };
+
+    initrd.availableKernelModules = [
+      "nvme"
+      "xhci_pci"
+      "usbhid"
+      "usb_storage"
+      "sd_mod"
+    ];
+
+    binfmt.emulatedSystems = [
+      "aarch64-linux"
+    ];
+  };
 
   powerManagement.cpuFreqGovernor = "performance";
 
-  boot.binfmt.emulatedSystems = ["aarch64-linux"];
+  virtualisation.libvirtd.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    file
+    thefuck
+    mc
+    virt-manager
+    lutris
+    vulkan-tools
+    wineWowPackages.stable
+    mesa-demos
+    bsnes-hd
+  ];
+  environment.variables.RADV_PERFTEST = "nggc";
 
   fileSystems."/" = {
     fsType = "ext4";
@@ -45,8 +85,9 @@
   };
 
   fileSystems."/boot" = {
-    fsType = "vfat";
+    # device = "/dev/disk/by-uuid/C156-8E76";
     device = "/dev/disk/by-label/boot";
+    fsType = "vfat";
   };
 
   swapDevices = [
@@ -83,19 +124,23 @@
       "video"
       # docker
       "docker"
+      "libvirtd"
+      "kvm"
     ];
   };
 
   hardware.opengl = {
     enable = true;
+    extraPackages = with pkgs; [mesa.drivers];
   };
 
   services.xserver = {
     enable = true;
+    videoDrivers = [
+      "amdgpu"
+      "radeon"
+    ];
     displayManager.sddm = {
-      enable = true;
-    };
-    desktopManager.plasma5 = {
       enable = true;
     };
   };
