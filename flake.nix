@@ -26,8 +26,18 @@
       url = "github:base16-project/base16-schemes";
       flake = false;
     };
+  };
+  #powercord
+  inputs = {
+    powercord-overlay.url = "github:LavaDesu/powercord-overlay";
+    powercord-tokyonight = {
+      url = "github:Dyzean/Tokyo-Night";
+      flake = false;
+    };
+  };
 
-    # dev
+  # dev
+  inputs = {
     devshell.url = "github:numtide/devshell";
     flake-utils.url = "github:numtide/flake-utils";
     flake-compat = {

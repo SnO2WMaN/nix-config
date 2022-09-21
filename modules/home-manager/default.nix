@@ -2,5 +2,6 @@
   imports = [
     ./wofi
     ./waybar
+    ./powercord
   ];
 }
