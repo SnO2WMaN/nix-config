@@ -20,6 +20,7 @@
     ++ (with nixos-hardware.nixosModules; [
       common-cpu-amd
       common-pc-ssd
+      common-gpu-amd
     ]);
 
   boot.loader.systemd-boot.enable = true;
@@ -87,8 +88,15 @@
 
   hardware.opengl = {
     enable = true;
-    package = pkgs.mesa_drivers;
-    driSupport = true;
-    driSupport32Bit = true;
+  };
+
+  services.xserver = {
+    enable = true;
+    displayManager.sddm = {
+      enable = true;
+    };
+    desktopManager.plasma5 = {
+      enable = true;
+    };
   };
 }
