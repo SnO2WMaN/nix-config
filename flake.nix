@@ -26,6 +26,10 @@
       url = "github:base16-project/base16-schemes";
       flake = false;
     };
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   #powercord
   inputs = {
@@ -51,6 +55,7 @@
     nixpkgs,
     devshell,
     flake-utils,
+    nixos-generators,
     ...
   } @ inputs:
     {
@@ -68,6 +73,14 @@
           ];
         };
       in {
+        packages = {
+          yukari-iso = nixos-generators.nixosGenerate {
+            inherit system;
+            inherit (self.nixosConfigurations.yukari);
+            format = "install-iso";
+          };
+        };
+
         devShells.default = pkgs.devshell.mkShell {
           imports = [
             (pkgs.devshell.importTOML ./devshell.toml)
