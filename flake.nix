@@ -73,14 +73,6 @@
           ];
         };
       in {
-        packages = {
-          yukari-iso = nixos-generators.nixosGenerate {
-            inherit system;
-            inherit (self.nixosConfigurations.yukari);
-            format = "install-iso";
-          };
-        };
-
         devShells.default = pkgs.devshell.mkShell {
           imports = [
             (pkgs.devshell.importTOML ./devshell.toml)
