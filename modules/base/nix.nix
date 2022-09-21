@@ -9,6 +9,9 @@
     package = pkgs.nixFlakes;
     extraOptions = ''
       experimental-features = nix-command flakes
+      builders-use-substitutes = true
+      keep-outputs = true
+      keep-derivations = true
     '';
   };
   nix.gc = {
@@ -19,6 +22,7 @@
   nix.settings = {
     max-jobs = lib.mkDefault 8;
     auto-optimise-store = true;
+    trusted-users = ["root" "sno2wman"];
     substituters = ["https://cache.nixos.org/"];
   };
 }
