@@ -82,13 +82,12 @@
 
   fileSystems."/" = {
     fsType = "ext4";
-    device = "/dev/disk/by-label/nixos";
+    device = "/dev/disk/by-uuid/bfcfcbee-349a-4a6a-99d8-cf8b177fd97f";
   };
 
   fileSystems."/boot" = {
-    # device = "/dev/disk/by-uuid/C156-8E76";
-    device = "/dev/disk/by-label/boot";
     fsType = "vfat";
+    device = "/dev/disk/by-uuid/72B2-C236";
   };
 
   fileSystems."/mnt/backups" = {
@@ -97,7 +96,9 @@
   };
 
   swapDevices = [
-    {device = "/dev/disk/by-label/swap";}
+    {
+      device = "/dev/disk/by-uuid/61c91ca4-b7dc-4aab-91ac-ed6cd59e52a1";
+    }
   ];
 
   # Additional packages
