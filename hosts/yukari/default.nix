@@ -90,6 +90,11 @@
     fsType = "vfat";
   };
 
+  fileSystems."/mnt/backups" = {
+    device = "akyu:/volume1/backups";
+    fsType = "nfs";
+  };
+
   swapDevices = [
     {device = "/dev/disk/by-label/swap";}
   ];
@@ -143,5 +148,27 @@
     displayManager.sddm = {
       enable = true;
     };
+  };
+
+  services.borgbackup.jobs.home-sno2wman = {
+    doInit = true;
+    paths = [
+      "/home/sno2wman/.ssh"
+      "/home/sno2wman/.gnupg"
+      "/home/sno2wman/Pictures"
+      "/home/sno2wman/Documents"
+      "/home/sno2wman/Downloads"
+      "/home/sno2wman/src"
+    ];
+    exclude = [
+      "*/node_modules"
+    ];
+    encryption.mode = "none";
+    environment = {
+      BORG_RSH = "ssh -i /home/sno2wman/.ssh/id_ed25519";
+    };
+    repo = "/mnt/backups/yukari/sno2wman"; # "ssh://user@example.com:23/path/to/backups-dir/home-danbst";
+    compression = "auto,zstd";
+    startAt = "daily";
   };
 }
