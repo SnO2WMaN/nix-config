@@ -4,6 +4,14 @@
     steam
     w3m
     slurp
+
+    ffmpeg-full
+    v4l-utils
+
+    blender
+    xwayland
+    minecraft
+    evince
   ];
   imports = [
     ../../modules
@@ -56,5 +64,16 @@
         }
       ];
     };
+  };
+
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+    ];
+  };
+
+  services.syncthing = {
+    enable = true;
   };
 }
