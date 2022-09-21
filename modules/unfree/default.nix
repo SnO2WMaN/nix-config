@@ -17,6 +17,7 @@
       "steam"
       "steam-original"
       "vscode"
+      "minecraft-launcher"
       "discord-canary"
     ];
 }
