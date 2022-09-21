@@ -1,7 +1,7 @@
 {
   pkgs,
   config,
-  powercord-overlay,
+  powercord-tokyonight,
   ...
 }:
 with config.lib.stylix.colors.withHashtag;
@@ -12,7 +12,7 @@ with config.stylix.fonts; {
         (discord-plugged.override {
           # nss = pkgs.nss_latest;
           themes = [
-            (builtins.fetchTarball "https://github.com/Dyzean/Tokyo-Night/archive/master.tar.gz")
+            powercord-tokyonight
           ];
         })
       ];
