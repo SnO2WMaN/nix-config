@@ -5,7 +5,6 @@
 }:
 with config.lib.stylix.colors.withHashtag;
 with config.stylix.fonts; {
-  # Referenced https://github.com/stacyharper/base16-mako
   config.home-manager.sharedModules = [
     {
       home.packages = with pkgs; [wofi];
