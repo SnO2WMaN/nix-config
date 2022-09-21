@@ -35,4 +35,9 @@ in {
       {home-manager.users.sno2wman = (import "${self}/home-manager/profiles")."kaguya";}
     ];
   };
+  remilia = mkNixosSystem {
+    extraModules = [
+      ./remilia
+    ];
+  };
 }
