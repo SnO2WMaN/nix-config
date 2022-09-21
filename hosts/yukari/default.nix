@@ -76,6 +76,7 @@
     wineWowPackages.stable
     mesa-demos
     bsnes-hd
+    coreutils
   ];
   environment.variables.RADV_PERFTEST = "nggc";
 
