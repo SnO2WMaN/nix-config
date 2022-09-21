@@ -17,5 +17,6 @@
       "steam"
       "steam-original"
       "vscode"
+      "discord-canary"
     ];
 }
