@@ -20,8 +20,7 @@
       ../../modules/power/tlp
     ]
     ++ (with nixos-hardware.nixosModules; [
-      common-cpu-amd
-      common-pc-ssd
+      lenovo-thinkpad-e495
     ]);
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
