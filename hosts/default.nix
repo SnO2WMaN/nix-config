@@ -38,6 +38,7 @@ in {
   remilia = mkNixosSystem {
     extraModules = [
       ./remilia
+      {home-manager.users.sno2wman = (import "${self}/home-manager/profiles")."remilia";}
     ];
   };
 }

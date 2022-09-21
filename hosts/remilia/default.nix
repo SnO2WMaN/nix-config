@@ -40,6 +40,7 @@
     ];
   };
   virtualisation.libvirtd.enable = true;
+  security.polkit.enable = true;
 
   powerManagement.cpuFreqGovernor = "performance";
 
