@@ -3,10 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-wayland = {
-      url = "github:nix-community/nixpkgs-wayland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,8 +26,22 @@
       url = "github:base16-project/base16-schemes";
       flake = false;
     };
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+  #powercord
+  inputs = {
+    powercord-overlay.url = "github:LavaDesu/powercord-overlay";
+    powercord-tokyonight = {
+      url = "github:Dyzean/Tokyo-Night";
+      flake = false;
+    };
+  };
 
-    # dev
+  # dev
+  inputs = {
     devshell.url = "github:numtide/devshell";
     flake-utils.url = "github:numtide/flake-utils";
     flake-compat = {
@@ -44,6 +55,7 @@
     nixpkgs,
     devshell,
     flake-utils,
+    nixos-generators,
     ...
   } @ inputs:
     {
@@ -52,7 +64,7 @@
 
       overlays.default = import ./pkgs/overlay.nix;
     }
-    // flake-utils.lib.eachDefaultSystem (
+    // flake-utils.lib.eachSystem ["x86_64-linux"] (
       system: let
         pkgs = import nixpkgs {
           inherit system;

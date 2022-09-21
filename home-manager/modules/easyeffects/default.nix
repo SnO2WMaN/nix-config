@@ -3,7 +3,10 @@
   pkgs,
   ...
 }: {
-  home.packages = with pkgs; [
-    easyeffects
-  ];
+  services.easyeffects = {
+    enable = true;
+    preset = "dt770pro80";
+  };
+
+  xdg.configFile."easyeffects/output".source = ./output;
 }

@@ -5,31 +5,22 @@
 }: {
   programs.firefox = {
     enable = true;
-    package = pkgs.firefox-wayland.override {
-      extraPrefs = ''
-        user_pref("ui.key.menuAccessKeyFocuses", false);
-
-        user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", false);
-
-        user_pref("browser.fullscreen.autohide", false);
-        user_pref("browser.startup.homepage", "about:home");
-        user_pref("browser.newtabpage.enabled", true);
-        user_pref("browser.startup.page", 1);
-
-        user_pref("extensions.screenshots.disabled", false);
-      '';
-      extraPolicies = {
-        DisableFirefoxStudies = true;
-        DisablePocket = true;
-        DisableTelemetry = true;
-        FirefoxHome = {
-          Pocket = false;
-          Snippets = false;
-        };
-      };
-    };
+    package = pkgs.firefox-wayland;
     profiles.default = {
+      isDefault = true;
       userChrome = builtins.readFile ./userChrome.css;
+      settings = {
+        "ui.key.menuAccessKeyFocuses" = false;
+
+        "toolkit.legacyUserProfileCustomizations" = false;
+
+        "browser.fullscreen.autohide" = false;
+        "browser.startup.homepage" = "about:home";
+        "browser.newtabpage.enabled" = true;
+        "browser.startup.page" = 1;
+
+        "extensions.screenshots.disabled" = false;
+      };
     };
   };
   home.sessionVariables = {

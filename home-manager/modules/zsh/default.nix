@@ -32,7 +32,7 @@
       # cat = "bat";
       dig = "dog";
       du = "dust";
-      ls = "lsd";
+      # ls = "lsd";
       ps = "procs";
       rm = "rip -i";
       miniserve = "miniserve";

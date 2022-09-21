@@ -14,7 +14,7 @@
     sha256 = "sha256-TrnzJBx7WpKKpskBpBYfnnIfIhlhEQG+7KkSCsMDtsE=";
   };
   #  stylix.polarity = "dark";
-  stylix.base16Scheme = "${base16-schemes}/nord.yaml";
+  stylix.base16Scheme = "${base16-schemes}/tokyo-night-storm.yaml";
   stylix.fonts = {
     serif = {
       package = pkgs.ipaexfont;
