@@ -6,6 +6,7 @@
   modulesPath,
   nixpkgs,
   nixos-hardware,
+  vscode-server,
   ...
 }: {
   imports =
@@ -18,6 +19,10 @@
       ../../modules/develop/docker
       ../../modules/network/networkmanager
       ../../modules/power/tlp
+      ../../modules/home-manager/vscode-server
+    ]
+    ++ [
+      vscode-server.nixosModules.default
     ]
     ++ (with nixos-hardware.nixosModules; [
       common-cpu-amd
@@ -73,6 +78,8 @@
   services.dbus = {
     packages = with pkgs; [dconf];
   };
+
+  services.vscode-server.enable = true;
 
   users.users.root = {
     openssh.authorizedKeys.keys = [
