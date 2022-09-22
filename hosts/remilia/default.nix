@@ -126,8 +126,8 @@
     exclude = [
       "*/node_modules"
     ];
-    encryption.mode = "none"; 
-    environment = {  
+    encryption.mode = "none";
+    environment = {
       BORG_RSH = "ssh -i /home/sno2wman/.ssh/id_ed25519";
     };
     repo = "/mnt/backups/remilia/sno2wman";
