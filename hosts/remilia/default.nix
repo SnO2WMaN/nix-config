@@ -5,12 +5,17 @@
   modulesPath,
   nixpkgs,
   nixos-hardware,
+  vscode-server,
   ...
 }: {
   imports =
     [
       ../../modules
       ../../modules/ssh
+      ../../modules/home-manager/vscode-server
+    ]
+    ++ [
+      vscode-server.nixosModules.default
     ]
     ++ (with nixos-hardware.nixosModules; [
       common-cpu-amd
@@ -106,4 +111,6 @@
       "kvm"
     ];
   };
+
+  services.vscode-server.enable = true;
 }
