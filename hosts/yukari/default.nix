@@ -169,7 +169,9 @@
     environment = {
       BORG_RSH = "ssh -i /home/sno2wman/.ssh/id_ed25519";
     };
-    repo = "/mnt/backups/yukari/sno2wman"; # "ssh://user@example.com:23/path/to/backups-dir/home-danbst";
+    repo = "root@remilia:/mnt/backups/yukari/sno2wman";
+    # "/mnt/backups/yukari/sno2wman";
+    # "ssh://user@example.com:23/path/to/backups-dir/home-danbst";
     compression = "auto,zstd";
     startAt = "daily";
   };

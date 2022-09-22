@@ -12,7 +12,7 @@
       settings = {
         "ui.key.menuAccessKeyFocuses" = false;
 
-        "toolkit.legacyUserProfileCustomizations" = false;
+        "toolkit.legacyUserProfileCustomizations" = true;
 
         "browser.fullscreen.autohide" = false;
         "browser.startup.homepage" = "about:home";
