@@ -33,7 +33,7 @@
         hostName = "remilia";
         system = "x86_64-linux";
         sshUser = "root";
-        sshKey = "/home/sno2wman/.ssh/id_25519";
+        sshKey = "/home/sno2wman/.ssh/id_ed25519";
         maxJobs = 24;
         speedFactor = 2;
         supportedFeatures = [
