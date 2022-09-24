@@ -89,6 +89,8 @@
   services.dbus = {
     packages = with pkgs; [dconf];
   };
+  
+  services.openssh.permitRootLogin = "yes";
 
   users.users.root = {
     openssh.authorizedKeys.keys = [
