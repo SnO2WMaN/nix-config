@@ -16,6 +16,7 @@
       ../../modules/desktop/sway
       ../../modules/develop/docker
       # ../../modules/develop/virtualbox
+      ../../modules/home-manager/fcitx
     ]
     ++ [
     ]
