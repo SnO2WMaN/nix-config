@@ -31,9 +31,12 @@
     buildMachines = lib.filter (x: x.hostName != config.networking.hostName) [
       {
         hostName = "remilia";
-        system = "x86_64-linux";
-        sshUser = "root";
-        sshKey = "/home/sno2wman/.ssh/id_ed25519";
+        systems = [
+          "x86_64-linux"
+          "aarch64-linux"
+        ];
+        sshUser = "sno2wman";
+        sshKey = "/home/sno2wman/.ssh/nix_remote";
         maxJobs = 24;
         speedFactor = 2;
         supportedFeatures = [
