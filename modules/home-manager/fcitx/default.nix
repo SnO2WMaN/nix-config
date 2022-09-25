@@ -13,30 +13,33 @@ with config.stylix.fonts; {
         fcitx5.addons = with pkgs; [
           fcitx5-configtool
           fcitx5-gtk
-          libsForQt5.fcitx5-qt
           fcitx5-mozc
+          libsForQt5.fcitx5-qt
         ];
       };
 
-      xdg.configFile."waybar/style.css".source =
-        pkgs.writeText "classicui.conf"
-        ''
-          # Vertical Candidate List
-          Vertical Candidate List=True
+      xdg.configFile = {
+        "fcitx5/conf/classicui.conf".source =
+          pkgs.writeText "classicui.conf"
+          ''
+            # Vertical Candidate List
+            Vertical Candidate List=True
 
-          # Use Per Screen DPI
-          PerScreenDPI=True
+            # Use Per Screen DPI
+            PerScreenDPI=True
 
-          # Font
-          # Font="PlemolJP35 10"
-          # Menu Font
-          # MenuFont="PlemolJP35 10"
-          # Use input method language to display text
-          UseInputMethodLangaugeToDisplayText=True
+            # Font
+            # Font="PlemolJP35 10"
+            # Menu Font
+            # MenuFont="PlemolJP35 10"
+            # Use input method language to display text
+            UseInputMethodLangaugeToDisplayText=True
 
-          # Theme
-          Theme=sno2wman
-        '';
+            # Theme
+            Theme=sno2wman
+          '';
+      };
+
       home.file.".local/share/fcitx5/themes/sno2wman/theme.conf".source =
         pkgs.writeText "theme.conf"
         ''
@@ -47,31 +50,21 @@ with config.stylix.fonts; {
           ScaleWithDPI=True
 
           [InputPanel]
-          # 字体
           Font=PlemolJP35 13
-          # 非选中候选字颜色
-          NormalColor=#81a1c1
-          # 选中候选字颜色
-          HighlightCandidateColor=#88c0d0
-          # 高亮前景颜色(输入字符颜色)
-          HighlightColor=#88c0d0
-          # 输入字符背景颜色
-          HighlightBackgroundColor=#434c5e
-          #
+          NormalColor=${base04}
+          HighlightCandidateColor=${base05}
+          HighlightColor=${base00}
+          HighlightBackgroundColor=${base01}
           Spacing=3
 
           [InputPanel/TextMargin]
-          # 候选字对左边距
           Left=10
-          # 候选字对右边距
           Right=10
-          # 候选字向上边距
           Top=6
-          # 候选字向下边距
           Bottom=6
 
           [InputPanel/Background]
-          Color=#434c5e
+          Color=${base02}
 
           [InputPanel/Background/Margin]
           Left=2
@@ -80,26 +73,22 @@ with config.stylix.fonts; {
           Bottom=2
 
           [InputPanel/Highlight]
-          Color=#4c566a
+          Color=${base03}
 
           [InputPanel/Highlight/Margin]
-          # 高亮区域左边距
           Left=10
-          # 高亮区域右边距
           Right=10
-          # 高亮区域上边距
           Top=7
-          # 高亮区域下边距
           Bottom=7
 
           [Menu]
           Font=PlemolJP35 10
-          NormalColor=#eceff4
+          NormalColor=${base05}
           #HighlightColor=#4c566a
           Spacing=3
 
           [Menu/Background]
-          Color=#434c5e
+          Color=${base03}
 
           [Menu/Background/Margin]
           Left=2
@@ -114,7 +103,7 @@ with config.stylix.fonts; {
           Bottom=2
 
           [Menu/Highlight]
-          Color=#4c566a
+          Color=${base03}
 
           [Menu/Highlight/Margin]
           Left=10
@@ -123,7 +112,7 @@ with config.stylix.fonts; {
           Bottom=5
 
           [Menu/Separator]
-          Color=#2e3440
+          Color=${base01}
 
           [Menu/CheckBox]
           Image=radio.png
