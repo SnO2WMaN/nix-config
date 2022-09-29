@@ -13,6 +13,7 @@
       ../../modules/sound
       ../../modules/ssh
       ../../modules/sane
+      ../../modules/desktop/lightdm
       ../../modules/desktop/sway
       ../../modules/develop/docker
       # ../../modules/develop/virtualbox
@@ -148,9 +149,6 @@
       "amdgpu"
       "radeon"
     ];
-    displayManager.sddm = {
-      enable = true;
-    };
   };
 
   services.borgbackup.jobs.home-sno2wman = {
