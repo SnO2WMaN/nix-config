@@ -45,6 +45,8 @@
       lspath = "listpath";
 
       rm-ext = "remove-extensions";
+
+      unixtime = "date +\"%s\"";
     };
 
     zplug = {
