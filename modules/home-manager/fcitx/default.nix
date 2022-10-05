@@ -11,10 +11,9 @@ with config.stylix.fonts; {
       i18n.inputMethod = {
         enabled = "fcitx5";
         fcitx5.addons = with pkgs; [
-          fcitx5-configtool
           fcitx5-gtk
-          fcitx5-mozc
           libsForQt5.fcitx5-qt
+          fcitx5-mozc
         ];
       };
 
@@ -29,10 +28,6 @@ with config.stylix.fonts; {
             PerScreenDPI=True
 
             # Font
-            # Font="PlemolJP35 10"
-            # Menu Font
-            # MenuFont="PlemolJP35 10"
-            # Use input method language to display text
             UseInputMethodLangaugeToDisplayText=True
 
             # Theme
@@ -50,7 +45,7 @@ with config.stylix.fonts; {
           ScaleWithDPI=True
 
           [InputPanel]
-          Font=PlemolJP35 13
+          Font=${sansSerif.name} 13
           NormalColor=${base04}
           HighlightCandidateColor=${base05}
           HighlightColor=${base00}
@@ -82,7 +77,7 @@ with config.stylix.fonts; {
           Bottom=7
 
           [Menu]
-          Font=PlemolJP35 10
+          Font=${sansSerif.name} 10
           NormalColor=${base05}
           #HighlightColor=#4c566a
           Spacing=3
