@@ -214,6 +214,11 @@
         enableTelemetry = false;
         symbolCacheDownload = true;
       };
+      emmet = {
+        excludeLanguages = [
+          "typescriptreact"
+        ];
+      };
       "[json]" = {
         editor.defaultFormatter = "vscode.json-language-features";
       };
