@@ -46,4 +46,21 @@
       ];
     };
   };
+
+  programs.ssh = {
+    matchBlocks = let
+      identityFile = ["/home/sno2wman/.ssh/id_ed25519"];
+    in {
+      remilia = {
+        inherit identityFile;
+        hostname = "remilia";
+        user = "sno2wman";
+      };
+      ase-aleph = {
+        inherit identityFile;
+        hostname = "aleph";
+        user = "sno2wman";
+      };
+    };
+  };
 }
