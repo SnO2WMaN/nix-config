@@ -11,7 +11,7 @@
   ];
 
   home.sessionVariables = {
-    # NIXOS_OZONE_WL = "1";
+    NIXOS_OZONE_WL = "1";
   };
 
   programs.vscode = {
@@ -213,6 +213,11 @@
       julia = {
         enableTelemetry = false;
         symbolCacheDownload = true;
+      };
+      emmet = {
+        excludeLanguages = [
+          "typescriptreact"
+        ];
       };
       "[json]" = {
         editor.defaultFormatter = "vscode.json-language-features";

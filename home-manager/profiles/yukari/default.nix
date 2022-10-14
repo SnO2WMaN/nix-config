@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   home.stateVersion = "22.05";
   home.packages = with pkgs; [
     steam
@@ -21,7 +25,7 @@
     ../../modules/chrome
     ../../modules/discord
     ../../modules/easyeffects
-    ../../modules/fcitx
+    # ../../modules/fcitx
     ../../modules/firefox
     ../../modules/gammastep
     ../../modules/gitkraken
@@ -75,5 +79,22 @@
 
   services.syncthing = {
     enable = true;
+  };
+
+  programs.ssh = {
+    matchBlocks = let
+      identityFile = ["/home/sno2wman/.ssh/id_ed25519"];
+    in {
+      remilia = {
+        inherit identityFile;
+        hostname = "remilia";
+        user = "sno2wman";
+      };
+      marisa = {
+        inherit identityFile;
+        hostname = "marisa";
+        user = "sno2wman";
+      };
+    };
   };
 }

@@ -13,9 +13,11 @@
       ../../modules/sound
       ../../modules/ssh
       ../../modules/sane
+      ../../modules/desktop/lightdm
       ../../modules/desktop/sway
       ../../modules/develop/docker
       # ../../modules/develop/virtualbox
+      ../../modules/home-manager/fcitx
     ]
     ++ [
     ]
@@ -82,13 +84,12 @@
 
   fileSystems."/" = {
     fsType = "ext4";
-    device = "/dev/disk/by-label/nixos";
+    device = "/dev/disk/by-uuid/bfcfcbee-349a-4a6a-99d8-cf8b177fd97f";
   };
 
   fileSystems."/boot" = {
-    # device = "/dev/disk/by-uuid/C156-8E76";
-    device = "/dev/disk/by-label/boot";
     fsType = "vfat";
+    device = "/dev/disk/by-uuid/72B2-C236";
   };
 
   fileSystems."/mnt/backups" = {
@@ -97,7 +98,9 @@
   };
 
   swapDevices = [
-    {device = "/dev/disk/by-label/swap";}
+    {
+      device = "/dev/disk/by-uuid/61c91ca4-b7dc-4aab-91ac-ed6cd59e52a1";
+    }
   ];
 
   # Additional packages
@@ -146,9 +149,6 @@
       "amdgpu"
       "radeon"
     ];
-    displayManager.sddm = {
-      enable = true;
-    };
   };
 
   services.borgbackup.jobs.home-sno2wman = {
@@ -168,7 +168,9 @@
     environment = {
       BORG_RSH = "ssh -i /home/sno2wman/.ssh/id_ed25519";
     };
-    repo = "/mnt/backups/yukari/sno2wman"; # "ssh://user@example.com:23/path/to/backups-dir/home-danbst";
+    repo = "root@remilia:/mnt/backups/yukari/sno2wman";
+    # "/mnt/backups/yukari/sno2wman";
+    # "ssh://user@example.com:23/path/to/backups-dir/home-danbst";
     compression = "auto,zstd";
     startAt = "daily";
   };

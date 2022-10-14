@@ -57,5 +57,6 @@
     zellij
     zip
     zoxide
+    netdiscover
   ];
 }
