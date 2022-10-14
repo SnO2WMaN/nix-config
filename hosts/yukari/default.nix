@@ -5,6 +5,7 @@
   modulesPath,
   nixpkgs,
   nixos-hardware,
+  hyprland,
   ...
 }: {
   imports =
@@ -20,6 +21,7 @@
       ../../modules/home-manager/fcitx
     ]
     ++ [
+      hyprland.nixosModules.default
     ]
     ++ (with nixos-hardware.nixosModules; [
       common-cpu-amd
@@ -106,6 +108,8 @@
   # Additional packages
   system.stateVersion = "22.05";
 
+  nix.settings.max-jobs = lib.mkDefault 8;
+
   # environment.systemPackages = with pkgs; [];
 
   # Network
@@ -168,10 +172,12 @@
     environment = {
       BORG_RSH = "ssh -i /home/sno2wman/.ssh/id_ed25519";
     };
-    repo = "root@remilia:/mnt/backups/yukari/sno2wman";
+    repo = "ssh://root@remilia:23/mnt/backups/yukari/sno2wman";
     # "/mnt/backups/yukari/sno2wman";
     # "ssh://user@example.com:23/path/to/backups-dir/home-danbst";
     compression = "auto,zstd";
     startAt = "daily";
   };
+
+  programs.hyprland.enable = true;
 }
