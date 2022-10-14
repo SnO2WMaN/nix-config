@@ -5,6 +5,7 @@
   nixgl,
   useful-scripts,
   vscode-marketplace,
+  hyprland,
   ...
 } @ inputs: let
   hmConfig = {
@@ -24,7 +25,12 @@
       ];
     };
   in (home-manager.lib.homeManagerConfiguration rec {
-    inherit pkgs modules;
+    inherit pkgs;
+    modules =
+      modules
+      ++ [
+        hyprland.homeManagerModules.default
+      ];
   });
 in {
   kaguya = hmConfig {modules = [./kaguya.nix];};
