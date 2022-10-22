@@ -25,6 +25,7 @@
     settings = {
       max-jobs = lib.mkDefault 8;
       auto-optimise-store = true;
+      allow-import-from-derivation = true;
       trusted-users = ["root" "sno2wman"];
     };
 
