@@ -35,6 +35,7 @@
         systems = [
           "x86_64-linux"
           "aarch64-linux"
+          "i686-linux"
         ];
         sshUser = "nix-builder";
         sshKey = "/home/sno2wman/.ssh/id_nixbuilder";
