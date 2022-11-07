@@ -27,6 +27,7 @@
     ++ (with nixos-hardware.nixosModules; [
       common-cpu-amd
       common-pc-ssd
+      common-gpu-amd
     ]);
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -98,5 +99,12 @@
       "video"
       "networkmanager"
     ];
+  };
+
+  services.xserver = {
+    enable = true;
+    displayManager.sddm = {
+      enable = true;
+    };
   };
 }
