@@ -4,13 +4,15 @@
     networkmanagerapplet
     w3m
     slurp
+
+    steam
   ];
 
   imports = [
     ../../modules
     ../../modules/1password
     ../../modules/chrome
-    ../../modules/discord
+    # ../../modules/discord
     ../../modules/fcitx
     ../../modules/firefox
     ../../modules/gammastep
