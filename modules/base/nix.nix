@@ -33,6 +33,7 @@
         hostName = "remilia";
         systems = [
           "x86_64-linux"
+          "aarch64-linux"
         ];
         sshUser = "nix-builder";
         sshKey = "/home/sno2wman/.ssh/id_nixbuilder";
@@ -51,16 +52,16 @@
 
   nix.settings = {
     substituters = [
-      "https://cache.nixos.org/"
       "https://cache.iog.io"
       "https://danth.cachix.org"
       "https://dhall.cachix.org"
       "https://helix.cachix.org"
-      "https://hydra.iohk.io"
+      # "https://hydra.iohk.io"
       "https://lean4.cachix.org"
       "https://nix-community.cachix.org"
       "https://nixpkgs-wayland.cachix.org"
       "https://sno2wman.cachix.org"
+      "https://cache.nixos.org/"
     ];
     trusted-public-keys = [
       "danth.cachix.org-1:wpodfSL7suXRc/rJDZZUptMa1t4MJ795hemRN0q84vI="

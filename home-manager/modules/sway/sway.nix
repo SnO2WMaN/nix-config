@@ -29,6 +29,9 @@ in {
     # wev
 
     wofi_ghq
+    sway-contrib.grimshot
+    pcmanfm
+    brightnessctl
   ];
 
   wayland.windowManager.sway = {
@@ -109,19 +112,25 @@ in {
           "${modifier}+Shift+Delete" = "kill";
           "${modifier}+g" = "exec --no-startup-id wofi_ghq";
           # "${modifier}+F1" = "exec ${pkgs.vscode}/bin/code";
-          "${modifier}+F2" = "exec ${pkgs.firefox}/bin/firefox";
-          "${modifier}+P" = "exec ${pkgs.pcmanfm}/bin/pcmanfm";
-          "${modifier}+Shift+S" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot --notify save area $HOME/Pictures/screenshots/$(date +\"%Y_%m_%d__%H_%M_%S\").png";
+          "${modifier}+F2" = "exec firefox";
+          "${modifier}+P" = "exec pcmanfm";
+          # "${modifier}+Shift+S" = "exec grimshot --notify save area $HOME/Pictures/ss/$(date \"+%s\").png";
+          "${modifier}+Shift+S" = "exec grimshot --notify save area $HOME/Pictures/ss/$(date +\"%s\").png";
           "${modifier}+u" = "border none";
           "${modifier}+n" = "border normal";
           "XF86AudioRaiseVolume" = "exec pactl set-sink-volume 0 +5%";
           "XF86AudioLowerVolume" = "exec pactl set-sink-volume 0 -5%";
           "XF86AudioMute" = "exec pactl set-sink-mute 0 toggle";
-          "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 5%+";
-          "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 5%-";
+          "XF86MonBrightnessUp" = "exec brightnessctl set 5%+";
+          "XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
         };
     };
   };
 
   xdg.configFile."swaylock/config".source = ./swaylock/config;
+
+  programs.zsh.shellAliases = {
+    gifrec = "wf-recorder -g \"$(slurp)\" -c gif -f \"$HOME/Pictures/ss/$(unixtime).gif\"";
+    mp4rec = "wf-recorder -g \"$(slurp)\" -f \"$HOME/Pictures/ss/$(unixtime).mp4\"";
+  };
 }

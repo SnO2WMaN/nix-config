@@ -47,6 +47,8 @@
       rm-ext = "remove-extensions";
 
       cn = "tr -d \"\n\"";
+
+      unixtime = "date +\"%s\"";
     };
 
     zplug = {

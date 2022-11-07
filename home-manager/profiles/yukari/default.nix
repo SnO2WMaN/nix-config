@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   home.stateVersion = "22.05";
   home.packages = with pkgs; [
     steam
@@ -21,7 +25,7 @@
     ../../modules/chrome
     ../../modules/discord
     ../../modules/easyeffects
-    ../../modules/fcitx
+    # ../../modules/fcitx
     ../../modules/firefox
     ../../modules/gammastep
     ../../modules/gitkraken
@@ -84,6 +88,11 @@
       remilia = {
         inherit identityFile;
         hostname = "remilia";
+        user = "sno2wman";
+      };
+      marisa = {
+        inherit identityFile;
+        hostname = "marisa";
         user = "sno2wman";
       };
     };
