@@ -6,6 +6,7 @@
   modulesPath,
   nixpkgs,
   nixos-hardware,
+  vscode-server,
   ...
 }: {
   imports =
@@ -18,10 +19,15 @@
       ../../modules/develop/docker
       ../../modules/network/networkmanager
       ../../modules/power/tlp
+      ../../modules/home-manager/vscode-server
+    ]
+    ++ [
+      vscode-server.nixosModules.default
     ]
     ++ (with nixos-hardware.nixosModules; [
       common-cpu-amd
       common-pc-ssd
+      common-gpu-amd
     ]);
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -74,6 +80,14 @@
     packages = with pkgs; [dconf];
   };
 
+  services.vscode-server.enable = true;
+
+  users.users.root = {
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ02RYFEONAr/5a3fokBYHUFVPqF8G64DxhV5RGu7gtK me@sno2wman.net"
+    ];
+  };
+
   users.users.sno2wman = {
     isNormalUser = true;
     createHome = true;
@@ -85,5 +99,12 @@
       "video"
       "networkmanager"
     ];
+  };
+
+  services.xserver = {
+    enable = true;
+    displayManager.sddm = {
+      enable = true;
+    };
   };
 }
