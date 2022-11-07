@@ -3,7 +3,7 @@
   #   patches =
   #     (old.patches or [])
   #     ++ [
-  #       # ./openssh/permissions.patch
+  #       ./openssh/permissions.patch
   #     ];
   #   doCheck = false;
   # });

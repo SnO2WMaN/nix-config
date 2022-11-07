@@ -4,13 +4,15 @@
     networkmanagerapplet
     w3m
     slurp
+
+    steam
   ];
 
   imports = [
     ../../modules
     ../../modules/1password
     ../../modules/chrome
-    ../../modules/discord
+    # ../../modules/discord
     ../../modules/fcitx
     ../../modules/firefox
     ../../modules/gammastep
@@ -44,6 +46,23 @@
           mode = "1920x1080";
         }
       ];
+    };
+  };
+
+  programs.ssh = {
+    matchBlocks = let
+      identityFile = ["/home/sno2wman/.ssh/id_ed25519"];
+    in {
+      remilia = {
+        inherit identityFile;
+        hostname = "remilia";
+        user = "sno2wman";
+      };
+      ase-aleph = {
+        inherit identityFile;
+        hostname = "aleph";
+        user = "sno2wman";
+      };
     };
   };
 }
