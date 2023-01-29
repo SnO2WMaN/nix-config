@@ -25,6 +25,7 @@
     settings = {
       max-jobs = lib.mkDefault 8;
       auto-optimise-store = true;
+      allow-import-from-derivation = true;
       trusted-users = ["root" "sno2wman"];
     };
 
@@ -34,6 +35,7 @@
         systems = [
           "x86_64-linux"
           "aarch64-linux"
+          "i686-linux"
         ];
         sshUser = "nix-builder";
         sshKey = "/home/sno2wman/.ssh/id_nixbuilder";

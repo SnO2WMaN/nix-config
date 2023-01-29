@@ -31,24 +31,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     vscode-server.url = "github:msteen/nixos-vscode-server";
-  };
-  #powercord
-  inputs = {
     powercord-overlay.url = "github:LavaDesu/powercord-overlay";
     powercord-tokyonight = {
       url = "github:Dyzean/Tokyo-Night";
       flake = false;
     };
-  };
-
-  # dev
-  inputs = {
     devshell.url = "github:numtide/devshell";
     flake-utils.url = "github:numtide/flake-utils";
-    flake-compat = {
-      url = "github:edolstra/flake-compat";
-      flake = false;
-    };
   };
 
   outputs = {

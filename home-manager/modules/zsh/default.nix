@@ -49,6 +49,7 @@
       cn = "tr -d \"\n\"";
 
       unixtime = "date +\"%s\"";
+      wtfpl = "curl http://www.wtfpl.net/txt/copying/ > LICENSE";
     };
 
     zplug = {

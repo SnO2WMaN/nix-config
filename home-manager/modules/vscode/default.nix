@@ -148,6 +148,17 @@
           "source.fixAll.eslint" = true;
         };
       };
+
+      files.exclude = {
+        "**/.git" = true;
+        "**/.svn" = true;
+        "**/.hg" = true;
+        "**/CVS" = true;
+        "**/.DS_Store" = true;
+        "**/Thumbs.db" = true;
+        "**/*.olean" = true;
+      };
+
       explorer = {
         confirmDragAndDrop = false;
       };

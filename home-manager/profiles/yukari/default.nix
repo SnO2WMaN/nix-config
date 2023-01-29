@@ -23,7 +23,7 @@
     ../../modules/alacritty
     ../../modules/android-studio
     ../../modules/chrome
-    ../../modules/discord
+    # ../../modules/discord
     ../../modules/easyeffects
     # ../../modules/fcitx
     ../../modules/firefox
