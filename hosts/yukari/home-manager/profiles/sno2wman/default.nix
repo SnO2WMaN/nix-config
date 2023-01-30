@@ -16,10 +16,11 @@
     # Sway
     ++ [
       ../../modules/kanshi
-      ../../modules/mako
+      # ../../modules/mako
       ../../modules/sway
-      ../../modules/swaylock
+      # ../../modules/swaylock
       ../../modules/waybar
+      ../../modules/gammastep
     ]
     # Desktop
     ++ [
@@ -27,6 +28,7 @@
       ../../modules/fcitx5
       ../../modules/firefox
       ../../modules/vscode
+      ../../modules/easyeffect
     ];
 
   home.packages = with pkgs; [

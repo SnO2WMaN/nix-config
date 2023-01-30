@@ -14,7 +14,6 @@
 
     blender
     xwayland
-    minecraft
     evince
   ];
   imports = [

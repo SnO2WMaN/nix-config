@@ -24,11 +24,12 @@ in {
     clipman
     ghq
     # wev
-
     wofi_ghq
     sway-contrib.grimshot
     pcmanfm
     brightnessctl
+    wofi
+    waybar
   ];
 
   wayland.windowManager.sway = {
@@ -69,12 +70,6 @@ in {
           '';
         }
       ];
-      bars = [
-        # TODO: mv waybar
-        {
-          command = "waybar";
-        }
-      ];
       input = {
         "*" = {
           xkb_layout = "\"jp\"";
@@ -84,6 +79,9 @@ in {
           natural_scroll = "enabled";
         };
       };
+      bars = [
+        {command = "waybar";}
+      ];
       output = {
         #  "*" = "bg #d8dee9 solid_color";
         #  "HDMI-A-1" = "pos 0 0 res 1920x1080";

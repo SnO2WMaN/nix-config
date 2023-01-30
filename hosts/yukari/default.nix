@@ -26,13 +26,13 @@
       ../../modules/home-manager.nix
       ../../modules/i18n.nix
       ../../modules/insecure.nix
-      ../../modules/lightdm.nix
+      ../../modules/sddm.nix
       ../../modules/nix.nix
       ../../modules/overlays.nix
       ../../modules/sane.nix
       ../../modules/sound.nix
       ../../modules/ssh.nix
-      ../../modules/stylix.nix
+      ../../modules/stylix
       ../../modules/sudo.nix
       ../../modules/sway.nix
       # ../../modules/gdm.nix
