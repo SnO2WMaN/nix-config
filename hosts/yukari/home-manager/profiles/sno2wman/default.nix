@@ -3,55 +3,57 @@
 
   imports =
     [
-      ../../modules/bottom
       ../../modules/bat
-      ../../modules/exa
+      ../../modules/bottom
       ../../modules/direnv
       ../../modules/dogdns
+      ../../modules/exa
       ../../modules/ghq
       ../../modules/git
+      ../../modules/nix-index
       ../../modules/starship
+      ../../modules/vim
       ../../modules/zellij
       ../../modules/zsh
-      ../../modules/vim
-      ../../modules/nix-index
     ]
     # Sway / Wayland
     ++ [
-      ../../modules/kanshi
-      # ../../modules/mako
-      ../../modules/sway
-      # ../../modules/swaylock
-      ../../modules/waybar
       ../../modules/gammastep
+      ../../modules/kanshi
+      ../../modules/sway
+      ../../modules/waybar
       ../../modules/wl-clipboard
+      # ../../modules/mako
+      # ../../modules/swaylock
     ]
     # Desktop
     ++ [
-      ../../modules/alacritty
       ../../modules/1password
+      ../../modules/alacritty
+      ../../modules/chrome
       ../../modules/easyeffects
       ../../modules/fcitx5
       ../../modules/firefox
-      ../../modules/vscode
       ../../modules/gitkraken
+      ../../modules/slack
+      ../../modules/vscode
     ];
 
   home.packages = with pkgs; [
+    discord
+    doas
+    duf
+    fd # find for files
     httpie
+    hyperfine # benchmark
     masscan
     nmap
-    doas
-    prettyping
-    tldr
-    vlc
-    duf
-    tree # file dir
-    fd # find for files
     pavucontrol # Pulseaudio controller
-    hyperfine # benchmark
-    discord
+    prettyping
     spotify
+    tldr
+    tree # file dir
+    vlc
   ];
 
   news.display = "silent";
