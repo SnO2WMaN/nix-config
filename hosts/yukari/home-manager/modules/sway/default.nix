@@ -16,7 +16,6 @@ in {
     clipman
     wdisplays
     wf-recorder
-    pavucontrol
     swayidle
     # swaylock-effects
     wf-recorder
@@ -30,6 +29,8 @@ in {
     brightnessctl
     wofi
     waybar
+    kanshi
+    gammastep
   ];
 
   wayland.windowManager.sway = {

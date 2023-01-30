@@ -14,8 +14,9 @@
       ../../modules/zellij
       ../../modules/zsh
       ../../modules/vim
+      ../../modules/nix-index
     ]
-    # Sway
+    # Sway / Wayland
     ++ [
       ../../modules/kanshi
       # ../../modules/mako
@@ -23,14 +24,17 @@
       # ../../modules/swaylock
       ../../modules/waybar
       ../../modules/gammastep
+      ../../modules/wl-clipboard
     ]
     # Desktop
     ++ [
       ../../modules/alacritty
+      ../../modules/1password
+      ../../modules/easyeffects
       ../../modules/fcitx5
       ../../modules/firefox
       ../../modules/vscode
-      ../../modules/easyeffect
+      ../../modules/gitkraken
     ];
 
   home.packages = with pkgs; [
@@ -38,6 +42,16 @@
     masscan
     nmap
     doas
+    prettyping
+    tldr
+    vlc
+    duf
+    tree # file dir
+    fd # find for files
+    pavucontrol # Pulseaudio controller
+    hyperfine # benchmark
+    discord
+    spotify
   ];
 
   news.display = "silent";

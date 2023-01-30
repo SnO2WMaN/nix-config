@@ -1,6 +1,6 @@
 {nixpkgs-wayland, ...}: {
   nixpkgs.overlays = [
-    # nixpkgs-wayland.overlay
+    nixpkgs-wayland.overlay
     # nixgl.overlay
   ];
 }
