@@ -21,21 +21,22 @@
       common-pc-ssd
     ])
     ++ [
-      ../../modules
       ../../modules/docker.nix
       ../../modules/i18n.nix
+      ../../modules/insecure.nix
       ../../modules/lightdm.nix
       ../../modules/nix.nix
+      ../../modules/sane.nix
       ../../modules/sound.nix
       ../../modules/sound.nix
       ../../modules/ssh.nix
+      ../../modules/git.nix
       ../../modules/stylix.nix
       ../../modules/sway.nix
       ../../modules/time.nix
+      ../../modules/unfree.nix
+      ../../modules/sudo.nix
 
-      ../../modules/sane
-      # ../../modules/develop/docker
-      # ../../modules/develop/virtualbox
       ../../modules/home-manager/fcitx
     ];
 
@@ -109,11 +110,6 @@
     }
   ];
 
-  # Additional packages
-  system.stateVersion = "22.05";
-
-  # environment.systemPackages = with pkgs; [];
-
   # Network
   networking = {
     hostName = "yukari";
@@ -133,8 +129,6 @@
     createHome = true;
     shell = pkgs.zsh;
     extraGroups = [
-      # for sudo
-      "wheel"
       # TODO: for ?
       "video"
       # docker
@@ -144,6 +138,7 @@
       "wireshark"
     ];
   };
+  home-manager.users.sno2wman = import ./home-manager/profiles/sno2wman;
 
   hardware.opengl = {
     enable = true;
@@ -157,4 +152,6 @@
       "radeon"
     ];
   };
+
+  system.stateVersion = "22.05";
 }

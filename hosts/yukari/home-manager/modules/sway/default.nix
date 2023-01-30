@@ -127,8 +127,6 @@ in {
     };
   };
 
-  xdg.configFile."swaylock/config".source = ./swaylock/config;
-
   programs.zsh.shellAliases = {
     gifrec = "wf-recorder -g \"$(slurp)\" -c gif -f \"$HOME/Pictures/ss/$(unixtime).gif\"";
     mp4rec = "wf-recorder -g \"$(slurp)\" -f \"$HOME/Pictures/ss/$(unixtime).mp4\"";
