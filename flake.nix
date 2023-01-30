@@ -44,6 +44,10 @@
       inputs.flake-utils.follows = "flake-utils";
     };
     flake-utils.url = "github:numtide/flake-utils";
+
+    yamlfmt = {
+      url = "github:SnO2WMaN/yamlfmt.nix";
+    };
   };
 
   outputs = {
@@ -51,6 +55,7 @@
     nixpkgs,
     devshell,
     flake-utils,
+    yamlfmt,
     ...
   } @ inputs:
     {
@@ -76,7 +81,8 @@
             alejandra
             taplo-cli
             agenix
-            httpie
+            actionlint
+            yamlfmt.packages.${system}.yamlfmt
           ];
         };
       }
