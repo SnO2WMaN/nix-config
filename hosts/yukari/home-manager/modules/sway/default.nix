@@ -25,9 +25,9 @@ in {
     # wev
     wofi_ghq
     sway-contrib.grimshot
-    pcmanfm
     brightnessctl
     wofi
+    pcmanfm
     waybar
     kanshi
     gammastep

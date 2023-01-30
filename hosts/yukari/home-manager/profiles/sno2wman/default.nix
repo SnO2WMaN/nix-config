@@ -32,6 +32,7 @@
       ../../modules/alacritty
       ../../modules/chrome
       ../../modules/easyeffects
+      ../../modules/pcmanfm
       ../../modules/fcitx5
       ../../modules/firefox
       ../../modules/gitkraken
@@ -53,7 +54,8 @@
     spotify
     tldr
     tree # file dir
-    vlc
+    vlc 
+    fzf
   ];
 
   news.display = "silent";
