@@ -1,12 +1,12 @@
-name: NixOS
+name: CI
 on:
   pull_request:
   push:
     branches:
       - main
 jobs:
-  yukari:
-    name: Yukari
+  treefmt:
+    name: treefmt
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -15,5 +15,4 @@ jobs:
         with:
           name: sno2wman
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - run: |-
-          nix build ".#nixosConfigurations.yukari.config.system.build.toplevel" -L
+      - run: nix develop --command bash -c "treefmt --fail-on-change"
