@@ -3,10 +3,10 @@
   pkgs,
   ...
 }: {
-  programs.bat = {
-    enable = true;
-  };
+  home.packages = with pkgs; [
+    exa
+  ];
   programs.zsh.shellAliases = {
-    cat = "bat";
+    ls = "exa";
   };
 }

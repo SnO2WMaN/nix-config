@@ -4,6 +4,8 @@
   imports =
     [
       ../../modules/bottom
+      ../../modules/bat
+      ../../modules/exa
       ../../modules/direnv
       ../../modules/dogdns
       ../../modules/ghq
