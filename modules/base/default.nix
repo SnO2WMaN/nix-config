@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./overlays.nix
+    # ./overlays.nix
     ./hm-system-defaults.nix
   ];
   console.font = "7x14";
