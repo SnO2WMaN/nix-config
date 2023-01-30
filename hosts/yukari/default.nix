@@ -13,7 +13,7 @@
     [
       nixpkgs.nixosModules.notDetected
       home-manager.nixosModules.home-manager
-      # vscode-server.nixosModules.default
+      vscode-server.nixosModules.default
     ]
     ++ (with nixos-hardware.nixosModules; [
       common-cpu-amd
@@ -22,6 +22,8 @@
     ])
     ++ [
       ../../modules/docker.nix
+      ../../modules/git.nix
+      ../../modules/home-manager.nix
       ../../modules/i18n.nix
       ../../modules/insecure.nix
       ../../modules/lightdm.nix
@@ -30,14 +32,11 @@
       ../../modules/sound.nix
       ../../modules/sound.nix
       ../../modules/ssh.nix
-      ../../modules/git.nix
       ../../modules/stylix.nix
+      ../../modules/sudo.nix
       ../../modules/sway.nix
       ../../modules/time.nix
       ../../modules/unfree.nix
-      ../../modules/sudo.nix
-
-      ../../modules/home-manager/fcitx
     ];
 
   boot = {
@@ -151,6 +150,10 @@
       "amdgpu"
       "radeon"
     ];
+  };
+	
+  services.vscode-server = {
+	enable = true;
   };
 
   system.stateVersion = "22.05";

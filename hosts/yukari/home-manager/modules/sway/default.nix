@@ -4,21 +4,15 @@
   lib,
   ...
 }: let
-  killall = "${pkgs.psmisc}/bin/killall";
-  wofi = "${pkgs.wofi}/bin/wofi";
-
-  ghq = "${pkgs.ghq}/bin/ghq";
-
-  code = "code";
-
   wofi_ghq =
     pkgs.writeShellScriptBin "wofi_ghq"
     ''
-      choice=$(${killall} -q -e ${wofi} || ${ghq} list | ${wofi} -i -b --dmenu --lines=10)
-      [[ -n "$choice" ]] && ${code} $(${ghq} root)/$choice
+      choice=$(killall -q -e wofi || ghq list | wofi -i -b --dmenu --lines=10)
+      [[ -n "$choice" ]] && code $(ghq root)/$choice
     '';
 in {
   home.packages = with pkgs; [
+    killall
     clipman
     wdisplays
     wf-recorder
@@ -26,6 +20,9 @@ in {
     swayidle
     # swaylock-effects
     wf-recorder
+    wl-clipboard
+    clipman
+    ghq
     # wev
 
     wofi_ghq
@@ -48,28 +45,35 @@ in {
     '';
     config = {
       modifier = "Mod4";
-      terminal = "${pkgs.alacritty}/bin/alacritty";
-      menu = "${pkgs.psmisc}/bin/killall -q -e ${pkgs.wofi}/bin/wofi || ${pkgs.wofi}/bin/wofi --show drun";
+
+      terminal = "alacritty";
+
+      menu = "killall -q -e wofi || wofi --show drun";
+
       startup = [
         {
-          command = "${pkgs.fcitx5}/bin/fcitx5 -rd";
+          command = "fcitx5 -rd";
           always = true;
         }
+        # TODO: mv to kanshi
         {
-          command = "${pkgs.kanshi}/bin/kanshi";
+          command = "kanshi";
           always = true;
         }
-        {command = "${pkgs.wl-clipboard}/bin/wl-paste -t text --watch ${pkgs.clipman}/bin/clipman store";}
+        {command = "wl-paste -t text --watch clipman store";}
         {
           command = ''
-            ${pkgs.swayidle}/bin/swayidle -w \
+            swayidle -w \
               timeout 1200 'swaymsg "output * dpms off"' \
               resume 'swaymsg "output * dpms on"'
           '';
         }
       ];
       bars = [
-        {command = "${pkgs.waybar}/bin/waybar";}
+        # TODO: mv waybar
+        {
+          command = "waybar";
+        }
       ];
       input = {
         "*" = {
