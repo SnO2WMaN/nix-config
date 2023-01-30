@@ -14,7 +14,9 @@
       ../../../../../hm/starship
       ../../../../../hm/vim
       ../../../../../hm/zellij
+      ../../../../../hm/ssh
       ../../../../../hm/zsh
+      ../../../../../hm/vim
     ]
     # Desktop
     ++ [
@@ -59,6 +61,7 @@
     tree # file dir
     vlc
     fzf
+    cloudflared
   ];
 
   news.display = "silent";
@@ -83,6 +86,21 @@
           mode = "2560x1080";
         }
       ];
+    };
+  };
+
+  programs.ssh = {
+    matchBlocks = {
+      "yukari" = {
+        hostname = "ssh-yukari.sno2wman.net";
+        user = "sno2wman";
+        proxyCommand = "cloudflared access ssh --hostname %h";
+      };
+      "remilia" = {
+        hostname = "ssh-remilia.sno2wman.net";
+        user = "sno2wman";
+        proxyCommand = "cloudflared access ssh --hostname %h";
+      };
     };
   };
 }

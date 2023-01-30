@@ -106,7 +106,6 @@
             taplo-cli
             agenix
             actionlint
-            cloudflared
             yamlfmt.packages.${system}.yamlfmt
           ];
         };

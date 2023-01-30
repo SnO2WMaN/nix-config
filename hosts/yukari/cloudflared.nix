@@ -1,4 +1,12 @@
-{config, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
+  environment.systemPackages = with pkgs; [
+    cloudflared
+  ];
+
   age.secrets."cloudflared-tunnels-yukari" = {
     file = ../../secrets/cloudflared/tunnels/yukari.age;
     owner = "cloudflared";
@@ -12,7 +20,7 @@
         default = "http_status:404";
         credentialsFile = config.age.secrets.cloudflared-tunnels-yukari.path;
         ingress = {
-          "ssh.sno2wman.net/yukari" = "ssh://localhost:22";
+          "ssh-yukari.sno2wman.net" = "ssh://localhost:22";
         };
       };
     };
