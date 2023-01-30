@@ -1,11 +1,13 @@
 {
-  description = "A very basic flake";
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    agenix = {
+      url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware = {
@@ -36,7 +38,11 @@
       url = "github:Dyzean/Tokyo-Night";
       flake = false;
     };
-    devshell.url = "github:numtide/devshell";
+    devshell = {
+      url = "github:numtide/devshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
     flake-utils.url = "github:numtide/flake-utils";
   };
 
@@ -45,7 +51,6 @@
     nixpkgs,
     devshell,
     flake-utils,
-    nixos-generators,
     ...
   } @ inputs:
     {
@@ -54,18 +59,24 @@
 
       overlays.default = import ./pkgs/overlay.nix;
     }
-    // flake-utils.lib.eachSystem ["x86_64-linux"] (
+    // flake-utils.lib.eachDefaultSystem (
       system: let
         pkgs = import nixpkgs {
           inherit system;
-          overlays = [
+          overlays = with inputs; [
             devshell.overlay
+            agenix.overlays.default
           ];
         };
       in {
         devShells.default = pkgs.devshell.mkShell {
-          imports = [
-            (pkgs.devshell.importTOML ./devshell.toml)
+          packages = with pkgs; [
+            direnv
+            treefmt
+            alejandra
+            taplo-cli
+            agenix
+            httpie
           ];
         };
       }
