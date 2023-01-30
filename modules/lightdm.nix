@@ -1,6 +1,8 @@
 {...}: {
-  services.xserver = {enable = true;};
-  services.xserver.displayManager.lightdm = {
+  services.xserver = {
     enable = true;
+    displayManager.lightdm = {
+      enable = true;
+    };
   };
 }

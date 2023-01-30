@@ -11,6 +11,7 @@
       ../../modules/starship
       ../../modules/zellij
       ../../modules/zsh
+      ../../modules/vim
     ]
     # Sway
     ++ [

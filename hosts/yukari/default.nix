@@ -13,7 +13,7 @@
     [
       nixpkgs.nixosModules.notDetected
       home-manager.nixosModules.home-manager
-      vscode-server.nixosModules.default
+      agenix.nixosModules.age
     ]
     ++ (with nixos-hardware.nixosModules; [
       common-cpu-amd
@@ -28,15 +28,21 @@
       ../../modules/insecure.nix
       ../../modules/lightdm.nix
       ../../modules/nix.nix
+      ../../modules/overlays.nix
       ../../modules/sane.nix
-      ../../modules/sound.nix
       ../../modules/sound.nix
       ../../modules/ssh.nix
       ../../modules/stylix.nix
       ../../modules/sudo.nix
       ../../modules/sway.nix
+      # ../../modules/gdm.nix
+      # ../../modules/gnome.nix
       ../../modules/time.nix
       ../../modules/unfree.nix
+      ../../modules/vscode-server.nix
+    ]
+    ++ [
+      ./cloudflared.nix
     ];
 
   boot = {
@@ -77,21 +83,14 @@
 
   powerManagement.cpuFreqGovernor = "performance";
 
-  virtualisation.libvirtd.enable = true;
-
   environment.systemPackages = with pkgs; [
-    file
-    thefuck
-    mc
-    virt-manager
-    lutris
-    vulkan-tools
-    wineWowPackages.stable
-    mesa-demos
-    bsnes-hd
     coreutils
+    wget
+    vim
   ];
+  /*
   environment.variables.RADV_PERFTEST = "nggc";
+  */
 
   fileSystems."/" = {
     fsType = "ext4";
@@ -117,17 +116,20 @@
     interfaces.enp3s0.useDHCP = true;
   };
 
+  /*
   # TODO: GTK?
   programs.dconf = {enable = true;};
   services.dbus = {
     packages = with pkgs; [dconf];
   };
+  */
 
   users.users.sno2wman = {
     isNormalUser = true;
     createHome = true;
     shell = pkgs.zsh;
     extraGroups = [
+      /*
       # TODO: for ?
       "video"
       # docker
@@ -135,6 +137,7 @@
       "libvirtd"
       "kvm"
       "wireshark"
+      */
     ];
   };
   home-manager.users.sno2wman = import ./home-manager/profiles/sno2wman;
@@ -150,10 +153,6 @@
       "amdgpu"
       "radeon"
     ];
-  };
-	
-  services.vscode-server = {
-	enable = true;
   };
 
   system.stateVersion = "22.05";
