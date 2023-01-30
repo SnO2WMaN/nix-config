@@ -2,36 +2,47 @@
   config,
   lib,
   pkgs,
-  modulesPath,
   nixpkgs,
   nixos-hardware,
+  home-manager,
+  vscode-server,
+  agenix,
   ...
 }: {
   imports =
     [
-      ../../modules
-      ../../modules/sound
-      ../../modules/ssh
-      ../../modules/sane
-      ../../modules/desktop/lightdm
-      ../../modules/desktop/sway
-      ../../modules/develop/docker
-      # ../../modules/develop/virtualbox
-      ../../modules/home-manager/fcitx
-    ]
-    ++ [
+      nixpkgs.nixosModules.notDetected
+      home-manager.nixosModules.home-manager
+      # vscode-server.nixosModules.default
     ]
     ++ (with nixos-hardware.nixosModules; [
       common-cpu-amd
       common-gpu-amd
       common-pc-ssd
-    ]);
+    ])
+    ++ [
+      ../../modules
+      ../../modules/docker.nix
+      ../../modules/i18n.nix
+      ../../modules/lightdm.nix
+      ../../modules/nix.nix
+      ../../modules/sound.nix
+      ../../modules/sound.nix
+      ../../modules/ssh.nix
+      ../../modules/stylix.nix
+      ../../modules/sway.nix
+      ../../modules/time.nix
+
+      ../../modules/sane
+      # ../../modules/develop/docker
+      # ../../modules/develop/virtualbox
+      ../../modules/home-manager/fcitx
+    ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = [
       "kvm-amd"
-
       "v4l2loopback"
     ];
 

@@ -4,6 +4,5 @@
     ./home-manager
     ./insecure
     ./unfree
-    ./locale
   ];
 }
