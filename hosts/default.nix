@@ -1,14 +1,6 @@
 inputs: let
   inherit (inputs) nixpkgs;
   inherit (nixpkgs.lib) nixosSystem;
-  /*
-  mkNixosSystem = {extraModules ? []}:
-    nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = inputs;
-      modules = extraModules ++ commonModules;
-    };
-  */
 in {
   yukari = nixosSystem {
     system = "x86_64-linux";
@@ -16,14 +8,15 @@ in {
     modules = [
       ./yukari
     ];
-    /*
-    extraModules = [
-      ./yukari
-      {home-manager.users.sno2wman = (import "${self}/home-manager/profiles")."yukari";}
-    ];
-    */
   };
 
+  marisa = nixosSystem {
+    system = "x86_64-linux";
+    specialArgs = inputs;
+    modules = [
+      ./marisa
+    ];
+  };
   /*
   marisa = mkNixosSystem {
     extraModules = [

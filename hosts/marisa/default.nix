@@ -2,51 +2,66 @@
   config,
   lib,
   pkgs,
-  inputs,
-  modulesPath,
   nixpkgs,
   nixos-hardware,
+  home-manager,
   vscode-server,
+  agenix,
   ...
 }: {
   imports =
     [
-      ../../modules
-      ../../modules/sound
-      ../../modules/ssh
-      ../../modules/sane
-      ../../modules/desktop/sway
-      ../../modules/develop/docker
-      ../../modules/network/networkmanager
-      ../../modules/power/tlp
-      ../../modules/home-manager/vscode-server
-    ]
-    ++ [
-      vscode-server.nixosModules.default
+      nixpkgs.nixosModules.notDetected
+      home-manager.nixosModules.home-manager
+      agenix.nixosModules.age
     ]
     ++ (with nixos-hardware.nixosModules; [
       common-cpu-amd
-      common-pc-ssd
       common-gpu-amd
-    ]);
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+      common-pc-ssd
+    ])
+    ++ [
+      ../../modules/docker.nix
+      ../../modules/git.nix
+      ../../modules/home-manager.nix
+      ../../modules/i18n.nix
+      ../../modules/insecure.nix
+      ../../modules/sddm.nix
+      ../../modules/nix.nix
+      ../../modules/overlays.nix
+      ../../modules/sane.nix
+      ../../modules/sound.nix
+      ../../modules/ssh.nix
+      ../../modules/stylix
+      ../../modules/sudo.nix
+      ../../modules/sway.nix
+      # ../../modules/gdm.nix
+      # ../../modules/gnome.nix
+      ../../modules/time.nix
+      ../../modules/unfree.nix
+      ../../modules/vscode-server.nix
+    ];
 
-  boot.initrd.availableKernelModules = [
-    "nvme"
-    "xhci_pci"
-    "ahci"
-    "usbhid"
-    "usb_storage"
-    "sd_mod"
-  ];
-  boot.initrd.kernelModules = [];
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
 
-  boot.kernelParams = ["amdgpu.freesync_video=1" "amd_iommu=on" "pcie_aspm=off"];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelModules = ["kvm-amd"];
+    initrd.availableKernelModules = [
+      "nvme"
+      "xhci_pci"
+      "ahci"
+      "usbhid"
+      "usb_storage"
+      "sd_mod"
+    ];
+    initrd.kernelModules = [];
 
-  boot.extraModulePackages = [];
+    kernelParams = ["amdgpu.freesync_video=1" "amd_iommu=on" "pcie_aspm=off"];
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernelModules = ["kvm-amd"];
+
+    extraModulePackages = [];
+  };
 
   powerManagement.cpuFreqGovernor = "performance";
 
@@ -67,8 +82,9 @@
   environment.systemPackages = with pkgs; [];
 
   # Network
-  networking.hostName = "marisa";
   networking = {
+    hostName = "marisa";
+
     useDHCP = false;
     interfaces.enp2s0.useDHCP = true;
     interfaces.wlp4s0.useDHCP = true;
@@ -80,31 +96,13 @@
     packages = with pkgs; [dconf];
   };
 
-  services.vscode-server.enable = true;
-
-  users.users.root = {
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ02RYFEONAr/5a3fokBYHUFVPqF8G64DxhV5RGu7gtK me@sno2wman.net"
-    ];
-  };
-
   users.users.sno2wman = {
     isNormalUser = true;
     createHome = true;
     shell = pkgs.zsh;
     extraGroups = [
-      # for sudo
       "wheel"
-      # TODO: for ?
-      "video"
       "networkmanager"
     ];
-  };
-
-  services.xserver = {
-    enable = true;
-    displayManager.sddm = {
-      enable = true;
-    };
   };
 }

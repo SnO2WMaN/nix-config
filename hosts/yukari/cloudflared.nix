@@ -3,10 +3,6 @@
   config,
   ...
 }: {
-  environment.systemPackages = with pkgs; [
-    cloudflared
-  ];
-
   age.secrets."cloudflared-tunnels-yukari" = {
     file = ../../secrets/cloudflared/tunnels/yukari.age;
     owner = "cloudflared";
