@@ -3,18 +3,34 @@
 
   imports =
     [
-      ../../modules/bat
-      ../../modules/bottom
-      ../../modules/direnv
-      ../../modules/dogdns
-      ../../modules/exa
-      ../../modules/ghq
-      ../../modules/git
-      ../../modules/nix-index
-      ../../modules/starship
-      ../../modules/vim
-      ../../modules/zellij
-      ../../modules/zsh
+      ../../../../../hm/bat
+      ../../../../../hm/bottom
+      ../../../../../hm/direnv
+      ../../../../../hm/dogdns
+      ../../../../../hm/exa
+      ../../../../../hm/ghq
+      ../../../../../hm/git
+      ../../../../../hm/nix-index
+      ../../../../../hm/starship
+      ../../../../../hm/vim
+      ../../../../../hm/zellij
+      ../../../../../hm/zsh
+    ]
+    # Desktop
+    ++ [
+      ../../../../../hm/1password
+      ../../../../../hm/alacritty
+      ../../../../../hm/chrome
+      ../../../../../hm/pcmanfm
+      ../../../../../hm/fcitx5
+      ../../../../../hm/firefox
+      ../../../../../hm/gitkraken
+      ../../../../../hm/slack
+      ../../../../../hm/vscode
+    ]
+    # Host-specific Desktop
+    ++ [
+      ../../modules/easyeffects
     ]
     # Sway / Wayland
     ++ [
@@ -25,19 +41,6 @@
       ../../modules/wl-clipboard
       # ../../modules/mako
       # ../../modules/swaylock
-    ]
-    # Desktop
-    ++ [
-      ../../modules/1password
-      ../../modules/alacritty
-      ../../modules/chrome
-      ../../modules/easyeffects
-      ../../modules/pcmanfm
-      ../../modules/fcitx5
-      ../../modules/firefox
-      ../../modules/gitkraken
-      ../../modules/slack
-      ../../modules/vscode
     ];
 
   home.packages = with pkgs; [
@@ -54,7 +57,7 @@
     spotify
     tldr
     tree # file dir
-    vlc 
+    vlc
     fzf
   ];
 
