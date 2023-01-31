@@ -155,5 +155,27 @@
     ];
   };
 
+  nix.buildMachines = [
+    {
+      hostName = "remilia";
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "i686-linux"
+      ];
+      sshUser = "nix-builder";
+      sshKey = "/etc/ssh/ssh_host_ed25519_key";
+      maxJobs = 24;
+      speedFactor = 4;
+      supportedFeatures = [
+        "nixos-test"
+        "benchmark"
+        "big-parallel"
+        "kvm"
+      ];
+      mandatoryFeatures = [];
+    }
+  ];
+
   system.stateVersion = "22.05";
 }
