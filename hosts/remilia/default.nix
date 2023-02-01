@@ -89,6 +89,8 @@
   services.dbus = {
     packages = with pkgs; [dconf];
   };
+  
+  services.openssh.permitRootLogin = "yes";
 
   users.users.root = {
     openssh.authorizedKeys.keys = [
@@ -110,7 +112,28 @@
       "libvirtd"
       "kvm"
     ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ02RYFEONAr/5a3fokBYHUFVPqF8G64DxhV5RGu7gtK me@sno2wman.net"
+    ];
   };
 
   services.vscode-server.enable = true;
+
+  services.borgbackup.jobs.home-sno2wman = {
+    doInit = true;
+    paths = [
+      "/home/sno2wman/.ssh"
+      "/home/sno2wman/src"
+    ];
+    exclude = [
+      "*/node_modules"
+    ];
+    encryption.mode = "none";
+    environment = {
+      BORG_RSH = "ssh -i /home/sno2wman/.ssh/id_ed25519";
+    };
+    repo = "/mnt/backups/remilia/sno2wman";
+    compression = "auto,zstd";
+    startAt = "daily";
+  };
 }
