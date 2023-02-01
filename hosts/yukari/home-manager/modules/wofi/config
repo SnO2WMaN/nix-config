@@ -1,0 +1,11 @@
+allow_images=true
+allow_markup=true
+
+insensitive=true
+
+lines=7
+
+no_actions=true
+
+term=alacritty
+width=600

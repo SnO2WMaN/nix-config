@@ -1,9 +1,12 @@
 [formatter.alejandra]
 command = "alejandra"
 includes = ["*.nix"]
-excludes = ["*.secret.nix"]
 
-[formatter.dprint]
-command = "dprint"
-options = ["fmt"]
-includes = ["*.json", "*.toml", "*.md"]
+[formatter.taplo]
+command = "taplo"
+options = ["format"]
+includes = ["*.toml"]
+
+[formatter.yamlfmt]
+command = "yamlfmt"
+includes = ["*.yml", "*.yaml"]

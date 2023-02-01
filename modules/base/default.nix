@@ -1,9 +1,7 @@
 {pkgs, ...}: {
   imports = [
-    ./nix.nix
-    ./overlays.nix
+    # ./overlays.nix
     ./hm-system-defaults.nix
-    ./stylix.nix
   ];
   console.font = "7x14";
 
